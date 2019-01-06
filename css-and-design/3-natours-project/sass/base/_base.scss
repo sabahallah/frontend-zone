@@ -1,0 +1,62 @@
+*,
+*::before, /* To not see any strange behaviour */
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /* By default this property is not inherited, but by setting value to inherit,
+    all child elements will inherit it, see bady element */
+}
+
+html {
+    /* this is to define what 1rem is */
+    font-size: 62.5%; /* 10/16*100 We will translate to % of the given width given by the browser 
+    we want it to be 10 px
+    default by browser is 16 px (or any changed by user) 
+    
+    so if user change to:
+    22 px >> 62.5 * 22 / 100 = 13.75 
+    20 px >> 62.5 * 20 / 100 = 12.5
+    rem is not supported by IE 9 and below
+    This is to make our life easy, that's it. so 1 rem = 10 px so all following calculations later will be easy for us */
+
+    /* for media query */
+
+    /* no need for phone media query here (to change the font-size) because second media query (tab-port) will be applied
+    imagine we have width = 500px
+    phone width is less than 600px and tab-port width also is less than 900px so the last one in the file 
+    which is tab-port will be applied */
+
+    // @include respond(phone){
+    //     font-size: 50%;
+    // }
+
+    // width < 1200px?
+    @include respond(tab-land){
+        font-size: 56.25%; // Here we need 1rem to be equal to 9px instead of 10px; so 9/16*100 = 56.25%
+    }
+
+    /* this should be after the tab-land because of the same reason; last media query will always apply 
+    imagine we have width=800px 
+    tab-port width is less than 900px and tab-land width is also less than 1200px so the last one in the file will be applied
+    if tab-land is coming after tab-port in the file so all width less than 1200px will have font-size: 56.25% which is not correct */
+    
+    // width < 900px?
+    @include respond(tab-port){
+        font-size: 50%; // Here we need 1rem to be equal to 8px instead of 10px; so 8/16*100 = 50%
+    }
+
+    // width > 1800px?
+    @include respond(big-desktop){
+        font-size: 75%; // Here we need 1rem to be equal to 12px instead of 10px; so 12/16*100 = 75%
+    }
+}
+
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port){
+        padding: 0;
+    }
+}

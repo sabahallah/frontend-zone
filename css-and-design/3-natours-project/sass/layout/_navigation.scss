@@ -1,0 +1,182 @@
+.navigation {
+    &__checkbox {
+        display: none;
+    }
+
+    /* this is for the hamburger button with white color */
+    &__button {
+        background-color: $color-white;
+        height: 7rem;
+        width: 7rem;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        border-radius: 50%;
+        z-index: 2000;
+        box-shadow: 0 1rem 3rem rgba($color-black, .1);
+        text-align: center;
+        cursor: pointer;
+
+        /* for media queries */
+        @include respond(tab-port){
+            top: 4rem;
+            right: 4rem;
+        }
+
+        @include respond(phone){
+            top: 2.5rem;
+            right: 2.5rem;
+        }
+    }
+
+    /* this is for the fullscreen green background */
+    &__background {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        /* linear-gradient goes from one side to another, while radial gradient starts at the middle 
+            of an element then goes to all other directions */
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        z-index: 1000;
+        transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+
+        //transform: scale(80);
+
+        /* for media queries */
+        @include respond(tab-port){
+            top: 4.5rem;
+            right: 4.5rem;
+        }
+
+        @include respond(phone){
+            top: 3rem;
+            right: 3rem;
+        }
+    }
+    
+
+    &__nav {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1500;
+
+        opacity: 0;
+        width: 0;
+        /* There are bunch of other transition timing functions like easein, easeout, easeinout 
+         cubic-bezier
+            https://easings.net/
+            cubic-bezier.com
+            */
+        transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    &__list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        list-style: none;
+        text-align: center;
+        width: 100%;
+    }
+
+    &__item {
+        margin: 1rem;
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            display: inline-block; /* so the padding will be applied the way it should */
+            font-size: 3rem;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            color: $color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+            /* Trick to set background color to an element, then when we hover it will come back to background-position: 100% */
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            background-size: 220%;
+            transition: all .4s;
+
+            span {
+                margin-right: 1.5rem;
+                display: inline-block;
+            }
+        }
+        
+        &:hover,
+        &:active {
+            background-position: 100%;
+            color: $color-primary;
+            transform: translateX(1rem);
+        }
+    }
+
+
+    //FUNCTIONALITY
+    // When checkbox is checked, scale the background 80 times
+    &__checkbox:checked ~ &__background {
+        transform: scale(80);
+    }
+    // When checkbox is checked, make the navigation is visible with 100% width
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+    }
+
+    //ICON
+    &__icon {
+        position: relative;
+        margin-top: 3.5rem;
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark-3;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        &::before { top: -.8rem; } /* transform-origin: left; it may be helpful when we rotate somthing
+                                     it will start rotating from the left position */
+        &::after { top: .8rem; }
+    }
+
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+}

@@ -1,0 +1,18 @@
+.bg-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: .15;
+    overflow: hidden;
+
+    // to fix the video overflow issue and maintain the aspect ratio. object-fit: cover;
+    &__content {
+        height: 100%;
+        width: 100%;
+        object-fit: cover; /* similar to background-size: cover and it will maintain the aspect ratio 
+        but you need to clear the sides overflow in parent*/
+    }
+}

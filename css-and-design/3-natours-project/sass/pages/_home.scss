@@ -1,0 +1,68 @@
+.section-about {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh; /* in header section 95vh - 75vh (clippath) = 20vh*/
+}
+
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.801)
+    ),
+    url(../img/nat-4.jpg);
+
+    /* HINT: Skew the section -7deg, then we skew the direct children the opposite way 7deg */
+    transform: skewY(-7deg);
+
+    /* HINT: Select every element which is a direct child of section-feature and skew it in the y ditection 7deg */
+    & > * {
+        transform: skewY(7deg);
+    }
+
+    margin-top: -10rem;
+}
+
+.section-tours {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0 15rem 0;
+
+    margin-top: -8rem;
+}
+
+.section-stories {
+    padding: 15rem 0;
+    position: relative;
+}
+
+.section-book {
+    padding: 15rem 0;
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary-light,
+      $color-primary-dark
+    );
+}
+.book {
+    /* HINT: Technique to use the color gradient with background image instead of using the clip-path property
+            - Rotate 105deg
+            - Give it white color with 90% obacity from 0 to half of the width
+            - The other 50% will be transparent */
+    background-image: linear-gradient(105deg,
+                            rgba($color-white, .9) 0%,
+                            rgba($color-white, .9) 50%,
+                            transparent 50%),
+                            url(../img/nat-10.jpg);
+    background-size: 100%; /* HINT: same as cover */
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    height: 50rem;
+
+    &__form {
+        width: 50%;
+        padding: 6rem;
+    }
+}

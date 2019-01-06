@@ -1,0 +1,113 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, .8);
+    z-index: 9999;
+
+    /* In order to animate the popup, don't use display: none; */
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+    /* when clicking an anchor with target #popup, this will show the popup */
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* when popup element popup on screen make some animation to __content
+    it will popup to user from the middle of the screen */
+    &:target &__content{
+        // this is the opem state, scale it back to original state
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            color: $color-grey-dark;
+            position: absolute; /* it will be positioned to first positioned parent which is popup */
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .3s;
+            line-height: 1;
+        }
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+    &__content {
+        @include absoulteCenter;
+        width: 75%;
+        
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px;
+
+        display: table; 
+        overflow: hidden;/* because the image overflowen */
+
+        // this is the initial state for the popup, so when user click the button it will popup from the midlle of the screen
+        // if we use scale only it will not work because we already have anothe transform from the mixin,
+        // so we have to combine it togther here
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.25);
+        transition: all .4s .2s; /* delay the transition by .2s*/
+    }
+
+    /* we need the two boxes to have the same height, we can use float but the right box will occupy only the actual conent height
+        so we need a way to make the two boxes the same height and center the content vertically 
+        we are going to simulate a table by setting display: table-cell; on the box and the parent element .popup__content will be display: table; 
+        to verically align the content, we'll use vertical-align: middle; on boxes */
+    
+    
+    &__left {
+        width: 33.333333%;
+        // float: left;
+        display: table-cell; 
+        
+    }
+    &__right {
+        width: 66.6666667%;
+        // float: left;
+        display: table-cell; 
+        vertical-align: middle;
+        padding: 3rem 5rem;
+    }
+    &__img {
+        display: block;
+        width: 100%;
+        
+    }
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;    
+        
+        
+        /* this will split the text into two columns */
+        -moz-column-count: 2;
+        column-count: 2;
+        /* space between columns */
+        -moz-column-gap: 4rem;
+        column-gap: 4rem; // default is 1em = 14px because 1em is always is the font-size of the current element
+        // like a border in the middle of the two columns 
+        -moz-column-rule: 1px solid $color-grey-light-2;
+        column-rule: 1px solid $color-grey-light-2;
+
+        /* this is for hyphenation 
+        in order this to work you have to set the html language to en*/
+        // Hyphenation is currently supported on Chrome only on Android and macOS
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+         hyphens: auto;
+    }
+}

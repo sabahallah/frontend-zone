@@ -1,0 +1,42 @@
+.composition {
+    position: relative;
+
+    &__photo{
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: 2px;
+        position: absolute;
+        z-index: 10;
+        transition: all .2s;
+        outline-offset: 2rem; /* transparent area outside the image */
+
+        &--p1 {
+            top: -2rem; /* will go up 20px*/
+            left: 0;
+        }
+    
+        &--p2 {
+            top: 2rem; /* will go up 20px*/
+            right: 0;
+        }
+    
+        &--p3 {
+            top: 10rem; /* will go up 20px*/
+            left: 20%;
+        }
+
+        &:hover {
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20; /* to make the image overlay of the others it should have higher z-index */
+
+            /* it is like a boarder, but with outline we can use outline-offset porperty. check above. */
+            outline: 1.5rem solid $color-primary;
+        }
+    }
+    /* select all the images which is not hovered */
+    /* this will be transformed to .composition:hover .composition__photo:not(:hover) {} */
+    &:hover &__photo:not(:hover) {
+        transform: scale(.95);
+    }
+}

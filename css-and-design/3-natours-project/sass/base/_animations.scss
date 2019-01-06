@@ -1,0 +1,63 @@
+/* two ways to apply animation
+    - using transition property and change the property you like
+    - keyframe - advanced */
+
+@keyframes moveInLeft {
+  /* when animation starts */
+  0% {
+    opacity: 0;
+
+    /* we want to translate to the x-direction */
+    transform: translateX(-10rem);
+  }
+  /* 60% {
+            transform: rotate(120deg);
+            transform: translateX(-100px) rotate(120deg);
+        } */
+  80% {
+    transform: translateX(1rem);
+  }
+
+  /* when animation ends */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* when animation starts */
+  0% {
+    opacity: 0;
+
+    /* we want to translate to the x-direction */
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  /* when animation ends */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* this is to make the button move from down to up when loading the page */
+@keyframes moveInButton {
+  /* when animation starts */
+  0% {
+    opacity: 0;
+
+    /* we want to translate to the x-direction */
+    transform: translateY(30px);
+  }
+
+  /* when animation ends */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,54 @@
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.801)), url(../img/hero.jpg);
+    // rgba($color-primary-dark, 0.801)) this will work only in sass
+    background-size: cover;
+    background-position: top; /* it ensures whatever the viewport size, image will always at top of the container */
+    
+    /* specify a polygon in which the image or the element will still be visible */
+    /* nice website you can use, www.bennettfeely.com/clippy/ */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*75vh means 75 percent of the viewport hieght */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    /* for media queries */
+    @include respond(phone){
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); /*75vh means 75 percent of the viewport hieght */
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
+    /* we making parent relative because, we need to position the child .log-box */
+    position: relative;
+
+    &__logo-box { // & will generate a .header__logo-box selector 
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+     }
+     
+    &__text-box {
+         position: absolute;
+         top: 40%;  /* relation to the parent element */
+         left: 50%; /* relation to the parent element */
+         transform: translate(-50%, -50%); /* relation to the element itself */
+     
+         text-align: center; /* to centre the button inside*/
+     }
+}
+
+.header__logo {
+    height: 3.5rem;
+ }
+ 
+ .header__text-box {
+     position: absolute;
+     top: 40%;  /* relation to the parent element */
+     left: 50%; /* relation to the parent element */
+     transform: translate(-50%, -50%); /* relation to the element itself */
+ 
+     text-align: center; /* to centre the button inside*/
+ }
+ 

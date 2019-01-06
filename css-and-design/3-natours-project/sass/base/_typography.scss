@@ -1,0 +1,101 @@
+body {
+  font-family: "Lato", sans-serif, serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7; /* means 1.7 times bigger than the predefined line height */
+  color: $color-grey-dark;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  /* sometimes when animation is running, it is shaking to upperside and no one knows why
+        so this property for it */
+  backface-visibility: hidden;
+
+  margin-bottom: 6rem;
+
+  &--main {
+    // using nesting in scss
+    display: block;
+    font-size: 6rem;
+    /* by default h1 has the higher font-weight, so we need to reduce it */
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; /* it will start faster then slow down */
+
+    /* animation-delay: 3s;  /* it will wait for 3s then start animating */
+    /* animation-iteration-count: 3; /* 3: will happen 3 times */
+
+    /* for media queries*/
+    @include respond(phone){
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    /* by default h1 has the higher font-weight, so we need to reduce it */
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    /* another way for animation instead of writing all the properties */
+    animation: moveInRight 1s ease-out;
+
+    /* for media queries*/
+    @include respond(phone){
+      letter-spacing: .5rem;
+    }
+
+  }
+}
+
+.heading-secondry {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  display: inline-block;
+  /* background image will be only visible in the text area. and color should be transparent */
+  -webkit-background-clip: text;
+  color: transparent; /* and we want to make the text transparent */
+
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+
+  /* for media queries*/
+  @include respond(tab-port){
+    font-size: 3rem;
+  }
+
+  @include respond(phone){
+    font-size: 2.5rem;
+  }
+
+}
+.heading-tertiary {
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-size: $default-font-size;
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}

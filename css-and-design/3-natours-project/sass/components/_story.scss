@@ -1,0 +1,82 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    
+    /* skew the shap */
+    transform: skewX(-12deg);
+
+    /* skew the direct child the other direction but this will not work; because we have another transform in th __shape
+    which is taking precedence 
+    so the solution for this is to add skewX on all direct childs manually */
+    // & > * {
+    //     transform: skewX(12deg);
+    // }
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        /* shape-outside will make the content flows around the element */
+        /*radius of the circle, and position of the centered of the circle
+        50% it will be half the width and th height of the element, so it will be 7.5
+        at 50% 50% >> this is the center of the circle, centered horizontally and vertically 
+        in order this to work, other elements should be floated and has a height and width */
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        // move the content -3rem to the x direction
+        transform: translateX(-3rem) skewX(12deg);
+
+        position: relative;
+    }
+
+    &__img {
+        height: 100%; /* 100% of the parent */
+        transform: translateX(-4rem) scale(1.4);
+        /* because this is the initial state, when we hover over the story the image will be blured and zoomed out */
+        transition: all .5s;
+    }
+
+    &__text {
+        transform: skewX(12deg);
+    }
+    
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        /* initial state before hovering over the elemnt */
+        opacity: 0;
+        transition: all .5s;
+
+        /* to fix small glitch, when we hove over story, it will move up and a little to the right,
+        and if something weired happens */
+        backface-visibility: hidden;
+    }
+
+    /* when we hover over the story, the caption will move from bottom to top */
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    /* when we hover over the story, the image will be blured and zoomed out  */
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        /* this will add filter to the image.
+        */
+        filter: blur(3px) brightness(80%); /*brightness value under 100% >>> darker; and value over 100% >>> brighter */
+
+    }
+}

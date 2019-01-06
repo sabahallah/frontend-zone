@@ -1,0 +1,113 @@
+.btn {
+  // sass nesting, it will replace all the & with the .btn selector
+    &, /* :link & :visited doesn't work with <button> element only with anchor, so we put & in case if it's btn only  */
+    &:link, /* :like here is pesudo class and pesudo class is a special state of a selector */
+    &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: $default-font-size;
+    padding: 1.5rem 4rem;
+    display: inline-block; /* this button is inline-block so we can treat it as a text 
+        so we set .header__text-box {text-align: centre; } */
+    border-radius: 10rem;
+    transition: all 0.2s; /* if we don't want to specify a property we can set 'all'
+        The normal use is transition: transform .2s; 
+        In order to the animation to work, the transition property should be on the initial state */
+
+    /* this is for the child pesudo element */
+    position: relative;
+
+    // Change for the <button> element
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      /* when hovering over a btn then make some action to the ::after content
+            we already defined the ::after content below, so we just need to scale it bigger
+            also we added a transition property to the initial state .btn::after */
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; /* for fading element out */
+    }
+  }
+
+  &:active,
+  &:focus { /* for <button> element to remove the outline when we click the button */
+    outline: none;
+    /* when you click a button */
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  /* using pesudo elements 
+    we will create a content and put it behind the current button,
+    then if we hover over the button the content will scale and fade out */
+  &::after {
+    /* this will be like a child of the button but behind it */
+    content: "";
+    display: inline-block;
+    height: 100%; /* 100% of parent button height */
+    width: 100%; /* 100% of parent button width */
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* define position of the element if one on top of another, -1 so it will be behind the current element */
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInButton 0.5s ease-out 0.75s; /* .75s is the delay time before start */
+
+    /* automatically apply the properties defined in 0% { } before even the animation starts */
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:action {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
+}
