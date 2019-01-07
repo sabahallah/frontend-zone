@@ -10,19 +10,47 @@
         transition: all .2s;
         outline-offset: 2rem; /* transparent area outside the image */
 
+        /* for media queries */
+        @include respond(tab-port){
+            float: left;
+            position: relative;
+            width: 33.33333333%;
+            box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
+        }
+
         &--p1 {
             top: -2rem; /* will go up 20px*/
             left: 0;
+
+            /* for media queries */
+            @include respond(tab-port){
+               top: 0;
+               transform: scale(1.2);
+            }
         }
-    
+
         &--p2 {
             top: 2rem; /* will go up 20px*/
             right: 0;
+
+            /* for media queries */
+            @include respond(tab-port){
+                top: -1rem;
+                transform: scale(1.3);
+                z-index: 100;
+            }
         }
     
         &--p3 {
             top: 10rem; /* will go up 20px*/
             left: 20%;
+
+            /* for media queries */
+            @include respond(tab-port){
+                top: 1rem;
+                left: 0;
+                transform: scale(1.1);
+            }
         }
 
         &:hover {

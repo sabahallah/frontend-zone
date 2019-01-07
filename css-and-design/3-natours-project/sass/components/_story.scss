@@ -17,6 +17,18 @@
     // & > * {
     //     transform: skewX(12deg);
     // }
+    
+    /* for media queries */
+    @include respond(tab-port) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
+    }
+
+    @include respond(phone) {
+        /* revert skewing back to 0 */
+        transform: skewX(0);
+    }
 
     &__shape {
         width: 15rem;
@@ -34,6 +46,12 @@
         transform: translateX(-3rem) skewX(12deg);
 
         position: relative;
+
+        /* for media queries */
+        @include respond(phone) {
+            /* revert skewing back to 0 */
+            transform: translateX(-3rem) skewX(0);
+        }
     }
 
     &__img {
@@ -45,6 +63,12 @@
 
     &__text {
         transform: skewX(12deg);
+
+        /* for media queries */
+        @include respond(phone) {
+            /* revert skewing back to 0 */
+            transform: skewX(0);
+        }
     }
     
     &__caption {

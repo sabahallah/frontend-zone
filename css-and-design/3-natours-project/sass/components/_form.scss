@@ -16,6 +16,11 @@
         display: block;
         transition: all .3s;
 
+        /* for media queries */
+        @include respond(tab-port) {
+            width: 100%;
+        }
+
         &:focus { /* HINT: Remove borders when focusing on an element. */
             outline: none;
             box-shadow: 0 1rem 2rem rgba($color-black, .1); /* HINT: For accessability: When user moves around with a keyboard, you should give some box-shadow. */
@@ -55,6 +60,12 @@
     &__radio-group {
         width: 49%;
         display: inline-block;
+
+        /* for media queries */
+        @include respond(tab-port) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     &__radio-input {

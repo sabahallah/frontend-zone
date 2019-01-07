@@ -5,10 +5,20 @@
 
 .u-margin-bottom-big {
   margin-bottom: 8rem !important;
+
+  /* for media queries */
+  @include respond(tab-port){
+    margin-bottom: 5rem !important;
+  }
 }
 
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important;
+
+  /* for media queries */
+  @include respond(tab-port){
+    margin-bottom: 3rem !important;
+  }
 }
 
 .u-margin-bottom-small {
