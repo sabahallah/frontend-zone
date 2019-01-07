@@ -1,6 +1,8 @@
 .header {
     height: 95vh;
-    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.801)), url(../img/hero.jpg);
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.801)), 
+    /* for responsive images, in normal situations that is enough. in case it is not a high screen resolution */
+    url(../img/hero-small.jpg);
     // rgba($color-primary-dark, 0.801)) this will work only in sass
     background-size: cover;
     background-position: top; /* it ensures whatever the viewport size, image will always at top of the container */
@@ -11,6 +13,26 @@
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     /* for media queries */
+
+    /* responsive images in css
+        dpi (dot per inch)
+        192 because this the resolution of apple retina screen 
+        if resolution is higher than 192 (we have 2x screen - DPR:2.0) then show the big image (../img/hero.jpg)
+        
+        and (min-width: 600px) >> because in the mobile view (which is less than 600) almost the density is 2x 
+        so no need to download high resolution image
+        
+        $color-secondary-light  instead of $color-primary-light for testing purpose
+    */
+    @media (min-resolution: 192dpi) and (min-width: 37.5em), //600px/16px=37.5em
+    // comma here is like OR
+    // if the screen size is more than 2000px download the big image
+    (min-width: 125em){ //2000px/16px=125em
+        background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.801)), 
+        url(../img/hero.jpg);
+    }
+   
+
     @include respond(phone){
         clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); /*75vh means 75 percent of the viewport hieght */
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
