@@ -136,21 +136,47 @@
           </div>
           <div class="col-1-of-2">
             <div class="composition">
-              <img
-                src="img/nat-1-large.jpg"
-                alt="Photo 1"
-                class="composition__photo composition__photo--p1"
-              />
-              <img
-                src="img/nat-2-large.jpg"
-                alt="Photo 2"
-                class="composition__photo composition__photo--p2"
-              />
-              <img
-                src="img/nat-3-large.jpg"
-                alt="Photo 3"
-                class="composition__photo composition__photo--p3"
-              />
+                <!-- Unlike the 'Art Direction' that we basically force the browser to use a certain image according to a media query 
+                But this approach let the browser choose the best image for the current viewport and pixel density for different situations 
+            
+                300w and 1000w are the width descriptor informs the browser the actual width of an image (in pixels) 
+                You're telling the broweser the actual width of the image (in pixels) without forcing the browser to 
+                    download them in order to get these information
+            
+                sizes attribute informs the browser about the approximate width of an image at different viewport width
+                with that information together with width descriptor the browser can figure out which perfect image to use for 
+                    the current viewport width and current display resolution
+
+                suppose at width 900px the image width is 171 so 171/900=0.19 almost 20% of the viewport width
+                suppose at width 600px the image width is 171 so 171/600=0.285 almost 30% of the viewport width
+                and default size is 300px (if none of conditions happens)
+
+                so all of this will take care of 'Resolution Switching' and 'Density Switching'
+
+                we added src attribute in case the user use an older browser                
+                -->
+
+                <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                    sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                    alt="Photo 1"
+                    class="composition__photo composition__photo--p1"
+                    src="img/nat-1-large.jpg">
+                
+                <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                    sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                    alt="Photo 2"
+                    class="composition__photo composition__photo--p2"
+                    src="img/nat-2-large.jpg">
+
+                <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                    sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                    alt="Photo 3"
+                    class="composition__photo composition__photo--p3"
+                    src="img/nat-3-large.jpg">
+                
+                <!-- <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1"/>
+                <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2"/>
+                <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3"/> -->
             </div>
           </div>
         </div>
@@ -473,8 +499,10 @@
 
                 1x and 2x is the density descriptor
                 img/logo-green-2x.png for high resolution screen (2x)
-                img/logo-green-1x.png for normal resolution screen (1x) -->
-                <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo">
+                img/logo-green-1x.png for normal resolution screen (1x) 
+            
+                src attribute in case the user uses a browser that doesn't support srcset attribute -->
+                <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" src="img/logo-green-2x.png">
 
             </picture>
             
