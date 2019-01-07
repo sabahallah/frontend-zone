@@ -450,7 +450,35 @@
     </main>
     <footer class="footer">
         <div class="footer__logo-box">
-            <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+
+            <!-- This is for 'Art Direction' 
+                Different image for different viewport width
+                When you want to not serve the same image but different image for different screen sizes
+                We have to specify a <source> and an <img> elements, at least 1 <img> and 0 or more <source> -->
+            <picture class="footer__logo">
+                <!-- we want the art direction happens at phone, so we put the media query for phone
+                    if the size is greater than 600px then browser forced to use <img> 
+                    otherwise will use the <source> element-->
+                <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" 
+                        media="(max-width: 37.5em)">
+
+                <!-- This is for 'Density Switching' (special Case of resolution switching) 
+                Screen size doesn't matter but the screen density does instead
+                Density means amount of pixels found on an inch or centimeter 
+
+                @2x screen (high resolution) 
+                    [mac with retina display and all modern smart phones]
+                    [use two physical pixels to display 1 pixel of our design]
+                @1x screen (Low resolution) [our normal computers]
+
+                1x and 2x is the density descriptor
+                img/logo-green-2x.png for high resolution screen (2x)
+                img/logo-green-1x.png for normal resolution screen (1x) -->
+                <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo">
+
+            </picture>
+            
+            
         </div>
         <div class="row">
             <div class="col-1-of-2">
