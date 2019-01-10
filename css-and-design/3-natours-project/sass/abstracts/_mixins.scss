@@ -46,6 +46,7 @@ ORDER :
 */
 @mixin respond($breakpoint) {
     @if $breakpoint == phone {
+        // only screen: apply only to screens, if someone wants to print the page media query will not apply
         @media only screen and (max-width: 37.5em) { @content };    // 600px/16px=37.5em
     }
     @if $breakpoint == tab-port {

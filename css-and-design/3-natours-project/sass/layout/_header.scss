@@ -29,15 +29,15 @@
         
         $color-secondary-light  instead of $color-primary-light for testing purpose
     */
-    @media (min-resolution: 192dpi) and (min-width: 37.5em), //600px/16px=37.5em
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), //600px/16px=37.5em
     // comma here is like OR
 
     // this is for safari because min-resolution not supported
     // 2 means 2x
-    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
 
     // if the screen size is more than 2000px download the big image
-    (min-width: 125em){ //2000px/16px=125em
+    only screen and (min-width: 125em){ //2000px/16px=125em
         background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.801)), 
         url(../img/hero.jpg);
     }
