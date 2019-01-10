@@ -34,14 +34,28 @@
         width: 15rem;
         height: 15rem;
         float: left;
-        /* shape-outside will make the content flows around the element */
-        /*radius of the circle, and position of the centered of the circle
-        50% it will be half the width and th height of the element, so it will be 7.5
-        at 50% 50% >> this is the center of the circle, centered horizontally and vertically 
-        in order this to work, other elements should be floated and has a height and width */
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
+        border-radius: 50%;  
+
+        // only if clip-path is supported apply this logic
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+           
+
+            /* shape-outside will make the content flows around the element */
+            /* radius of the circle, and position of the centered of the circle
+            50% it will be half the width and height of the element, so it will be 7.5rem
+            at 50% 50% >> this is the center of the circle, centered horizontally and vertically 
+            in order this to work, other elements should be floated and has a height and width */
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+            
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            border-radius: none;
+        }
+
+        // because the image will overflow its container
+        overflow: hidden;
+
         // move the content -3rem to the x direction
         transform: translateX(-3rem) skewX(12deg);
 
