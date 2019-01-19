@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">		
+		<!-- for emoji -->
+		<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+		
+        <link type="text/css" href="resources/css/styles.css" rel="stylesheet"/>
+    </head>
+
+    <body>       
+          <figure class="pizza">
+
+			<div class="pizza__hero"> <!-- This is called BEM methodology, B stands for Block, E stands for Elements and M stands for Mofifier
+			our block is pizza and each of the elements in there will have the block name of them 'pizza' 
+			then double underscores and then the element which is 'hero' in this case 
+			if we have multiple elements with the same name and want one of them to be slightly different so we can use a modifier by using double dash --
+			-->
+				<img src="https://images.unsplash.com/photo-1474600056930-615c3d706456?ixlib=rb-0.3.5&s=dc82336ad3e3873b0a81e9389d346916&auto=format&fit=crop&w=752&q=80"
+				alt="pizza image" class="pizza__img">			
+			</div>
+			
+			<div class="pizza__content">
+				
+				<div class="pizza__title">
+					<h1 class="pizza__heading">Pizza Vegetale<i class="em em-ok_hand"></i></h1>
+					<div class="pizza__tag pizza__tag--1">#vegetarian</div>
+					<div class="pizza__tag pizza__tag--2">#italian</div>
+				</div>
+				
+				<p class="pizza__description">
+					Yummy veggie pizza with tasty olives, crisp peppers, fresh arugula and original tomato sauce. 
+				</p>
+				
+				<div class="pizza__details">
+					<p class="pizza__detail">
+						<span class="emoji"><i class="em em-pizza"></i></span> 850 kcal
+					<p>
+					<p class="pizza__detail">
+						<span class="emoji"><i class="em em-timer_clock"></i></span> 30 min
+					<p>
+					<p class="pizza__detail">
+						<span class="emoji"><i class="em em-star"></i></span> 4.7 / 5
+					<p>
+				</div>
+			</div>
+					
+			<div class="pizza__price">
+				$11.99
+			</div>
+			
+		  </figure>       
+    </body>
+</html>

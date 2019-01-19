@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 1140px;
+	margin: 20px auto 0 auto;
+}
+
+.left{
+    background-color: #919185;
+    width: 75%;
+    height: 600px;
+	float: left;
+    border-top: 3px solid #e33232;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+.right{
+    background-color: #11114a;
+    width: 25%;
+    height: 600px;
+	float: left;
+    color: rgba(255, 255, 255, 0.64);
+    position: relative;
+}
+
+.date {
+    /* parent element should be relative in order to posotion this absolute */
+    position: absolute;
+    top:0;
+    right: 0;
+}

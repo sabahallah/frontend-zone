@@ -1,0 +1,143 @@
+/*
+	Colors:
+		Green: #67b26f
+		Blue: #4ca2cd
+		Mid: #5aa9d
+*/
+
+* { /* universal selector */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	color: #444;
+	font-family: Roboto;
+	padding: 50px;
+	background: linear-gradient(to bottom right, #67b26f, #4ca2cd);
+	height: 100vh; /* it will take 100% of view port, if you don't but this the previous color will be repeated*/
+	
+	display: flex; /* these properties will align the items to the centre of the cross axis and main axis */
+	align-items: center; /* centre the element on cross axis */
+	justify-content: center;  /* it will align all the child elements horizontaly along the main axis. 
+	we can use also flex-end >> align to the right side of the view port
+	flex-start: align to the left side of the view port [default]
+	*/
+}
+
+.pizza { /* flexbox container */
+	max-width: 800px;
+	border-radius: 4px;
+	overflow: hidden; /* cause the image is overflowing, comment this and see what's happening */
+	box-shadow: 0 30px 80px 10px rgba(0, 0, 0, .2); /* x-direction y-direction amount-of-blur how-far-the-blur-should-come-out color-with-0.2-obacity */
+	
+	display: flex; /* by this only all the elements inside this container will be side by side */
+	align-items: stretch; /* align items, we always add this in the flex container.
+		It will align items to the cross axis. [for main axis we use justify-content check above in the body selector]
+		
+		center >> will align the element to the center of the cross axis [will place in middle of the cross access]
+		flex-start >> will align the items at the top of the cross axis.
+		flex-end >> will align the items at the bottom of the cross axis.
+		stretch >> default [stretch the items along the cross item, occupy all the empty spaces which is avaialable].
+		
+		if you want something to behave in a diffrent way, you can also specify the alignment on one item, in order to do that we use align-self instead of align-items.
+		so align-items: stretch; [on container] and  align-self: center; [on item], so this will align this item ONLY to be at the center of the cross axis.
+	*/
+}
+
+.pizza__hero {
+	flex: 0 0 45%; /* 0: flex-grow [in this case we don't want the element to grow anything]
+					  0: flex-shrink 
+					  45%: flex-basis [actual-width] */
+	/* flex-basis: 45%; we can use flex-basis directly, but it is a good practice to use the flex property */ 
+}
+
+.pizza__img{
+	width: 100%;
+	display: block; /* to remove the extra space, always set images to display: block */
+}
+
+.pizza__content {
+	background-color: white;
+	flex:  1; /* let the element grow as much as it can */
+	padding: 35px 30px;
+	
+	display: flex;/* by setting this property, it will put all the content in horizontal line side by side, but we don't want this. we need them to be vertical-align 
+	so we will put flex-direction: column; */
+	flex-direction: column; /* there's also a value flex-direction: column-reverse; it will reverse the order of items */
+	align-items: center;
+}
+
+.pizza__price {
+	background: linear-gradient(to bottom, #67b26f, #4ca2cd);
+	flex:  0 0 50px; /* because it is inside flex container */
+	writing-mode: vertical-rl; /* will transform the text to be vertically aligned */
+	color: white;
+	font-size: 18px;
+	
+	/* now we need the price to be centered, so sometimes the item can be the flex-container and flex-item at the same time */
+	display: flex; /* becuase it's a flex container itself */
+	align-items: center;
+	justify-content: center;	
+}
+
+.pizza__title {
+	display:flex;
+	align-items: center;
+	
+	margin-bottom: 20px;
+}
+
+.pizza__heading {
+	font-size: 20px;
+	margin-right: auto; /* same effect of flex: 1; */
+}
+
+.pizza__tag {
+	font-size: 10px;
+	text-transform: uppercase;
+	color: white;
+	padding: 2px 7px;
+	border-radius: 100px;
+	margin-left: 7px;
+}
+
+.pizza__tag--1 {background-color: #67b26f;}
+.pizza__tag--2 {background-color: #4ca2cd;}
+
+.pizza__description {
+	font-size: 14px;
+}
+
+.pizza__details {
+	display:flex;
+	/* justify-content: space-between; 
+		It'll justify content, one item to right, the other to left and the one in the middle it will put equal space around it right side and left side */
+	
+	/* justify-content: space-around;
+		It'll put equal space around the three items */
+		
+	margin-top: auto; /* it will put auto margin around all elements and try to occupy all empty space */
+}
+.pizza__detail {
+	font-size: 15px;
+	text-transform: uppercase;
+	margin-right: 20px;
+	font-weight: 700;
+	
+	/* flex itself, container and element */
+	display: flex;
+	align-items: center;
+
+}
+
+.emoji {
+	margin-right: 3px;
+}
+
+i.em.em-ok_hand {
+	font-size: 16px;
+	margin-left: 2px;
+	margin-top: -5px;
+}
