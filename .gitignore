@@ -5,9 +5,9 @@
 **/.settings/**
 **/.vscode/**
 **/package-lock.json
-css-and-design/3-natours-project/css/style.comp.css
-css-and-design/3-natours-project/css/style.concat.css
-css-and-design/3-natours-project/css/style.prefix.css
+css-and-design/5-natours-project/css/style.comp.css
+css-and-design/5-natours-project/css/style.concat.css
+css-and-design/5-natours-project/css/style.prefix.css
 /html-outline.md
 /jquery-outline.md
 /markdown-cheatsheet.md
