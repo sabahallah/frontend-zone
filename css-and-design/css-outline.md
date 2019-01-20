@@ -61,9 +61,12 @@
 
 <h2 id="resources"> Resources </h2>
 
+* [Free Code Camp](https://freecodecamp.com)
 * [Udemy: Build Responsive Real World Websites with HTML5 and CSS3](https://www.udemy.com/design-and-develop-a-killer-website-with-html5-and-css3)
 * [Udemy: Advanced CSS and Sass: Flexbox, Grid, Animations and More!](https://www.udemy.com/advanced-css-and-sass)
-* [Free Code Camp](https://freecodecamp.com)
+    * [git repo]( https://github.com/jonasschmedtmann/advanced-css-course.git)
+* [Udemy: Full Stack Web Development: HTML, CSS, React & Node](https://www.udemy.com/ultimate-web)
+
 
 <h2 id="development-resources">Useful Development Resources </h2>
 
