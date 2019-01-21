@@ -1,0 +1,1 @@
+This Omnifood project developed by me while taking this [course](https://www.udemy.com/design-and-develop-a-killer-website-with-html5-and-css3) on udemy. Check comments in html and css/style.css file
