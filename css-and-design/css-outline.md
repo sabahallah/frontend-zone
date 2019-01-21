@@ -70,6 +70,7 @@
 
 <h2 id="development-resources">Useful Development Resources </h2>
 
+* [Jonas' Resources, Very Useful and Handy Resources](http://codingheroes.io/resources/)
 * Fonts: [Google Fonts](https://fonts.google.com/)
 * Icons: [liea.io](liea.io), [Icons as a unicode char](https://unicode-table.com/en/2934/)
 * Colors: [flatuicolors](https://flatuicolors.com/), 
@@ -82,7 +83,7 @@
 * [CSS Validator Service](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options)
 * [Transform Property Explaination](https://www.udemy.com/design-and-develop-a-killer-website-with-html5-and-css3/learn/v4/questions/851800)
 * [Media Queries for Standard Devices](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/)
-
+* [Emmet Cheat Sheet](https://docs.emmet.io/cheat-sheet/)
 
 <h2 id="outline"> Outline </h2>
 
@@ -1410,6 +1411,7 @@ The following CSS approaches will NOT do the same thing:
 
 
 <h3 id="Emmet">Emmet</h3>
+
 Writing .row>(.col-1-of-4>.feature-box)*4 will generate: 
 
 ```html
