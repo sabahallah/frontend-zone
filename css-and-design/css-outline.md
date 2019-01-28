@@ -19,6 +19,7 @@
 * [Resources](#resources)
 * [Development Resources](#development-resources)
 * [Outline](#outline)
+    * [Writing Good CSS](#writing-good-css)
     * [Miscellaneous](#Miscellaneous)
     * [Text Styling and Formatting](#text-styling-and-formatting)
     * [Images](#images)
@@ -57,7 +58,9 @@
 * [CSS Archticture](#css-archticture)
 * [SASS](#sass)
 * [Accessibility](#accessibility)
-* [Tools](#tools)
+* [Flexbox](#flexbox)
+* [SVG](#svg)
+* [Others](#others)
 
 <h2 id="resources"> Resources </h2>
 
@@ -108,6 +111,140 @@ CSS stands for Cascading Style Sheets. You can link your css file in 3 different
     The @import rule allows you to import a style sheet into another style sheet. */ 
     @import url('http://..../google/font');
     ```
+<h3 id="writing-good-css">Writing Good CSS</h3>
+
+* #### Use Low-Specificity Selectors  
+    Instead of writing
+    ```css
+    .navigation a {
+        color: blue;
+    }
+    ```
+
+    Write 
+    ```css
+    .nav-link {
+        color: blue;
+    }
+    ```
+* #### Don't Use ID or Element Selectors
+    Instead of writing
+    ```css
+    #banner {
+        background-color: blue;
+    }
+
+    #banner h1 {
+        color: white
+    }
+    ```
+    Write
+    ```css
+    .banner {
+        background-color: blue;
+    }
+
+    .banner-title {
+        color: white;
+    }
+    ```
+* #### Don't Depend on a Certain Markup Structure (Markup can change at anytime)
+    Instead of writing
+    ```css
+    .header ul li a {
+        margin-right: 20px;
+    }
+    ```
+    Write
+    ```css
+    .header-link {
+        margin-right: 20px;
+    }
+    ```
+* #### Don't Use Inline Styles
+* #### Don't Use !important
+    The one case in which you might be forced to use important is if using some third party JavaScript library
+* #### Prefix Modifier Classes
+    Instead of writing
+    ```css
+    .btn {
+        padding: .25em;
+        background-color: blue;
+        color: white;
+    }
+
+    .btn.red {
+        background-color: red;
+    }
+    ```
+    Write 
+    ```css
+    .btn {
+        padding: .25em;
+        background-color: blue;
+        color: white;
+    }
+    .btn-red {
+        background-color: red;
+    }
+    ```
+* #### Write Small Rules
+    Instead of writing
+    ```css
+    .role-stat h1,
+    .role-stat h2,
+    .role-stat p,
+    .role-stat a,
+    .role-su h1,
+    .role-su h2,
+    .role-su p,
+    .role-su a {
+        color: #FFF;
+    }
+
+    .features-1 h1,
+    .features-1 h2,
+    .features-1 p,
+    .features-2 h1,
+    .features-2 h2,
+    .features-2 p,
+    .features-3 h1,
+    .features-3 h2,
+    .features-3 p {
+        color: #FFF;
+    }
+
+    .features-1 a,
+    .features-2 a,
+    .features-3 a {
+        color: #FFF;
+        text-decoration: underline;
+    }
+
+    .feature-4 h1,
+    .feature-4 h2,
+    .feature-4 p {
+        color: #FFF;
+    }
+
+    .feature-4 a,
+    .feature-4 a,
+    .feature-4 a {
+        color: #FFF;
+        text-decoration: underline;
+    }
+    ```
+    Write
+    ```css
+    .text-white {
+        color: #FFF;
+    }
+
+    .text-underline {
+        text-decoration: underline;
+    }
+    ```
+
 <h3 id="miscellaneous">Miscellaneous</h3>
 
 ```css
@@ -222,6 +359,12 @@ padding-left: 20px; /* like padding right */
 It is a bad practice to use element id to style the element, use it sparingly.  
 
 javascript:void(0); means stay on the page, the void operator evaluates the given expression and then returns undefined.
+
+
+```css
+/* z-index only works if we specified position */
+z-index: 10;
+```
 
 <h3 id="text-styling-and-formatting">Text Styling and Formatting</h3>
 
@@ -556,6 +699,7 @@ Use a CSS Linear Gradient to Create a Striped Element
 
 <h2 id="custom-css-variable">Create a custom CSS Variable</h2>
 
+It can be manipulated by js and can be changed in dev tools.
 To create a CSS Variable, you just need to give it a name with two dashes in front of variable name and assign it a value: 
 
 ```css 
@@ -1075,6 +1219,11 @@ position: relative;
 Note: Obacity, transform, filter also create a new stacking context, because of that sometimes when putting the element with z-index stacking doesn't work as expected
 	
 <h2 id="css-archticture">CSS archticture</h2>
+CSS  Strategies:
+
+* BEM (Block Element Modifier)
+* OOCSS (Object Oriented CSS)
+* SMACSS (Scalable and Modular Architecture for CSS)
 
 ### BEM (Block Element Modifier)
 
@@ -1374,6 +1523,71 @@ The following CSS approaches will NOT do the same thing:
 * Sufficient contrast improves the readability of your content.  
 * Avoid Colorblindness Issues by Using Sufficient Contrast
 * Avoid Colorblindness Issues by Carefully Choosing Colors that Convey Information
+
+<h2 id="flexbox">Flexbox</h2>
+
+* Adding `display: flex` to an element turns it into a flex container
+* Flexbox is a new module in CSS3 that makes it easy to align elements to one
+another, in different directions and orders.
+* The main idea behind flexbox is to give the container the ability to expand and
+to shrink elements to best use all the available space. 
+* Flexbox replaces float layouts, using less, and more readable and logical code;
+
+https://codepen.io/anon/pen/dVZvGr
+
+Container Properties: 
+* ``` flex-direction: row | row-reverse | column | column-reverse ```
+* ``` justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly ``` 
+    * center: all the flex item at the center of the flex container
+    * space-between: space distributed between the flex items
+    * space-around: same amount of space on the right and left side of each of the flex items
+    * space-evenly: space always the same between flex items.
+* ```align-items: stretch | flex-start | flex-end | center | baseline ``` for cross direction 
+    * center: center flex items relative to the item which has heighest value
+    * stretch: stretch flex items relative to the item which has heighest value
+    * baseline: align the text on flex items along the line, suppose there is flex item contains a bigger font size so if we put baseline, all flex items will be aligned on the cross access along the bigger font line.
+* ``` flex-wrap: nowrap | wrap | wrap-reverse; ``` If flex items should wrap into new lines if there is not enough space in the flex container or not. `wrap` will create a new line if there's not enough space
+* ``` align-content: stretch | flex-start | flex-end | center | space-between | space-around ``` Apply only when more than one row of the flex items, how rows are aligned along the cross axis if there's empty space. Same like align-items property but this aligns _rows_ along the cross axis.
+
+Flex Item Properties:
+* ``` align-self: auto | stretch | flex-start | flexend | center | baseline ``` Overrides container's alignment.
+* ``` order: 0 | <integer> ``` all flex items has `order: 0;` by default, if you set `order: -1;` to a flex item, it will put this item at the begining of the container, because any other flex item is 0.
+* `flex-grow: 0 | <integer>` abbility of an element to grow as much as it can. If we put `flex-grow: 1;` on items it will occupy all the entire space as much as it can. If we put `flex-grow: 2;` on item so means it has double the abblity to grow. shorthand property `flex: 1;`
+* `flex-shrink: 1 | <integer>` default is 1, so it means the element allows to shrink if there's no more availabe space, if we don't want item to shrink, we'll set it to 0.
+* `flex-basis: auto | <length>` width of an item. `flex-basis: 20%;` 20% of its container.
+
+<h2 id="svg">SVG</h2>
+
+Moving from Icon Fonts to SVGs. (Scalable Victor Graphics) 
+- Icon Fonts is just a hack to display icon like a font.
+- Icon Fonts fail more often that you would think and in that case browser display a small square on the screen.
+- Screen readers failing to read the Icon Fonts
+- It's super easy to style SVGs
+
+So it's a best practice to use SVGs instead of using icon fonts.  
+Use icomoon.io to convert Icon Font to SVG or to download SVG images.  
+Symbol-defs.svg is called sprite file, it's a simple SVG file contains all other svg images.
+
+Using SVGs in Html:
+```html
+<svg class="search__icon">
+	<!-- This will appear only if you're using a webserver -->
+	<use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+</svg>
+```
+Formatting SVG is easy, just set its height and width. also changing SVG color is easy, just use `fill` property.
+
+```css
+height: 2rem;
+width: 2rem;
+fill: var(--color-grey-dark-3);
+```
+
+```css
+/* setting color of svg to be color of parent element, so if you change parent color in any case this will change automatically */
+fill: currentColor;
+```
+
 
 ### Others:
 
