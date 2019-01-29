@@ -4,7 +4,7 @@
     * Images
     * Colors
     * Icons
-        * icomoon.io Convert Icon Font to SVG or to download SVG images.
+        * [icomoon.io](https://icomoon.io/) Convert Icon Font to SVG or to download SVG images.
     * Inspiration
 * JS
 * Jquery
@@ -44,11 +44,8 @@
         * http://www.qodethemes.com/themes/
         * http://ani-angular.strapui.com/dashboard/invoice
 * Front End Tutorials
-    * Free but Awsome
-        * https://egghead.io/
-        * https://freecodecamp.com/
-    * Paid
+    * https://freecodecamp.com/
 * Youtube Channels
     * [Academind Channel](https://www.youtube.com/channel/UCSJbGtTlrDami-tDGPUV9-w/playlists)
     * [FreeCodeCamp Channel](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ)
-* codepen.io
+* [codepen.io](https://codepen.io/)

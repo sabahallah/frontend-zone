@@ -207,3 +207,313 @@
     }
 }
 
+
+////////////////////////////////////////
+// GALLERY
+.gallery {
+    display: flex;
+
+    &__photo {
+        width: 100%;
+        display: block;
+    }
+}
+
+/***************************** HOTEL OVERVIEW ********************************************/
+.overview {
+    display: flex;
+    align-items: center;
+    border-bottom: var(--line);
+    /* not the perfect way because we want two items on the right and two items to the left 
+        to fix this we set margin-right: auto; to the star element, check below
+    */
+    // justify-content: space-between;
+
+    &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
+    }
+
+    &__stars {
+        // flex: 1;  not ideal because it will occupy the whole available space, imagine we have hover effect, so effect will be applied to whole space
+        // background-color: orangered;   
+        // very good trick to know with flexbox.
+        // if you use margin-right: auto; with flexbox it will occupy only the space that it needs and all remaining space will be margin right
+        margin-right: auto;
+        
+        /* there is small space below each of the stars because it SVGs behave like inline elements, so it a bit like text that produces a small white space under the star
+         we can remove this space by setting the line height and font size to 0, but we have a simple way doing this is by setting parent element to display: flex; */
+        display: flex;
+
+    }
+
+    &__icon-star,
+    &__icon-location {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
+    }
+
+    &__location {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon-location {
+        margin-right: .5rem;
+    }
+
+    &__rating {
+        background-color: var(--color-primary);
+        color: #fff;
+        margin-left: 3rem;
+        padding: 0 2.25rem;
+        
+        /* parent element is set to to align-items: center; but we want to occupy all the avialable space 
+        so we use  align-self: stretch; to override parent setting */
+        align-self: stretch; 
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
+    }
+
+    &__rating-average {
+        font-size: 2.25rem;
+        font-weight: 300;
+        margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__rating-count {
+        font-size: .8rem;
+        text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: .5rem;
+        }
+    }
+}
+
+
+////////////////////////////////////////
+// BUTTON INLINE
+.btn-inline {
+    border: none;
+    color: var(--color-primary);
+    font-size: inherit; /* to inherit the parent font-size */
+    border-bottom: 1px solid currentColor; /* when hovering color will change so we need border-bottom to be the same color in any case, so we used currentColor */
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s;
+
+    & span {
+        margin-left: 3px;
+        transition: margin-left .2s;
+    }
+
+    &:hover {
+        color: var(--color-grey-dark-1);
+
+        span {
+            margin-left: 8px;
+        }
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 1rem 4rem rgba(0,0,0,.25);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+
+
+////////////////////////////////////////
+// PARAGRAPH
+/* apply to last of the same type of element */
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+
+////////////////////////////////////////
+// LIST
+.list {
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: var(--line);
+    border-bottom: var(--line);
+
+    display: flex;
+    /* to create a new line if there is enough space */
+    flex-wrap: wrap;
+
+    &__item {
+        /* because we want two elements to be side by side */
+        flex: 0 0 50%;
+        margin-bottom: .7rem;
+    }
+
+    /* adding  icon to the left */
+    &__item::before {
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        margin-right: .7rem;
+
+        // Older browsers
+        background-image: url(../img/chevron-thin-right.svg);
+        background-size: cover;
+
+        //Newer browsers - masks
+        // Mask defines an area where we can look through the element and see what's behind this element
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg); /* this will be infront of the background color, so you'll see through the svg */
+            mask-size: cover;
+            background-image: none;
+        }        
+    }
+}
+
+////////////////////////////////////////
+// RECOMMEND
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+
+    display: flex;
+    align-items: center;
+
+    &__count {
+        margin-right: auto;
+    }
+
+    &__friends {
+        display: flex;
+    }
+
+    &__photo {
+        box-sizing: content-box; /* setting back to default */
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+
+        &:not(:last-child) {
+            margin-right: -2rem;
+        }
+    }
+}
+
+///////////////////////////////////
+// REVIEWS
+.review {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    overflow: hidden;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    &__text {
+        margin-bottom: 2rem;
+        /*  z-index:10; works only if you set position */
+        z-index: 10;
+        position: relative;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+    }
+
+    &__photo {
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        margin-right: 1.5rem;
+    }
+
+    &__user-box {
+        margin-right: auto;
+    }
+
+    &__user-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: .4rem;
+    }
+
+    &__user-date {
+        font-size: 1rem;
+        color: var(--color-grey-dark-3);
+    }
+
+    &__rating {
+        color: var(--color-primary);
+        font-size: 2.2rem;
+        font-weight: 300;
+    }
+
+    &::before {
+        /* html entity, check https://css-tricks.com/snippets/html/glyphs/ */
+        content: "\201C";
+        position: absolute;
+        top: -2.75rem;
+        left: -1rem;
+        line-height: 1;
+        font-size: 20rem;
+        color: var(--color-grey-light-2);
+        /* to look exactly the same as we want */
+        font-family: sans-serif;
+        z-index: 1;
+    }
+}
+
