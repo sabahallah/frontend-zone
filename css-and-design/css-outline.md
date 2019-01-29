@@ -27,6 +27,7 @@
     * [Grid System](#grid-system)
     * [Centre an Element](#center-element)
     * [Transform](#transform)
+    * [CSS Mask](#css-mask)
 * [Box Model](#box-model)
 * [Targeting Elements (selectors)](#targeting-elements)
 * [Units](#units)
@@ -482,7 +483,37 @@ p {
   transform: skewX(-32deg);
 }
 ```
+<h3 id="css-mask">CSS Mask</h3>
 
+
+CSS masks: mask-image, mask-size  
+Mask defines an area where we can look through the element and see what's behind this element
+```css
+/* adding  icon to the left */
+&__item::before {
+	content: "";
+	display: inline-block;
+	height: 1rem;
+	width: 1rem;
+	margin-right: .7rem;
+
+	// Older browsers
+	background-image: url(../img/chevron-thin-right.svg);
+	background-size: cover;
+
+	//Newer browsers - masks
+	@supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        background-color: var(--color-primary);
+        /* this will be infront of the background color, so you'll see through the svg */
+		-webkit-mask-image: url(../img/chevron-thin-right.svg); 
+		-webkit-mask-size: cover;
+		mask-image: url(../img/chevron-thin-right.svg);
+		mask-size: cover;
+		background-image: none;
+	}
+	
+}
+```
 <h2 id="box-model"> Box Model </h2>
 
 **content**: Actual content (image, text, etc)  
@@ -1591,6 +1622,37 @@ fill: currentColor;
 
 ### Others:
 
+* If you use `margin-right: auto;` with flexbox container, flexbox item will occupy only the space that it needs and all remaining space will be margin right
+	```css
+	.overview {
+		display: flex;
+		&__heading {
+			//// ....
+		}
+		&__stars {
+			margin-right: auto;
+		}
+		&__location {
+		}
+	}
+	```
+* `align-self: stretch;` to override parent setting and occupy all the avialable space 
+* figure element is perfect for user reviews
+	```html
+	<figure class="review">
+		<blockquote class="review__text">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi, totam, itaque officia ex.
+		</blockquote>
+		<figcaption class="review__user">
+			<img src="img/user-1.jpg" alt="User 1" class="review__photo">
+			<div class="review__user-box">
+				<p class="review__user-name">Nick Smith</p>
+				<p class="review__user-date">Feb 23rd, 2017</p>
+			</div>
+			<div class="review__rating">7.8</div>
+		</figcaption>
+	</figure>
+	```
 * Screen readers can read what's between anchor tags, so choose proper text to put between anchor tags
     ```html 
     Click here for <a href="">information about batteries</a>
