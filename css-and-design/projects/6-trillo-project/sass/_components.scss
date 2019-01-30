@@ -14,6 +14,12 @@
     align-items: center;
     justify-content: center;   
 
+    @media only screen and (max-width: $bp-smallest) {
+        order: 1; /* it will be the last one */
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input {
         font-family: inherit;
         font-size: inherit;
@@ -130,12 +136,24 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        margin: 0;
+    }
+
     &__item {
         position: relative;
 
         /* adding margin-bottom to all items except the last child */
         &:not(:last-child) {
-            margin-bottom: .5rem;        
+            margin-bottom: .5rem;     
+            @media only screen and (max-width: $bp-medium) {
+                margin: 0;
+            }   
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1;
         }
     }
 
@@ -182,6 +200,16 @@
 
         display: flex;
         align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
     }
 
     &__icon {
@@ -190,6 +218,13 @@
         margin-right: 2rem;
         /* setting color of svg, color of parent element */
         fill: currentColor;
+
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: .7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -332,6 +367,9 @@
     }
 
     &:hover {
+        outline: none;
+        animation: pulsate 1s infinite;
+
         color: var(--color-grey-dark-1);
 
         span {
@@ -339,10 +377,11 @@
         }
     }
 
-    &:focus {
-        outline: none;
-        animation: pulsate 1s infinite;
-    }
+    /* from user experience, pulsate should be while hovering not focus */
+    // &:focus {
+    //     outline: none;
+    //     animation: pulsate 1s infinite;
+    // }
 }
 
 @keyframes pulsate {
@@ -517,3 +556,73 @@
     }
 }
 
+
+////////////////////////////////////////
+// CALL TO ACTION
+.cta {
+    padding: 3.5rem 0;
+    text-align: center;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
+
+    &__book-now {
+        font-size: 2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+    }
+}
+
+////////////////////////////////////////
+// CALL TO ACTION
+.btn {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    color: #fff;
+    position: relative;
+    overflow: hidden; /* to hide the text because it's overflowed */
+    cursor: pointer;
+
+    & > * {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        transition: all .2s;
+    }
+
+    &__visible {
+        padding: 2rem 7.5rem;
+    }
+
+    &__invisible {
+        position: absolute; /* using the absolute to put the invisible button above the visible button */
+        padding: 2rem 0;
+        left: 0;
+        top: -100%; /* it will move the element 100% of its size */
+    }
+
+    &:hover {
+        outline: none;
+        animation: pulsate 1s infinite .4s;
+        background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+    }
+
+    &:hover &__visible {
+        transform: translateY(100%); /* translate 100% of its height */
+    }
+
+    &:hover &__invisible {
+        top: 0;
+    }
+
+    // &:focus {
+    //     outline: none;
+    //     animation: pulsate 1s infinite;
+    // }
+}

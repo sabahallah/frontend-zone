@@ -1621,7 +1621,7 @@ fill: currentColor;
 
 
 ### Others:
-
+* In modern CSS, many times Flexbox used in conjunction with Grid Layout Module. Overall layout can be done by the grid and smaller details can be handled with flexbox.
 * If you use `margin-right: auto;` with flexbox container, flexbox item will occupy only the space that it needs and all remaining space will be margin right
 	```css
 	.overview {
