@@ -1577,15 +1577,86 @@ Container Properties:
     * center: center flex items relative to the item which has heighest value
     * stretch: stretch flex items relative to the item which has heighest value
     * baseline: align the text on flex items along the line, suppose there is flex item contains a bigger font size so if we put baseline, all flex items will be aligned on the cross access along the bigger font line.
-* ``` flex-wrap: nowrap | wrap | wrap-reverse; ``` If flex items should wrap into new lines if there is not enough space in the flex container or not. `wrap` will create a new line if there's not enough space
+* ``` flex-wrap: nowrap | wrap | wrap-reverse; ``` If flex items should wrap into new lines if there is not enough space in the flex container or not. `wrap` will create a new line if there's not enough space.  Using the `flex-wrap` property, it tells CSS to wrap items. This means extra items move into a new row or column. The break point of where the wrapping happens depends on the size of the items and the size of the container.
 * ``` align-content: stretch | flex-start | flex-end | center | space-between | space-around ``` Apply only when more than one row of the flex items, how rows are aligned along the cross axis if there's empty space. Same like align-items property but this aligns _rows_ along the cross axis.
 
 Flex Item Properties:
-* ``` align-self: auto | stretch | flex-start | flexend | center | baseline ``` Overrides container's alignment.
-* ``` order: 0 | <integer> ``` all flex items has `order: 0;` by default, if you set `order: -1;` to a flex item, it will put this item at the begining of the container, because any other flex item is 0.
+* ``` align-self: auto | stretch | flex-start | flexend | center | baseline ``` Overrides container's alignment.  
+`align-self` accepts the same values as `align-items` and will override any value set by the `align-items` property.
+* ``` order: 0 | <integer> ``` all flex items has `order: 0;` by default, if you set `order: -1;` to a flex item, it will put this item at the begining of the container, because any other flex item is 0.  
+The `order` property is used to tell CSS the order of how flex items appear in the flex container. By default, items will appear in the same order they come in the source HTML. The property takes numbers as values, and negative numbers can be used.
 * `flex-grow: 0 | <integer>` abbility of an element to grow as much as it can. If we put `flex-grow: 1;` on items it will occupy all the entire space as much as it can. If we put `flex-grow: 2;` on item so means it has double the abblity to grow. shorthand property `flex: 1;`
-* `flex-shrink: 1 | <integer>` default is 1, so it means the element allows to shrink if there's no more availabe space, if we don't want item to shrink, we'll set it to 0.
-* `flex-basis: auto | <length>` width of an item. `flex-basis: 20%;` 20% of its container.
+* `flex-shrink: 1 | <integer>` default is 1, so it means the element allows to shrink if there's no more availabe space, if we don't want item to shrink, we'll set it to 0.  It allows an item to shrink if the flex container is too small.  
+The `flex-shrink` property takes numbers as values. The higher the number, the more it will shrink compared to the other items in the container. For example, if one item has a `flex-shrink` value of 1 and the other has a `flex-shrink` value of 3, the one with the value of 3 will shrink three times as much as the other.
+    ```html
+    <style>
+    #box-container {
+        display: flex;
+        height: 500px;
+    }
+    #box-1 {
+        background-color: dodgerblue;
+        width: 100%;
+        height: 200px;
+        flex-shrink: 1;
+    }
+
+    #box-2 {
+        background-color: orangered;
+        width: 100%;
+        height: 200px;
+        flex-shrink: 2;
+    }
+    </style>
+
+    <div id="box-container">
+    <div id="box-1"></div>
+    <div id="box-2"></div>
+    </div>
+    ```
+* `flex-basis: auto | <length>` width of an item. `flex-basis: 20%;` 20% of its container.  
+The `flex-basis` property specifies the initial size of the item before CSS makes adjustments with flex-shrink or flex-grow. The value `auto` sizes items based on the content.
+
+* `flex` Shorthand Property. For example, `flex: 1 0 10px;` will set the item to `flex-grow: 1;`, `flex-shrink: 0;`, and `flex-basis: 10px;`. The default property settings are `flex: 0 1 auto;`
+
+    ```html
+    <!-- 
+        300px is the combined size of the flex-basis values of the two boxes.
+        These values will cause #box-1 to grow to fill the extra space at twice the rate of #box-2 when the container is greater than 300px and shrink at twice the rate of #box-2 when the container is less than 300px. 
+
+        When container width > 300px then (grow)
+            * divid total container width by 3 (from: box-1 grows 2 times, box-2 grows 1 time) = 1 time width
+            * grow box-1 (2 * 1 unit)
+            * grow box-2 (1 * 1 unit)
+
+        When container width < 300px then (shrink)
+            * divid total container width by 3 (from: box-1 shrinks 2 times, box-2 shrinks 1 time) = 1 unit
+            * shrink box-1 (2 * 1 unit)
+            * shrink box-2 (1 * 1 unit)
+    -->
+    <style>
+    #box-container {
+        display: flex;
+        height: 500px;
+    }
+    #box-1 {
+        background-color: dodgerblue;
+        flex: 2 2 150px;
+        height: 200px;
+    }
+
+    #box-2 {
+        background-color: orangered;
+        flex: 1 1 150px;
+        height: 200px;
+    }
+    </style>
+
+    <div id="box-container">
+    <div id="box-1"></div>
+    <div id="box-2"></div>
+    </div>
+    ```
 
 <h2 id="svg">SVG</h2>
 
