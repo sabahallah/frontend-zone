@@ -32,3 +32,20 @@ body {
     font-weight: 300;
     line-height: 1.6;
 }
+
+.container {
+    display: grid;
+    /* 'min-content' or 'auto' they're same, it means adopt to the min content, suppose we added more stuff to the row */
+    /* You have to think about responsive from the begining */
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content); 
+    /* 8rem: for sidebar 
+       8 columns: for content
+       1fr: remaining space divide by two in order to center the 8 columns in the middle
+    */
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) 
+                           [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end] ) 
+                           [center-end] minmax(6rem, 1fr) [full-end];
+    & > * {padding: 40px;
+        font-size: 3rem;
+    } 
+}

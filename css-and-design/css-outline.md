@@ -3,7 +3,7 @@
     <img src="https://img.icons8.com/color/150/000000/css3.png" alt="Useful CSS Outline" width="150" >
   </a>
   <h2 align="center">CSS Outline</h2>
-  <p align="center">This intended to be a wiki for css quick review. It covers a lot of defintions, explainations and examples. Some of the defintions and explainations taken from different <a href="#resources">resources</a> and most of the credits go to them. This is just a brief. I kept it simple and structured so it could be easy to refresh and useful for others. I will try to keep it updated as much as i can.</p>
+  <p align="center">This intended to be a wiki for css quick review. It covers a lot of defintions, explainations and examples. Some of the defintions and explainations taken from different <a href="#resources">resources</a> and most of the credits go to them. This is just a brief. I kept it simple and structured so it could be easy to refresh and be useful for others. I will try to keep it updated as much as i can.</p>
   <p align="center">
     <a href="https://twitter.com/home?status=CSS+Outline+by+%40msabahallah      +https%3A%2F%2Fgithub.com%2Fsabahallah%2Ffrontend-zone%2Fblob%2Fmaster%2Fcss-and-design%2Fcss-outline.md" target="_blank">    
         <img src="https://img.shields.io/badge/twitter-tweet-blue.svg"/>

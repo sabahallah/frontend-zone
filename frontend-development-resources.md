@@ -6,7 +6,7 @@
     * Colors
         * [Flat UI Colors](https://flatuicolors.com/)
     * Icons
-        * [icomoon.io](https://icomoon.io/) Convert Icon Font to SVG or to download SVG images.
+        * [icomoon.io](https://icomoon.io/) Convert Icon Font to SVG or download SVG images.
     * Inspiration
 * JS
 * Jquery
