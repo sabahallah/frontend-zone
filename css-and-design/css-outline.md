@@ -60,6 +60,14 @@
 * [SASS](#sass)
 * [Accessibility](#accessibility)
 * [Flexbox](#flexbox)
+* [Grid Layout](#grid-layout)
+    * [Naming Grid](#naming-grid)
+    * [Implicit Grids vs Explicit Grids](#implicit-explicit-grid)
+    * [Grid Flow](#grid-flow)
+    * [Aligning Grid Items](#align-grid-items)
+    * [Aligning Tracks](#align-tracks)
+    * [Grid Functions](#grid-functions)
+    * [Responsive Layouts with auto-fit and auto-fill](#grid-responsive-layout)
 * [SVG](#svg)
 * [Others](#others)
 
@@ -1657,6 +1665,186 @@ The `flex-basis` property specifies the initial size of the item before CSS make
     <div id="box-2"></div>
     </div>
     ```
+<h2 id="grid-layout">Grid Layout</h2>
+
+* CSS Grid Layout is a brand new module that brings a two-dimensional grid system to CSS for the first time.
+* CSS Grid replaces float layouts, using less, and more readable and logical CSS and HTML.
+* CSS Grid works perfectly together with Flexbox, which is best to handle onedimensional components and layouts.
+* No Need for Bootstrap anymore
+* Grid Line 1 2 3 4
+* Grid Track [Space between Grid Lines, ex: 1-3]
+    * Grid Track (Row)
+    * Grid Track (Column)
+* Grid Area [Space Between Two Vertical and Two Horizontal Grid Lines]
+* Grid Cell [Space Between Two Adjacent Vertical and Two Horizontal Grid Lines]
+* Use Dev Tool in Firefox Quantumn > Layout > Display Line Numbers
+```css
+.container {
+    grid-template-rows: repeat(2, 150px); /* 2 tracks for the rows each has 150px height
+    grid-template-columns: repeat(2, 150px) 300px; // 3 tracks for the columns 2 has 150px and 1 has 300px width */
+    grid-template-columns: repeat(3, 1fr); /* 1 franctional unit, it expands to all space that it can occupy, 1 fraction of the available space, it divids available space by 3 */
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 50% 1fr 1fr; /* 50% of the vailable space, the other 50% will go to the fraction. (it includes fraction and gap) */
+
+    /* grid-row-gap: 30px;
+    grid-column-gap: 50px;*/
+    grid-gap: 30px;
+}
+
+.box {
+    /* Positioing a grid cell */
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.box-2 {
+    /* Shorthand */
+    grid-row: 1 / 3;
+    grid-column: 2 / 4;
+
+    /* -1 means span from column no. 1 to the end, no matter how many columns you have (id you don't know how many columns) */
+    grid-column: 1 / -1;
+}
+
+/* if we span a cell to occupy multiple cells, Grid Layout will create a new line or new column */
+.box-3 {
+    /* Shorthand */
+     grid-area: 1 / 2 / 3 / 4;
+}
+```
+
+<h3 id="naming-grid">Naming Grid</h3>
+
+There are three different ways to name gride lines  
+1. Using line numbers [Codepen Example](https://codepen.io/sabahallah/pen/gqRRdj)
+2. Using line names [Codepen Example](https://codepen.io/sabahallah/pen/omwwPe)
+3. Naming Grid Area [Codepen Example](https://codepen.io/sabahallah/pen/LqyyBN)
+
+<h3 id="implicit-explicit-grid">Implicit Grids vs Explicit Grids</h3>
+
+Implicit Grids is great for use cases where you don't really know how many rows or columns will be on your grid layout, for example: if you retrieving data from the server via ajax call in web app and you don't really know how many items will return from the server, so you can style the extra rows and everything will work as expected even if you don't know how many items will be in it. `grid-auto-rows: 80px;`  
+[Codepen Example](https://codepen.io/sabahallah/pen/exREpB)
+
+<h3 id="grid-flow">Grid Flow</h3>
+
+```css
+.container {
+    /* the grid flow by default is row, but you can change the default behaviour using grid-auto-flow property */
+    grid-auto-flow: column;
+    
+    /* now the grid flow is column so give the implicit cells width of 1/2 fraction */
+    grid-auto-columns: .5fr;
+}
+```
+<h3 id="align-grid-items">Aligning Grid <strong>Items</strong> inside Grid Areas</h3>
+
+Align grid items inside the grid area or cell [Codepen Example](https://codepen.io/sabahallah/pen/RvgLEo)
+
+```css
+.container {
+
+  display: grid;
+  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  
+  grid-auto-rows: 80px; 
+  grid-auto-flow: row;
+  
+  /* item will be completly centered, it will calculate width and height of the item and remaining space will be set as auto margin around the item */
+
+  /* align items in the column axis, like flexbox */
+  align-items: center; /* stretch, start, end */
+  /* align items in the row axis, not exist in flexbox */
+  justify-items: center; /* stretch, start, end */
+
+  &--4 {
+      background-color: crimson;
+      grid-row: 2 / span 3;
+      
+      /* to override container settings */
+      align-self: start;
+      justify-self: start;      
+ }
+}
+```
+
+
+<h3 id="align-tracks">Aligning <strong>Tracks</strong>  inside its container</h3>
+
+Align grid tracks (cell or multiple cells) inside its container [Codepen Example](https://codepen.io/sabahallah/pen/pGwpJj)
+```css
+.container {
+    /* - sometimes when you align track, some empty holes (boxes or cells without any items) will be created in order to keep the source order in html 
+  - to prevent this from happening set dense value to grid-auto-flow 
+  - this probably good if you have image gallery for example */
+  grid-auto-flow: row dense;
+  
+  /* align grid track [cell or multiple cells] to its container horizontaly if width is less than the container's width */
+  justify-content: space-evenly; // center, start, end, space-between, space-around
+  
+   /* align grid track [cell or multiple cells] to its container vertically if height is less than the container's height */
+  align-content: center; // start, end, space-between, space-around, space-evenly
+}
+```
+
+<h3 id="grid-functions">Using <code>min-content, max-content, minmax()</code> functions</h3>
+
+[Codepen Example](https://codepen.io/sabahallah/pen/NogyYa)
+```css
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  background-color: #ddd;
+  
+  display: grid;
+  // grid-template-rows: repeat(2, 150px);
+  
+  /* max-content: it will adopt the content according to the largest content as wide as it has to be to fit this content without making any line break
+     min-content: is the same but for smallest content in the grid columns */
+  // grid-template-columns: max-content 1fr 1fr min-content;
+  
+  /* it will set the row height to the min content height */
+  // grid-template-rows: repeat(2, min-content);
+  
+  width: 90%;
+  /* it will make sure height is between 50px and min-content */
+  grid-template-rows: repeat(2, minmax(50px, min-content));
+    
+  /* it will make sure width is at least 200px */
+  grid-template-columns: minmax(200px, 1fr) repeat(3, 1fr);
+}
+```
+
+<h3 id="grid-responsive-layout">Responsive Layouts with <code>auto-fit</code> and <code>auto-fill</code></h3>
+
+[Codepen Example](https://codepen.io/sabahallah/pen/BMZVXm)
+
+```css
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  background-color: #ddd;
+  
+  display: grid;
+  
+  grid-template-rows: repeat(2, minmax(150px, min-content));
+  
+  /* auto-fill: it will create grid of 10 columns because our width is 1000px, but we have 8 divs only */
+  grid-template-columns: repeat(auto-fill, 100px);
+  
+  /* auto-fit: it will create grid of 10 columns also but the last two will collapse with width of 0px */
+  grid-template-columns: repeat(auto-fit, 100px);
+  
+  width: 90%;
+  /* it will be really adoptive to screen width */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* because implicit rows will be created */
+  grid-auto-rows: 150px;
+}
+```
 
 <h2 id="svg">SVG</h2>
 
@@ -1755,7 +1943,16 @@ fill: currentColor;
     <div tabindex="1">I get keyboard focus, and I get it first!</div>
     <div tabindex="2">I get keyboard focus, and I get it second!</div>
     ```
+* **FOUC** [Revisit] Flash Of Unstyled Content  
+	A FOUC happens when the HTML for a site has loaded, but the styles have not, resulting in a style-less mess for a short duration of time.  
+	Some developers might try to hide the page until the site has fully loaded. But such techniques usually rely on JavaScript, which means that if the user has JavaScript disabled, they will never see the page.  
+	The most accessible method then is to simply include the styles of your site directly in the <head> section of the document as opposed to linking to them. The tradeoff is the overall HTML load time will increase.  
+	Alternatively, if you wanted to get creative, you could use a snippet of inline styles in the <head> that would hide the page, with overriding inline styles at the bottom of the page. This would remove the need for JavaScript, while eliminating the FOUC and keeping the above-the-fold loading time to a minimum. [hide on the head, unhide at the bottom]
 
+* Advantages of declaring and using system fonts in our websites and applications?
+	* Google developed “Roboto;” Apple, “San Francisco;” and Microsoft, “Segoe UI”
+	* We save the user from having to download an external font from a CDN, resulting in slightly faster loading times and no flashing from font changes.
+	* Because the font in use will be the operating system’s default font, our application or website will appear more like a native app.
 
 <h3 id="Emmet">Emmet</h3>
 
@@ -1775,5 +1972,18 @@ Writing .row>(.col-1-of-4>.feature-box)*4 will generate:
   <div class="col-1-of-4">
 	<div class="feature-box"></div>
   </div>
+</div>
+```
+
+Writing .container>.item.item--$*6 will generate: 
+
+```html
+<div class="container">
+    <div class="item item--1"></div>
+    <div class="item item--2"></div>
+    <div class="item item--3"></div>
+    <div class="item item--4"></div>
+    <div class="item item--5"></div>
+    <div class="item item--6"></div>
 </div>
 ```

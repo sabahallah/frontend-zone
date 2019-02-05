@@ -1,8 +1,10 @@
 # Starter List for front end development resources
 * CSS & Design
+    * [What is Flat Design](https://www.interaction-design.org/literature/topics/flat-design)
     * CSS
     * Images
     * Colors
+        * [Flat UI Colors](https://flatuicolors.com/)
     * Icons
         * [icomoon.io](https://icomoon.io/) Convert Icon Font to SVG or to download SVG images.
     * Inspiration
