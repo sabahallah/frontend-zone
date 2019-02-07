@@ -1987,3 +1987,16 @@ Writing .container>.item.item--$*6 will generate:
     <div class="item item--6"></div>
 </div>
 ```
+
+Writing section.features>.feature{feature $}*6 will generate: 
+
+```html
+<section class="features">
+    <div class="feature">feature 1</div>
+    <div class="feature">feature 2</div>
+    <div class="feature">feature 3</div>
+    <div class="feature">feature 4</div>
+    <div class="feature">feature 5</div>
+    <div class="feature">feature 6</div>
+</section>
+```

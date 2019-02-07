@@ -1,4 +1,43 @@
 .features {
-    background-color: $color-grey-light-2;
     grid-column: center-start / center-end;
+
+    margin: 15rem 0;
+
+    display: grid; 
+    // grid-template-columns: repeat(3, 1fr);
+    // auto-fit: to create coloumns as neede to fit the view
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+
+    /* to override deafult behaviour which is stretch and making space between heading and paragraph */
+    align-items: start;
+
+    grid-gap: 6rem;
+}
+
+.feature {
+    display: grid;
+    // min-content: so if we change the width of the icon, the column width it will adjust automatically.
+    // 1fr: occupy remaining space
+    // in real world, there are many cases we define only the columns and define rows
+    grid-template-columns: min-content 1fr;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+
+    &__icon {
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+
+        /* -1 not means end of the grid but means end of the explicit grid
+        but we didn't explicitly define grid-template-rows so -1 doesn't work as expected, so we will use span 2 */
+        // grid-row: 1 / -1; 
+        grid-row: 1 / span 2; 
+
+        transform: translateY(-1rem);
+    }
+    &__text{
+        font-size: 1.7rem;
+    }
+
+    
 }
