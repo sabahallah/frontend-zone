@@ -2,13 +2,24 @@
 * CSS & Design
     * [What is Flat Design](https://www.interaction-design.org/literature/topics/flat-design)
     * CSS
+        * [30 Seconds of CSS](https://30-seconds.github.io/30-seconds-of-css/)
+        * [Postprocess CSS](https://postcss.org/) Add vendor prefixes to CSS in order to support multiple browsers, `npm install --save-dev postcss-cli`
+        * [preset-env: postprocess modern CSS](https://preset-env.cssdb.org/) it deprecates cssnext
+        * [Stylelint](https://stylelint.io/) for CSS linting, modern linter that helps you avoid errors and enforce conventions in your styles.
     * Images
     * Colors
         * [Flat UI Colors](https://flatuicolors.com/)
     * Icons
         * [icomoon.io](https://icomoon.io/) Convert Icon Font to SVG or download SVG images.
     * Inspiration
+        * [dribbble](https://dribbble.com)
+        * [behance](https://behance.com)
+        * [uplabs](https://www.uplabs.com)
+    * Good CSS Resourcs
+        * https://css-tricks.com/
 * JS
+    * [ESLint](https://eslint.org/) for JavaScript linting
+    * [Babel](https://babeljs.io/) JavaScript compiler in order to use next generation JavaScript, Get browser-compatible JavaScript out
 * Jquery
 * Angular
 * React
@@ -16,6 +27,9 @@
 * Ionic
 * [URL Encode Decode](https://www.url-encode-decode.com/)
 * [Surge.sh](https://surge.sh/) Static web publishing for Front-End Developers
+* [Consume APIs: mashape.com](https://market.mashape.com/features/consumer)
+* Productivity
+    * [Emmet](https://docs.emmet.io/cheat-sheet/)
 * Markdown
     * [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet)
     * [Github Markdown](https://guides.github.com/features/mastering-markdown/)
@@ -42,6 +56,7 @@
         * http://www.templatewire.com/
         * https://www.creative-tim.com/product/material-kit
         * https://w3layouts.com
+        * https://getstisla.com/
     * Paid 
         * https://themewagon.com/themes/posh-html5-bootstrap-4-template/
         * http://www.qodethemes.com/themes/
@@ -52,3 +67,6 @@
     * [Academind Channel](https://www.youtube.com/channel/UCSJbGtTlrDami-tDGPUV9-w/playlists)
     * [FreeCodeCamp Channel](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ)
 * [codepen.io](https://codepen.io/)
+* JSON Editors Online:
+    * http://jsoneditoronline.org/
+    * https://jsonformatter.org/json-editor

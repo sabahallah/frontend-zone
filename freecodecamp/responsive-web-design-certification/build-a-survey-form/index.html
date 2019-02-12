@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Survey Form project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/style.css"
+    />
+    
+  </head>
+  <body>        
+    <div class="content">
+      <h1 id="title" class="title">Survey Form</h1>
+      <div class="survey-form">
+        <p id="description">Let us know how we can improve freeCodeCamp</p>
+        <form id="survey-form">
+
+          <div class="form-row">
+            <div class="left-side">
+              <label id="name-label" for="name">* Name:</label>
+            </div> 
+            <div class="right-side">
+              <input type="text" name="name" id="name" placeholder="Enter your name" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="left-side">
+              <label id="email-label" for="email">* Email:</label>
+            </div>
+            <div class="right-side">
+              <input type="email" name="email" id="email" placeholder="Enter your email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="left-side">
+              <label id="number-label" for="number">* Age:</label>
+            </div>
+            <div class="right-side">
+              <input type="number" name="age" id="number" min=10 max=65 placeholder="Age">    
+            </div>        
+          </div>
+
+          <div class="form-row">
+            <div class="left-side align-self">
+              <label for="dropdown">Which option best describes your current role?</label>
+            </div>
+            <div class="right-side">
+              <select name="current-role" id="dropdown">
+                <option value="student">Student</option>
+                <option value="full-time-job">Full Time Job</option>
+                <option value="full-time-learner">Full Time Learner</option>
+                <option value="not-to-say">Prefer not to say</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+              <div class="left-side align-self">
+                <label class="flex-label"><div>* How likely is that you would recommend</div><div>freeCodeCamp to a friend?</div></label>
+              </div>
+              <div class="right-side">
+                <div class="input-group">
+                  <div class="mg-btm-5"><input type="radio" name="recommend" value="Definitely" checked> Definitely</div>
+                  <div class="mg-btm-5"><input type="radio" name="recommend" value="Maybe"> Maybe</div>
+                  <div class="mg-btm-5"><input type="radio" name="recommend" value="not-sure"> Not sure</div>
+                </div>
+              </div>
+          </div>
+
+          <div class="form-row">
+              <div class="left-side align-self">
+                <label for="what-do-you-like">What do you like most in FCC:</label>
+              </div>
+              <div class="right-side">
+                <select id="what-do-you-like" name="what-do-you-like">
+                    <option disabled="" selected="" value="">Select an option</option>
+                    <option value="challenges">Challenges</option>
+                    <option value="projects">Projects</option>
+                    <option value="community">Community</option>
+                    <option value="openSource">Open Source</option>
+                </select>
+              </div>
+          </div>
+                    
+          <div class="form-row">
+              <div class="left-side align-self">
+                <label for="improve" class="flex-label"><div>Things that should be improved in the future</div>
+                <div>(Check all that apply):</div></label>
+              </div>
+              <div class="right-side">
+                <div class="input-group">
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="Front-end Projects">Front-end Projects</div>
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="Back-end Projects">Back-end Projects</div>
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="Data Visualization">Data Visualization</div>
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="Challenges">Challenges</div>
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="Open Source Community">Open Source Community</div>
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="Gitter help rooms">Gitter help rooms</div>
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="Videos">Videos</div>
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="City Meetups">City Meetups</div>
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="Wiki">Wiki</div>
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="Forum">Forum</div>
+                  <div class="mg-btm-5"><input type="checkbox" name="improve" value="Additional Courses">Additional Courses</div>
+                </div>
+              </div>
+          </div>
+
+          <div class="form-row">
+            <div class="left-side align-self">
+              <label for="comments">Any Comments or Suggestions?</label>
+            </div>
+            <div class="right-side">
+              <textarea id="comments" name="comment" placeholder="Enter your comment here"></textarea>
+            </div>
+          </div>
+
+          <button id="submit" type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </div>    
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>

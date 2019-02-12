@@ -934,8 +934,8 @@ We use the `float` property to put block elements side by side
 </body>
 ```
 
-`clear` property is the counterpart of the `float` property [need to understand]
-
+`clear` property is the counterpart of the `float` property [Ensures that an element self-clears its children]  
+Note: This is only useful if you are still using float to build layouts. Please consider using a modern approach with flexbox layout or grid layout.
 ```css
 .clearfix:after {
 	content:"";
