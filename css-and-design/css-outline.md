@@ -20,7 +20,6 @@
 * [Development Resources](#development-resources)
 * [Outline](#outline)
     * [Writing Good CSS](#writing-good-css)
-    * [Miscellaneous](#Miscellaneous)
     * [Text Styling and Formatting](#text-styling-and-formatting)
     * [Images](#images)
     * [Icons](#icons)
@@ -69,7 +68,8 @@
     * [Grid Functions](#grid-functions)
     * [Responsive Layouts with auto-fit and auto-fill](#grid-responsive-layout)
 * [SVG](#svg)
-* [Others](#others)
+* [Miscellaneous](#miscellaneous)
+* [Emmet](#emmet)
 
 <h2 id="resources"> Resources </h2>
 
@@ -253,128 +253,6 @@ CSS stands for Cascading Style Sheets. You can link your css file in 3 different
         text-decoration: underline;
     }
     ```
-
-<h3 id="miscellaneous">Miscellaneous</h3>
-
-```css
-/* Putting this on the parent element will put all the children in horizontal row */
-display: flex;
-```
-
-```css 
-/*If you set an element's margin to a negative value, the element will grow larger.*/
-margin: -15px;
-```
-
-```css
-/* if we have a list of items and need it to scroll if it's more than the max height, set overflow: scroll; */
-<ul style="height=300px; overflow: scroll;">
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-</ul>
-```
-```css
-.borderImg {
-    /* 2px horizontal, 2px vertical, 5px blur it out; mush softer, color */
-    text-shadow: 2px 2px 5px black;    
-    border: 5px dotted white; /* width, type and color */
-}
-```
-```css
-header {
-    background-image: url(img/hero.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh; /* it will take 100% of the view port height */
-}
-```
-```css
-.box {
-    background-color: lightblue;
-    color: white;
-    text-align: center;
-    font-family: verdana;
-    font-size: 20px;
-    display: block; /* by default the div element will have this attribute, it will take the full width and force line brake*/
-}
-```
-
-```html
-<!-- <span> element here only inside <p> to style inline content -->
-<p class="plan-price">399$ <span>per month</span></p>
-
-<!-- adding white space, like an empty line -->
-<p class="plan-price-meal">&nbsp;</p> 
-```
-```css
-/* remove borders added by chrome in input elements */
-*:focus {
-    outline: none;
-}
-```
-```html
-<div class="row">
-	<div class="col span-1-of-3">
-        <!-- when you click on the label it will highlight the textbox, it didn't work with text area and selection -->
-            <label for="find-us">How did you find us?</label>
-	</div>
-	<div class="col span-2-of-3">
-		<select name="find-us" id="find-us">
-			<option value="friends">Friends</option>
-			<option value="search">Search Engine</option>
-			<option value="ad">Advertisement</option>
-			<option value="other">Other</option>
-		</select>
-	</div>
-</div>
-```
-```css
-padding: 10px 20px;
-/* It works clockwise starting from top */
-padding-top: 10px;  
-padding-right: 20px;  
-padding-bottom: 10px;  
-padding-left: 20px;  
-
-padding: 10px 20px 40px;
-/* It works clockwise starting from top */
-padding-top: 10px;  
-padding-right: 20px;  
-padding-bottom: 40px;  
-padding-left: 20px; /* like padding right */  
-```
-```css
-* {
-    /* By default browser put margin and padding on elements, to remove this: */
-    margin: 0;
-    paading: 0;
-    /* Include padding and border in the element's total width and height. */
-    box-sizing: border-box;
-}
-```
-```css 
-.container {
-    width: 1140px;
-    /* auto means left and right margin will be adjusted automatically according to the context of the element which is the browser window our case */
-    margin-left: auto;  
-    margin-right: auto;  
-}
-```
-It is a bad practice to use element id to style the element, use it sparingly.  
-
-javascript:void(0); means stay on the page, the void operator evaluates the given expression and then returns undefined.
-
-
-```css
-/* z-index only works if we specified position */
-z-index: 10;
-```
-
 <h3 id="text-styling-and-formatting">Text Styling and Formatting</h3>
 
 ```css
@@ -1879,7 +1757,123 @@ fill: currentColor;
 ```
 
 
-### Others:
+<h2 id="miscellaneous">Miscellaneous</h2>
+
+* ```css
+    /* Putting this on the parent element will put all the children in horizontal row */
+    display: flex;
+    ```
+
+* ```css 
+    /*If you set an element's margin to a negative value, the element will grow larger.*/
+    margin: -15px;
+    ```
+
+*   ```css
+    /* if we have a list of items and need it to scroll if it's more than the max height, set overflow: scroll; */
+    <ul style="height=300px; overflow: scroll;">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    ```
+*   ```css
+    .borderImg {
+        /* 2px horizontal, 2px vertical, 5px blur it out; mush softer, color */
+        text-shadow: 2px 2px 5px black;    
+        border: 5px dotted white; /* width, type and color */
+    }
+    ```
+*   ```css
+    header {
+        background-image: url(img/hero.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh; /* it will take 100% of the view port height */
+    }
+    ```
+*   ```css
+    .box {
+        background-color: lightblue;
+        color: white;
+        text-align: center;
+        font-family: verdana;
+        font-size: 20px;
+        display: block; /* by default the div element will have this attribute, it will take the full width and force line brake*/
+    }
+    ```
+
+*   ```html
+    <!-- <span> element here only inside <p> to style inline content -->
+    <p class="plan-price">399$ <span>per month</span></p>
+
+    <!-- adding white space, like an empty line -->
+    <p class="plan-price-meal">&nbsp;</p> 
+    ```
+*   ```css
+    /* remove borders added by chrome in input elements */
+    *:focus {
+        outline: none;
+    }
+    ```
+*   ```html
+    <div class="row">
+        <div class="col span-1-of-3">
+            <!-- when you click on the label it will highlight the textbox, it didn't work with text area and selection -->
+                <label for="find-us">How did you find us?</label>
+        </div>
+        <div class="col span-2-of-3">
+            <select name="find-us" id="find-us">
+                <option value="friends">Friends</option>
+                <option value="search">Search Engine</option>
+                <option value="ad">Advertisement</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+    </div>
+    ```
+*   ```css
+    padding: 10px 20px;
+    /* It works clockwise starting from top */
+    padding-top: 10px;  
+    padding-right: 20px;  
+    padding-bottom: 10px;  
+    padding-left: 20px;  
+
+    padding: 10px 20px 40px;
+    /* It works clockwise starting from top */
+    padding-top: 10px;  
+    padding-right: 20px;  
+    padding-bottom: 40px;  
+    padding-left: 20px; /* like padding right */  
+    ```
+*   ```css
+    * {
+        /* By default browser put margin and padding on elements, to remove this: */
+        margin: 0;
+        paading: 0;
+        /* Include padding and border in the element's total width and height. */
+        box-sizing: border-box;
+    }
+    ```
+*   ```css 
+    .container {
+        width: 1140px;
+        /* auto means left and right margin will be adjusted automatically according to the context of the element which is the browser window our case */
+        margin-left: auto;  
+        margin-right: auto;  
+    }
+    ```
+* It is a bad practice to use element id to style the element, use it sparingly.  
+* javascript:void(0); means stay on the page, the void operator evaluates the given expression and then returns undefined.
+*   ```css
+    /* z-index only works if we specified position */
+    z-index: 10;
+    ```
 * In modern CSS, many times Flexbox used in conjunction with Grid Layout Module. Overall layout can be done by the grid and smaller details can be handled with flexbox.
 * If you use `margin-right: auto;` with flexbox container, flexbox item will occupy only the space that it needs and all remaining space will be margin right
 	```css
@@ -1953,8 +1947,11 @@ fill: currentColor;
 	* Google developed “Roboto;” Apple, “San Francisco;” and Microsoft, “Segoe UI”
 	* We save the user from having to download an external font from a CDN, resulting in slightly faster loading times and no flashing from font changes.
 	* Because the font in use will be the operating system’s default font, our application or website will appear more like a native app.
+* [Using Counters in CSS](https://30-seconds.github.io/30-seconds-of-css/#counter)
+* [Custom Scrollbar](https://30-seconds.github.io/30-seconds-of-css/#custom-scrollbar)
+* [list-style-type](http://www.java2s.com/Code/HTMLCSS/CSS/liststyletypesquare.htm)
 
-<h3 id="Emmet">Emmet</h3>
+<h3 id="emmet">Emmet</h3>
 
 Writing .row>(.col-1-of-4>.feature-box)*4 will generate: 
 
