@@ -3,18 +3,34 @@
 
     margin: 15rem 0;
 
-    display: grid; 
-    // grid-template-columns: repeat(3, 1fr);
-    // auto-fit: to create coloumns as neede to fit the view
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    /* for progressive enhancement, to support older browsers.
+    we saying if the browser supports grid then do the following 
+    otherwise depend on the old floating technique shown in .feature class */
+    @supports(display: grid) {
+        display: grid; 
+        // grid-template-columns: repeat(3, 1fr);
+        // auto-fit: to create coloumns as neede to fit the view
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 
-    /* to override deafult behaviour which is stretch and making space between heading and paragraph */
-    align-items: start;
+        /* to override deafult behaviour which is stretch and making space between heading and paragraph */
+        align-items: start;
 
-    grid-gap: 6rem;
+        grid-gap: 6rem;
+    }
 }
 
 .feature {
+    /* for progressive enhacement */
+    float: left;
+    width: 33.3333%;
+    margin-bottom: 6rem;
+
+    @supports(display: grid) {
+        // float will be ignored
+        width: auto;
+        margin-bottom: 0;
+    }
+    /* ************************** */
     display: grid;
     // min-content: so if we change the width of the icon, the column width it will adjust automatically.
     // 1fr: occupy remaining space
