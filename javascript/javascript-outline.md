@@ -1,3 +1,4 @@
+# Javascript Outlines
 * When JavaScript variables are declared, they have an initial value of `undefined`. If you do a mathematical operation on an `undefined` variable your result will be `NaN` which means "Not a Number". If you concatenate a string with an `undefined` variable, you will get a literal string of "undefined".
 * In JavaScript all variables and function names are case sensitive. This means that capitalization matters. MYVAR is not the same as MyVar nor myvar
 * In mathematics, a number can be checked to be even or odd by checking the remainder of the division of the number by 2.
@@ -54,3 +55,25 @@ Code	Output
 * Variables which are used without the var keyword are automatically created in the global scope.
 * Variables which are declared within a function, as well as the function parameters have local scope. That means, they are only visible within that function.
 * A function can include the `return` statement but it does not have to. In the case that the function doesn't have a `return` statement, when you call it, the function processes the inner code but the returned value is `undefined`.
+* The `case` in `switch` statement is doing strict equality `===`.
+* In javascript objects, you can use numbers as properties. You can even omit the quotes for single-word string properties, as follows:
+    ```js
+    var anotherObject = {
+        make: "Ford",
+        5: "five",
+        "model": "focus"
+    };
+    ```
+    However, if your object has any non-string properties, JavaScript will automatically *typecast* them as strings.
+* We can use the `.hasOwnProperty(propname)` method of objects to determine if that object has the given property name. `.hasOwnProperty()` returns true or false.
+* JavaScript has a `Math.random()` function that generates a random decimal number between 0 (inclusive) and not quite up to 1 (exclusive). Thus Math.random() can return a 0 but never quite return a 1
+* `Math.floor(Math.random() * 20);` Generate random number between 0 and 19.
+* `Math.floor(Math.random() * (max - min + 1)) + min;` Generate random number in any rang
+* The `parseInt(string)` function parses a string and returns an integer. `var a = parseInt("007");` It converts the string "007" to an integer 7. If the first character in the string can't be converted into a number, then it returns NaN.
+* The `parseInt(string, radix)` function parses a string and returns an integer. It takes a second argument for the `radix`, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.
+    ```js
+    var a = parseInt("11", 2); // The radix variable says that "11" is in the binary system, or base 2. This example converts the string "11" to an integer 3.
+    var b = parseInt('FXX123', 16); // base 16 hexadecimal
+    var c = parseInt('015', 10); // base 10
+    var d = parseInt(15.99, 10); // base 10 
+    ```
