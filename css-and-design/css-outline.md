@@ -1723,7 +1723,26 @@ Align grid tracks (cell or multiple cells) inside its container [Codepen Example
   grid-auto-rows: 150px;
 }
 ```
+* Text can be treated as a grid as well as after and before pesudo elements
+    ```scss
+    &__seenon-text {
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-column-gap: 1.5rem;
+        align-items: center;
 
+        font-size: 1.6rem;
+        color: $color-grey-light-2;
+
+        &::before,
+        &::after {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+        }
+    }
+    ```
 <h2 id="svg">SVG</h2>
 
 Moving from Icon Fonts to SVGs. (Scalable Victor Graphics) 
@@ -1950,6 +1969,17 @@ fill: currentColor;
 * [Using Counters in CSS](https://30-seconds.github.io/30-seconds-of-css/#counter)
 * [Custom Scrollbar](https://30-seconds.github.io/30-seconds-of-css/#custom-scrollbar)
 * [list-style-type](http://www.java2s.com/Code/HTMLCSS/CSS/liststyletypesquare.htm)
+* 
+    ```scss
+    &__img {
+        width: 100%;
+        height: 100%;
+        // to fix the image overflowing issue and maintain the aspect ratio.
+        // to fit its container, no overflow. you should add width, height and display: block
+        object-fit: cover;
+        display: block;
+    }
+    ```
 
 <h3 id="emmet">Emmet</h3>
 
