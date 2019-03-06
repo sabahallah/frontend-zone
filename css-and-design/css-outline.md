@@ -1472,7 +1472,7 @@ Flex Item Properties:
 * ``` order: 0 | <integer> ``` all flex items has `order: 0;` by default, if you set `order: -1;` to a flex item, it will put this item at the begining of the container, because any other flex item is 0.  
 The `order` property is used to tell CSS the order of how flex items appear in the flex container. By default, items will appear in the same order they come in the source HTML. The property takes numbers as values, and negative numbers can be used.
 * `flex-grow: 0 | <integer>` abbility of an element to grow as much as it can. If we put `flex-grow: 1;` on items it will occupy all the entire space as much as it can. If we put `flex-grow: 2;` on item so means it has double the abblity to grow. shorthand property `flex: 1;`
-* `flex-shrink: 1 | <integer>` default is 1, so it means the element allows to shrink if there's no more availabe space, if we don't want item to shrink, we'll set it to 0.  It allows an item to shrink if the flex container is too small.  
+* `flex-shrink: 1 | <integer>` default is 1, It allows an item to shrink if the flex container is too small, so it means the element allows to shrink if there's no more availabe space, if we don't want item to shrink, we'll set it to 0.   
 The `flex-shrink` property takes numbers as values. The higher the number, the more it will shrink compared to the other items in the container. For example, if one item has a `flex-shrink` value of 1 and the other has a `flex-shrink` value of 3, the one with the value of 3 will shrink three times as much as the other.
     ```html
     <style>
