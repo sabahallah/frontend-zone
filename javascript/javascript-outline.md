@@ -77,3 +77,13 @@ Code	Output
     var c = parseInt('015', 10); // base 10
     var d = parseInt(15.99, 10); // base 10 
     ```
+* Unlike `var`, when using `let`, a variable with the same name can only be declared once.
+    ```js
+    let camper = 'James';
+    let camper = 'David'; // throws an error
+    ```
+* `"use strict"` This enables Strict Mode, which catches common coding mistakes and "unsafe" actions. For instance:
+    ```js
+    "use strict";
+    x = 3.14; // throws an error because x is not declared
+    ```
