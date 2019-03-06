@@ -19,6 +19,8 @@
 
 <h2 id="design-resources">Design Resources</h2>
 
+* [Adobe XD for graphic design](https://www.adobe.com/mena_en/products/xd.html)
+* [figma](https://www.figma.com/)
 * [Jonas' Resources](http://codingheroes.io/resources/)
 * 99designs.com
 * [Udemy: Web Design for Web Developers](https://www.udemy.com/web-design-secrets/)
