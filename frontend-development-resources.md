@@ -1,22 +1,25 @@
 # Starter List for front end development resources
+
 * CSS & Design
-    * [What is Flat Design](https://www.interaction-design.org/literature/topics/flat-design)
-    * CSS
-        * [30 Seconds of CSS](https://30-seconds.github.io/30-seconds-of-css/)
-        * [Postprocess CSS](https://postcss.org/) Add vendor prefixes to CSS in order to support multiple browsers, `npm install --save-dev postcss-cli`
-        * [preset-env: postprocess modern CSS](https://preset-env.cssdb.org/) it deprecates cssnext
-        * [Stylelint](https://stylelint.io/) for CSS linting, modern linter that helps you avoid errors and enforce conventions in your styles.
-    * Images
-    * Colors
-        * [Flat UI Colors](https://flatuicolors.com/)
-    * Icons
-        * [icomoon.io](https://icomoon.io/) Convert Icon Font to SVG or download SVG images.
-    * Inspiration
-        * [dribbble](https://dribbble.com)
-        * [behance](https://behance.com)
-        * [uplabs](https://www.uplabs.com)
-    * Good CSS Resourcs
-        * https://css-tricks.com/
+  * [What is Flat Design](https://www.interaction-design.org/literature/topics/flat-design)
+  * CSS
+    * [A ton of common front end patterns](https://freefrontend.com/)
+    * [30 Seconds of CSS](https://30-seconds.github.io/30-seconds-of-css/)
+    * [css-tricks.com](https://css-tricks.com/)
+    * [cssgradient.io](https://cssgradient.io/)
+    * [Postprocess CSS](https://postcss.org/) Add vendor prefixes to CSS in order to support multiple browsers, `npm install --save-dev postcss-cli`
+    * [preset-env: postprocess modern CSS](https://preset-env.cssdb.org/) it deprecates cssnext
+    * [Stylelint](https://stylelint.io/) for CSS linting, modern linter that helps you avoid errors and enforce conventions in your styles.
+  * Images
+    * [coolbackgrounds.io](https://coolbackgrounds.io/) Cool backgrounds for your next project.
+  * Colors
+    * [Flat UI Colors](https://flatuicolors.com/)
+  * Icons
+    * [icomoon.io](https://icomoon.io/) Convert Icon Font to SVG or download SVG images.
+  * Inspiration
+    * [dribbble](https://dribbble.com)
+    * [behance](https://behance.com)
+    * [uplabs](https://www.uplabs.com)
 * JS
     * [ESLint](https://eslint.org/) for JavaScript linting
     * [Babel](https://babeljs.io/) JavaScript compiler in order to use next generation JavaScript, Get browser-compatible JavaScript out
@@ -38,31 +41,44 @@
     * [Extension lets you write email in Markdown and render it before sending](https://markdown-here.com/features.html)
     * [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables)
 * UI Templates
-    * Angular Templates:
-        * https://demos.creative-tim.com/paper-dashboard-angular/dashboard
-        * https://demos.creative-tim.com/paper-kit-2-angular/home
-        * https://demos.creative-tim.com/now-ui-dashboard-angular
-        * https://github.com/codetok/cdk-admin
-        * https://ddvkid.github.io/ng-dashboard/others
-        * https://demos.creative-tim.com/material-dashboard-angular2/dashboard
-    * HTML, CSS, Bootstrap Templates:
-        * https://pixelarity.com/
-        * https://www.styleshout.com
-        * https://www.zerotheme.com/free-bootstrap-themes
-        * https://html5up.net/ethereal
-        * https://www.free-css.com
-        * https://themehunt.com/items/popular
-        * https://themehunt.com/profile/codecarnival
-        * http://www.templatewire.com/
-        * https://www.creative-tim.com/product/material-kit
-        * https://w3layouts.com
-        * https://getstisla.com/
-    * Paid 
-        * https://themewagon.com/themes/posh-html5-bootstrap-4-template/
-        * http://www.qodethemes.com/themes/
-        * http://ani-angular.strapui.com/dashboard/invoice
-* Front End Tutorials
-    * https://freecodecamp.com/
+  * Angular Templates:
+    * <https://demos.creative-tim.com/paper-dashboard-angular/dashboard>
+    * <https://demos.creative-tim.com/paper-kit-2-angular/home>
+    * <https://demos.creative-tim.com/now-ui-dashboard-angular>
+    * <https://github.com/codetok/cdk-admin>
+    * <https://ddvkid.github.io/ng-dashboard/others>
+    * <https://demos.creative-tim.com/material-dashboard-angular2/dashboard>
+  * HTML, CSS, Bootstrap Templates:
+    * <https://html5up.net/>
+    * <https://templated.co/>
+    * <https://freehtml5.co>
+    * <https://colorlib.com/wp/templates/>
+    * <https://www.zerotheme.com/>
+    * <https://www.styleshout.com/free-templates/>
+    * <https://www.html5xcss3.com/>
+    * <https://athemes.com/collections/free-bootstrap-admin-templates/>
+    * <https://themewagon.com/free-html-ecommerce-templates-html5-bootstrap/>
+    * <https://pixelarity.com/>
+    * <https://www.styleshout.com>
+    * <https://www.zerotheme.com/free-bootstrap-themes>
+    * <https://www.free-css.com>
+    * <https://themehunt.com/items/popular>
+    * <https://themehunt.com/profile/codecarnival>
+    * <http://www.templatewire.com/>
+    * <https://www.creative-tim.com/product/material-kit>
+    * <https://w3layouts.com>
+    * <https://getstisla.com/>
+    * <https://startbootstrap.com>
+  * Paid
+  * <https://themewagon.com/themes/posh-html5-bootstrap-4-template/>
+    * <http://www.qodethemes.com/themes/>
+    * <http://ani-angular.strapui.com/dashboard/invoice>
+* Front End Tutorials & Resources
+  * Free
+    * [freecodecamp.com](https://freecodecamp.com/)
+  * Paid
+    * [frontendmasters.com](https://frontendmasters.com/)
+    * [eghead.io](https://egghead.io/)
 * Youtube Channels
     * [Academind Channel](https://www.youtube.com/channel/UCSJbGtTlrDami-tDGPUV9-w/playlists)
     * [FreeCodeCamp Channel](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ)
