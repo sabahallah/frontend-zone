@@ -1,0 +1,188 @@
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  text-align: center; /* it will center any text base items */
+}
+
+/* ************ NAV SECTION *********** */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #eee;
+
+  width: 100vw;
+}
+
+#navbar {
+  display: flex;
+  justify-content:flex-end;
+}
+
+li {
+  list-style: none;
+  display: block;
+  padding: 1.7rem 3.5rem;
+}
+li:last-child {
+  padding-right: 5rem;
+}
+
+
+.header-link:link,
+.header-link:visited {
+    color: #008080;
+    text-decoration: none;
+}
+
+.header-link:hover,
+.header-link:active {
+    color: green;
+}
+
+/* ************ WELCOME SECTION *********** */
+
+#welcome-section {
+  min-height: 100vh;
+  background-color: #eee;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#welcome-section p {
+  color: green;
+}
+
+/* ************ PROJECTS SECTION *********** */
+.projects {
+  width: 70vw;
+  margin: 0px auto 100px auto;
+
+  display: grid;
+  grid-template-rows: 100px repeat(3, 200px) 50px;
+  grid-template-columns: repeat(2, 1fr);
+
+  grid-gap: 30px;
+
+  align-items: center;
+  justify-items: center; 
+  
+  color: #008080;
+}
+
+
+.project-tile {
+   display: block;
+
+   width: 60%;
+   height: auto;
+
+   text-decoration: none;
+   font-weight: bold;
+
+   border: 2px solid lightblue;
+   
+}
+
+.projects-header {
+  
+  color: #008080;
+  font-weight: normal;
+
+  grid-column: 1/-1;
+}
+
+.project-title {
+  margin: 10px;
+}
+
+.projects-footer {
+  grid-column: 1/-1;
+  border: 2px solid lightblue;  
+
+  padding: 10px 55px;
+  border-radius: 4px;
+  text-decoration: none;
+  background: #e0ebe8;
+  font-weight: bold;
+  font-size: 1em;
+  border: 2px solid #90C695;
+}
+
+.project-pic {
+  width: 100%;
+  border-bottom: 2px solid lightblue; 
+}
+
+/* *********** CONTACT SECTION ************ */
+
+.contact {
+  background: #C8F7C5;
+  padding: 160px 0 110px;
+}
+
+.contact-socials {
+  margin: 120px auto;
+}
+
+.contact-details {
+  display: inline-block; /* it will not force line break */
+  font-weight: bold;
+  margin: 0 35px 0px 35px;
+  text-decoration: none;
+
+  width: 100px;
+  height: 100px;
+  
+  line-height: 100px; /* to center the text */
+
+  border-radius: 100%;
+  border: 2px solid #90C695;
+  background: #e0ebe8;
+  color: #008080;
+  
+}
+
+.contact-details:hover {
+  background: #E4F1FE;
+  color: green;
+}
+
+/* *********** FOOTER SECTION ************ */
+
+footer {
+  padding: 20px; 
+  background: #22313F;
+  color: white;
+  line-height: 40px;
+}
+
+footer > p > a {
+  color: white;
+}
+
+/* *********** Media Queries ************* */
+@media only screen and (max-width: 1100px) {
+  .project-tile {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .project-tile {
+    width: 100%;
+  }
+}

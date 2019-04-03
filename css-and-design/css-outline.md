@@ -253,25 +253,27 @@ CSS stands for Cascading Style Sheets. You can link your css file in 3 different
         text-decoration: underline;
     }
     ```
+
 <h3 id="text-styling-and-formatting">Text Styling and Formatting</h3>
 
 ```css
 html {
-	font-family: "Times New Roman", serif, sans-serif;
-	font-size: 2em; /* 2em = 2*30px get back to it */
-	font-style: italic;
+    font-family: "Times New Roman", serif, sans-serif;
+    font-size: 2em; /* 2em = 2*30px get back to it */
+    font-style: italic;
 
-	text-align: center; /* any text base element will be centered; 'justify' will try to centre the element */
-	line-height: 2em;
+    text-align: center; /* any text base element will be centered; 'justify' will try to centre the element */
+    line-height: 2em;
 }
 
 a {
-	text-decoration: none;	/* remove underline */
-	letter-spacing: 10px;
-	word-spacing: 10px;  /* put 10px space between words */
-	text-transform: capitalize; /* lowercase, uppercase & capitalize */
+    text-decoration: none; /* remove underline */
+    letter-spacing: 10px;
+    word-spacing: 10px;  /* put 10px space between words */
+    text-transform: capitalize; /* lowercase, uppercase & capitalize */
 }
 ```
+
 <h3 id="images">Images</h3>
 
 ```css
@@ -1562,7 +1564,7 @@ The `flex-basis` property specifies the initial size of the item before CSS make
     grid-template-columns: repeat(2, 150px) 300px; // 3 tracks for the columns 2 has 150px and 1 has 300px width */
     grid-template-columns: repeat(3, 1fr); /* 1 franctional unit, it expands to all space that it can occupy, 1 fraction of the available space, it divids available space by 3 */
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-columns: 50% 1fr 1fr; /* 50% of the vailable space, the other 50% will go to the fraction. (it includes fraction and gap) */
+    grid-template-columns: 50% 1fr 1fr; /* 50% of the vailable space, the remaining 50% will go to the fraction. (it includes fraction and gap) */
 
     /* grid-row-gap: 30px;
     grid-column-gap: 50px;*/
@@ -1582,7 +1584,7 @@ The `flex-basis` property specifies the initial size of the item before CSS make
     grid-row: 1 / 3;
     grid-column: 2 / 4;
 
-    /* -1 means span from column no. 1 to the end, no matter how many columns you have (id you don't know how many columns) */
+    /* -1 means span from column no. 1 to the end, no matter how many columns you have (if you don't know how many columns) */
     grid-column: 1 / -1;
 }
 
