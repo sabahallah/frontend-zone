@@ -1,3 +1,5 @@
 # Angular Outline
-## Useful Libraries 
+
+## Useful Libraries
+
 * [ng-circle-progress](https://bootsoon.github.io/ng-circle-progress/)

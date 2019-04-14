@@ -9,8 +9,7 @@ orange color: #e67e22
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box; /* this will change the box model so that the borders and the paddings are no longer added to the total width 
-	or the total height that we specify for a box */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height  */
 }
 
 /* remove borders added by chrome */
@@ -31,10 +30,11 @@ html {
 
 /* when you define some floats, then later you have to clear those floats */
 .clearfix {
-    zoom:1
+    /* zoom property allows you to scale your content,  it isn't recommended for production sites. Use CSS Transforms instead */
+    zoom:1;
 }
 
-.clarfix:after { /* clear the float after an element, we put this on ul element because the li element has the float */
+.clearfix:after { /* clear the float after an element, we put this on ul element because the li element has the float */
     content: ".";
     clear: both;
     display: block;
@@ -141,7 +141,7 @@ input[type=submit]{
     /*
     inline-block element
     it is just like an inline element but it can have padding and margin.
-    it doesn't force a line brake, but you can add some margin and padding to it.
+    it doesn't force a line break, but you can add some margin and padding to it.
     */
     display: inline-block; /* so now we can add padding and margin */
     padding: 10px 30px;
@@ -198,6 +198,9 @@ header {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.8))), url(img/hero-min.jpg);
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/hero-min.jpg);
     background-size: cover; /* we want to use the actual image size */
+    /* The background-position property sets the starting position of a background image.
+        By default, a background-image is placed at the top-left corner of an element, and repeated both vertically and horizontally.
+    */
     background-position: center;
     height: 100vh; /* 100% of the view port */ 
     background-attachment: fixed; /* very cool to make the image fixed, so you can scroll the the page and the image will be fixed in its place */
@@ -224,7 +227,7 @@ header {
 
 .logo-black {
     display: none;
-    height: 50px;
+    height: 60px;
     width: auto;
     float: left;
     margin: 7px 15px;
@@ -238,9 +241,8 @@ header {
 }
 
 .main-dev li {
-    display: inline-block;
-    float: left;
-    margin-left: 40px
+   float: left;
+   margin-left: 40px;
 }
 
 .main-dev li a:link,
@@ -264,12 +266,13 @@ section {
     padding: 80px 0;
 }
 
-/** mobile navigation */
+/** mobile navigation **/
 .mobile-nav-icon {
     float: right;
-    margin-top: 30px;
+    margin: 7px 15px;
     cursor: pointer;
     display: none;
+    font-size: 170%;
 }
 
 .menu-icon {
@@ -277,6 +280,9 @@ section {
     color: #fff;
 }
 
+.menu-icon-colored {
+    color: #555;
+}
 
 /** sticky navigation */
 
@@ -310,7 +316,7 @@ section {
 }
 
 .sticky .main-dev {
-    margin-top: 18px;
+    margin-top: 23px;
 }
 
 /***********************************************/
@@ -325,7 +331,7 @@ section {
 /*************** MEALS *************************/
 /***********************************************/
 
-. section-meals {
+.section-meals {
     padding: 0;
 }
 .meals-showcase {
@@ -402,7 +408,6 @@ section {
 .works-step div {
     color: #e67e22;
     border: 2px solid #e67e22;
-    display: inline-block; /* make sure it doesn't force line breake */
 
     /* following properties to make circle around the number */
     border-radius: 50%;
@@ -418,7 +423,7 @@ section {
 }
 
 .btn-app:link,
-btn-app:visited {
+.btn-app:visited {
     border: 0;
 }
 
@@ -439,13 +444,13 @@ btn-app:visited {
     margin-bottom: 15px;
 }
 
-.city-features {
+.city-feature {
     margin-bottom: 5px;
 }
 
 .icon-small {
     display: inline-block;
-    widows: 30px;
+    width: 30px;
     text-align: center;
     color: #e67e22;
     font-size: 120%;
@@ -514,7 +519,7 @@ cite img {
     background-color: #fff;
     border-radius: 5px;
     width: 90%;
-    margin-left: 5%;/* with previous property, it will be 100% */
+    margin-left: 5%; /* with previous property, it will be 100% */
     -webkit-box-shadow: 0 2px 2px #efefef;
     box-shadow: 0 2px 2px #efefef;
 }
@@ -590,6 +595,9 @@ textarea {
 
 input[type=checkbox] {
     margin: 10px 5px 10px 0;
+}
+input[type="submit"] {
+    cursor: pointer;
 }
 
 /***********************************************/

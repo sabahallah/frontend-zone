@@ -3,7 +3,6 @@
     .hero-text-box {
         width: 100%;
         padding: 0 2%;
-
     }
     .row { padding: 0 2%;}
 }
@@ -12,11 +11,14 @@
 @media only screen and (max-width: 1023px) {
     body { font-size: 18px; }
     section { padding: 60px 0; }
+
+    .hero-text-box {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
     .long-copy {
-
         width: 80%;
-        margin-left: 10%; /* because width is 70% */
-
+        margin-left: 10%;
     }
     .steps-box { margin-top: 10px; }
     .steps-box:last-child { margin-top: 10px; }
@@ -51,7 +53,9 @@
         padding: 30px 0;
     }
     .row,
-    .hero-text-box { padding: 0 4%;}
+    .hero-text-box { 
+        padding: 0 4%;
+    }
 
     .col { 
         width: 100%; /* very important: this will make columns staked on top of each other */
@@ -84,7 +88,12 @@
         padding: 10px 0;
         font-size: 100%;
     }
-
+    .logo {
+        height: 60px;
+        width: auto;
+        float: left;
+        margin: 7px 15px;
+    }
     .sticky {
         position: fixed; /* navigation will be fixed, irrespective of our scrolling */
         top: 0;
@@ -105,9 +114,8 @@
     }
     .sticky .main-dev li a:link,
     .sticky .main-dev li a:visited{ padding: 10px 0; }
-    .sticky .mobile-nav-icon { margin-top: 10px;}
+    .sticky .mobile-nav-icon { margin: 7px 30px; }
     .sticky .mobile-nav-icon ion-icon { color: #555;}
-
 
     /* *****************/
 
@@ -131,12 +139,16 @@
         padding: 4px;
         font-size: 120%;
     }
-    .works-step { margin-bottom: 20px;}
+   
     .works-step:last-of-type { margin-bottom: 20px;}
 
     .app-screen {
         width: 40px;
-        margin: 0 45%;
+        margin: 0 47%;
+    }
+
+    .btn-app img {
+        margin-top: 15px;
     }
 }
 

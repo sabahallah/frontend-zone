@@ -45,7 +45,7 @@ h2 {
 
 .container {
     width: 1140px;
-    margin: 20px auto 0 auto;
+    margin: 20px auto 20px auto;
 }
 
 .blog-post {
@@ -62,7 +62,7 @@ h2 {
 
 .author-box {
     padding-top: 20px;
-    border-top: 1px solid #808080;
+    border: 1px solid #808080;
 }
 
 .other {

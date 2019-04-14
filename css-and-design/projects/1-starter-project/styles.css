@@ -27,7 +27,7 @@
 }
 
 .date {
-    /* parent element should be relative in order to posotion this absolute */
+    /* parent element should be relative in order to position this as absolute positioning */
     position: absolute;
     top:0;
     right: 0;

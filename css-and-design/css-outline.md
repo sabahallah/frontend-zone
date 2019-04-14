@@ -3,9 +3,9 @@
     <img src="https://img.icons8.com/color/150/000000/css3.png" alt="Useful CSS Outline" width="150" >
   </a>
   <h2 align="center">CSS Outline</h2>
-  <p align="center">This intended to be a wiki for css quick review. It covers a lot of defintions, explainations and examples. Some of the defintions and explainations taken from different <a href="#resources">resources</a> and most of the credits go to them. This is just a brief. I kept it simple and structured so it could be easy to refresh and be useful for others. I will try to keep it updated as much as i can.</p>
+  <p align="center">This intended to be a wiki for css quick review and sample examples. It covers a lot of defintions, explainations and examples. Some of the defintions and explainations taken from different <a href="#resources">resources</a> and most of the credits go to them. This is just a brief. I kept it simple and structured so it could be easy to refresh and be useful for others. I will try to keep it updated as much as i can.</p>
   <p align="center">
-    <a href="https://twitter.com/home?status=CSS+Outline+by+%40msabahallah      +https%3A%2F%2Fgithub.com%2Fsabahallah%2Ffrontend-zone%2Fblob%2Fmaster%2Fcss-and-design%2Fcss-outline.md" target="_blank">    
+    <a href="https://twitter.com/home?status=CSS+Outline+by+%40msabahallah      +https%3A%2F%2Fgithub.com%2Fsabahallah%2Ffrontend-zone%2Fblob%2Fmaster%2Fcss-and-design%2Fcss-outline.md" target="_blank">
         <img src="https://img.shields.io/badge/twitter-tweet-blue.svg"/>
     </a>
     <a href="https://twitter.com/msabahallah" target="_blank">
@@ -16,128 +16,172 @@
 </p>
 
 # Index
+
 * [Resources](#resources)
-* [Development Resources](#development-resources)
-* [Outline](#outline)
-    * [Writing Good CSS](#writing-good-css)
-    * [Text Styling and Formatting](#text-styling-and-formatting)
-    * [Images](#images)
-    * [Icons](#icons)
-    * [Grid System](#grid-system)
-    * [Centre an Element](#center-element)
-    * [Transform](#transform)
-    * [CSS Mask](#css-mask)
+* [Development Resources](#useful-development-resources)
+* [Outlines](#outlines)
+  * [Link Your CSS File](#link-your-css-file)
+  * [Writing Good CSS](#writing-good-css)
+  * [Text Styling and Formatting](#text-styling-and-formatting)
+  * [Images](#images)
+  * [Icons](#icons)
+  * [Grid System](#grid-system)
+  * [Centre an Element](#technique-to-centre-an-element)
+  * [Transform](#transform)
+  * [CSS Mask](#css-mask)
 * [Box Model](#box-model)
-* [Targeting Elements (selectors)](#targeting-elements)
+* [Targeting Elements (selectors)](#targeting-elements-selectors)
+  * [Targeting Direct Element](#targeting-direct-element)
+  * [Targeting Element by id](#targeting-element-by-id)
+  * [Targeting Element by Class Name](#targeting-element-by-class-name)
+  * [CSS Combinators](#css-combinators)
+  * [CSS Grouping Selectors](#css-grouping-selectors)
+  * [CSS Specificity](#css-specificity)
 * [Units](#units)
 * [Colors](#colors)
-    * [Complementary Colors](#complementary-colors)
-    * [Tertiary Colors](#tertiary-colors)
-    * [Adjust the Hue of a Color](#color-hue)
-    * [CSS Gradient](#css-gradient)
-* [Create a Custom CSS Variable](#custom-css-variable)
-* [Cascading CSS Variables](#cascadaing-css)
+  * [Complementary Colors](#complementary-colors)
+  * [Tertiary Colors](#tertiary-colors)
+  * [Adjust the Hue of a Color](#adjust-the-hue-of-a-color)
+  * [CSS Gradient](#css-gradient)
+* [Cascading](#cascading)
+* [Create a Custom CSS Variable](#create-custom-css-variable)
+  * [Attach a Fallback value to a CSS Variable](#attach-a-fallback-value-to-a-css-variable)
+  * [Improve Compatibility with Browser Fallbacks](#improve-compatibility-with-browser-fallbacks)
+* [Cascading CSS Variables](#cascading-css-variables)
 * [Visual Design](#visual-design)
 * [Element Positioning](#element-positioning)
-    * [Relative Positioning](#relative-positioning)
-    * [Absolute Positioning](#absolute-positioning)
-    * [Fixed Positioing](#fixed-positioing)
-    * [Float Property](#float-property)
-    * [z-index Property](#z-index-property)
-    * [Positioning technique with Margin Property](#position-using-margin-property)
+  * [Relative Positioning](#relative-positioning)
+  * [Absolute Positioning](#absolute-positioning)
+  * [Fixed Positioing](#fixed-positioning)
+  * [Float Property](#float-property)
+  * [z-index Property](#z-index-property)
+  * [Positioning technique with Margin Property](#positioning-technique-with-margin-property)
 * [Adding content by css](#adding-content-by-css)
-* [Buttons or links in CSS](#buttons-links-css)
-* [Three Pillars to Write Good html and css](#css-pillars)
+* [Buttons or links in CSS](#buttons-or-links-in-CSS)
+* [Three Pillars to Write Good html and css](#the-three-pillars-to-write-good-html-and-css)
 * [Responsive web design](#responsive-web-design)
-    * [Fluid Grid](#fluid-grid)
-    * [Responsive Images](#responsive-images)
-    * [Media Queries](#media-queries)
-* [Browser Support & Compitability](#browser-support)
+  * [Fluid Grid](#fluid-grid)
+  * [Responsive Images](#responsive-images)
+  * [Media Queries](#media-queries)
+* [Browser Support & Compitability](#browser-support-&-compitability)
 * [Animation](#animation)
-* [How CSS works behind the scenes?](#how-css-works)
+* [How CSS works behind the scenes?](#how-css-works-behind-the-scenes)
+  * [1-Cascading process](#1-Cascading-process)
+  * [2-Process final css value](#2-process-final-css-value)
+  * [3-Stacking Context](#3-stacking-context)
 * [CSS Archticture](#css-archticture)
 * [SASS](#sass)
-* [Accessibility](#accessibility)
+* [Applied Accessibility](#applied-accessibility)
 * [Flexbox](#flexbox)
 * [Grid Layout](#grid-layout)
-    * [Naming Grid](#naming-grid)
-    * [Implicit Grids vs Explicit Grids](#implicit-explicit-grid)
-    * [Grid Flow](#grid-flow)
-    * [Aligning Grid Items](#align-grid-items)
-    * [Aligning Tracks](#align-tracks)
-    * [Grid Functions](#grid-functions)
-    * [Responsive Layouts with auto-fit and auto-fill](#grid-responsive-layout)
+  * [Naming Grid](#naming-grid)
+  * [Implicit Grids vs Explicit Grids](#implicit-explicit-grid)
+  * [Grid Flow](#grid-flow)
+  * [Aligning Grid Items](#align-grid-items)
+  * [Aligning Tracks](#align-tracks)
+  * [Grid Functions](#grid-functions)
+  * [Responsive Layouts with auto-fit and auto-fill](#grid-responsive-layout)
 * [SVG](#svg)
 * [Miscellaneous](#miscellaneous)
 * [Emmet](#emmet)
+* [CSS Performance](#css-performance)
+* [Text Properties](#text-properties)
+* [Image Background Properties](#image-background-properties)
 
-<h2 id="resources"> Resources </h2>
+## Resources
 
 * [Free Code Camp](https://freecodecamp.com)
 * [Udemy: Build Responsive Real World Websites with HTML5 and CSS3](https://www.udemy.com/design-and-develop-a-killer-website-with-html5-and-css3)
 * [Udemy: Advanced CSS and Sass: Flexbox, Grid, Animations and More!](https://www.udemy.com/advanced-css-and-sass)
-    * [git repo]( https://github.com/jonasschmedtmann/advanced-css-course.git)
+  * [git repo]( https://github.com/jonasschmedtmann/advanced-css-course.git)
 * [Udemy: Full Stack Web Development: HTML, CSS, React & Node](https://www.udemy.com/ultimate-web)
 
+***
 
-<h2 id="development-resources">Useful Development Resources </h2>
+## Useful Development Resources
 
 * [Jonas' Resources, Very Useful and Handy Resources](http://codingheroes.io/resources/)
-* Fonts: [Google Fonts](https://fonts.google.com/)
-* Icons: [liea.io](liea.io), [Icons as a unicode char](https://unicode-table.com/en/2934/)
-* Colors: [flatuicolors](https://flatuicolors.com/), 
-* Images: [imgur.com](https://imgur.com/), [pexel.com](https://www.pexels.com)
-* Inspiration: [behance](htts://behance.net), [dribbble](https://dribbble.com) 
-* [CSS Shadow Generator](https://www.cssmatic.com/box-shadow)
-* [lorem ipsum Generator](https://www.lipsum.com/)
-* [Responsive Design Grid](http://www.responsivegridsystem.com/)
-* [Normalize CSS in All Browsers](https://necolas.github.io/normalize.css/8.0.1/normalize.css)
-* [CSS Validator Service](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options)
+* Fonts
+  * [Google Fonts](https://fonts.google.com/)
+* Icons
+  * [linea.io](http://linea.io/)
+  * [Icons as a unicode char](https://unicode-table.com/)
+* Colors
+  * [Flat UI Colors](https://flatuicolors.com/)
+* Images
+  * [imgur.com](https://imgur.com/)
+  * [pexel.com](https://www.pexels.com)
+* Inspiration
+  * [behance](htts://behance.net)
+  * [dribbble](https://dribbble.com)
+* Grid System
+  * [Responsive Design Grid](http://www.responsivegridsystem.com/)
+* Tools
+  * [CSS Shadow Generator](https://www.cssmatic.com/box-shadow)
+  * [lorem ipsum Generator](https://www.lipsum.com/)
+  * [CSS Validator Service](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options)
+* Basic setup and boilerplate
+  * [Normalize CSS in All Browsers](https://necolas.github.io/normalize.css/8.0.1/normalize.css)
+  * [html5boilerplate](https://html5boilerplate.com/)
+  * Popular alternative is twitter bootstrap.
 * [Transform Property Explaination](https://www.udemy.com/design-and-develop-a-killer-website-with-html5-and-css3/learn/v4/questions/851800)
 * [Media Queries for Standard Devices](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/)
 * [Emmet Cheat Sheet](https://docs.emmet.io/cheat-sheet/)
 
-<h2 id="outline"> Outline </h2>
+***
 
-CSS stands for Cascading Style Sheets. You can link your css file in 3 different ways: 
-* Inline style
+## Outlines
+
+CSS stands for Cascading Style Sheets. You can link your css file in 3 different ways:
+
+* ### Link Your CSS File
+
+  * Inline style
+
     ```html
     <p style="color: red; border: 3px dotted blue"> this is inline style </P>
     ```
-* Internal Style
+
+  * Internal Style
+
     ```css
     <style>
         p {
-            color: red; 
+            color: red;
             border: 3px dotted blue;
         }
     </style>
     ```
-* External Style
+
+  * External Style
+
     ```css
     <link rel="stylesheet" type="text/css" href="style.css">
     /* Or using @import
-    The @import rule allows you to import a style sheet into another style sheet. */ 
+    The @import rule allows you to import a style sheet into another style sheet. */
     @import url('http://..../google/font');
     ```
-<h3 id="writing-good-css">Writing Good CSS</h3>
 
-* #### Use Low-Specificity Selectors  
-    Instead of writing
+* ### Writing Good CSS
+
+  * Use Low-Specificity Selectors, Instead of writing
+
     ```css
     .navigation a {
         color: blue;
     }
     ```
 
-    Write 
+    Write
+
     ```css
     .nav-link {
         color: blue;
     }
     ```
-* #### Don't Use ID or Element Selectors
-    Instead of writing
+
+  * Don't Use ID or Element Selectors, Instead of writing
+
     ```css
     #banner {
         background-color: blue;
@@ -147,7 +191,9 @@ CSS stands for Cascading Style Sheets. You can link your css file in 3 different
         color: white
     }
     ```
+
     Write
+
     ```css
     .banner {
         background-color: blue;
@@ -157,24 +203,28 @@ CSS stands for Cascading Style Sheets. You can link your css file in 3 different
         color: white;
     }
     ```
-* #### Don't Depend on a Certain Markup Structure (Markup can change at anytime)
-    Instead of writing
+
+  * Don't Depend on a Certain Markup Structure (Markup can change at anytime), Instead of writing
+
     ```css
     .header ul li a {
         margin-right: 20px;
     }
     ```
+
     Write
+
     ```css
     .header-link {
         margin-right: 20px;
     }
     ```
-* #### Don't Use Inline Styles
-* #### Don't Use !important
-    The one case in which you might be forced to use important is if using some third party JavaScript library
-* #### Prefix Modifier Classes
-    Instead of writing
+
+  * Don't Use Inline Styles
+  * Don't Use `!important`
+    The one case in which you might be forced to use `important` is if using some third party JavaScript library
+  * Prefix Modifier Classes, Instead of writing
+
     ```css
     .btn {
         padding: .25em;
@@ -186,7 +236,9 @@ CSS stands for Cascading Style Sheets. You can link your css file in 3 different
         background-color: red;
     }
     ```
-    Write 
+
+    Write
+
     ```css
     .btn {
         padding: .25em;
@@ -197,8 +249,9 @@ CSS stands for Cascading Style Sheets. You can link your css file in 3 different
         background-color: red;
     }
     ```
-* #### Write Small Rules
-    Instead of writing
+
+  * Write Small Rules, Instead of writing
+
     ```css
     .role-stat h1,
     .role-stat h2,
@@ -230,20 +283,22 @@ CSS stands for Cascading Style Sheets. You can link your css file in 3 different
         text-decoration: underline;
     }
 
-    .feature-4 h1,
-    .feature-4 h2,
-    .feature-4 p {
+    .feature-1 h1,
+    .feature-2 h2,
+    .feature-3 p {
         color: #FFF;
     }
 
-    .feature-4 a,
-    .feature-4 a,
-    .feature-4 a {
+    .feature-1 a,
+    .feature-2 a,
+    .feature-3 a {
         color: #FFF;
         text-decoration: underline;
     }
     ```
+
     Write
+
     ```css
     .text-white {
         color: #FFF;
@@ -254,155 +309,158 @@ CSS stands for Cascading Style Sheets. You can link your css file in 3 different
     }
     ```
 
-<h3 id="text-styling-and-formatting">Text Styling and Formatting</h3>
+* ### Text Styling and Formatting
 
-```css
-html {
-    font-family: "Times New Roman", serif, sans-serif;
-    font-size: 2em; /* 2em = 2*30px get back to it */
-    font-style: italic;
+    ```css
+    html {
+        font-family: "Times New Roman", serif, sans-serif;
+        font-size: 2em;
+        font-style: italic;
 
-    text-align: center; /* any text base element will be centered; 'justify' will try to centre the element */
-    line-height: 2em;
-}
+        text-align: center; /* any text base element will be centered; 'justify' will try to centre the element */
+        line-height: 2em;
+    }
 
-a {
-    text-decoration: none; /* remove underline */
-    letter-spacing: 10px;
-    word-spacing: 10px;  /* put 10px space between words */
-    text-transform: capitalize; /* lowercase, uppercase & capitalize */
-}
-```
+    a {
+        text-decoration: none; /* remove underline */
+        letter-spacing: 10px;
+        word-spacing: 10px;  /* put 10px space between words */
+        text-transform: capitalize; /* lowercase, uppercase & capitalize */
+    }
+    ```
 
-<h3 id="images">Images</h3>
+* ### Images
 
-```css
-img {
-   /****** applying responsivness to an image ******/
-   max-width: 100%;
-   height: auto; /* to maintain the aspect ratio of a photo */
-   padding: 5px; /* paading 5px around the image */ 
-   opacity: 0.70; /* transperancy from 0 to 1; 0 will be hidden, 1 will be completley visible */
-   
-   /****** centering an image ******/
-   display: block; /* it will force line break */
-   margin: auto; /* it will centre the image. it will try to split the margin around the image by two. */
+    ```css
+    img {
+    /****** applying responsivness to an image ******/
+    max-width: 100%;
+    height: auto; /* to maintain the aspect ratio of a photo */
+    padding: 5px; /* paading 5px around the image */
+    opacity: 0.70; /* transperancy from 0 to 1; 0 will be hidden, 1 will be completley visible */
 
-   border: 2px solid white;
-   border-radius: 10px;
-}
-```
-<h3 id="icons">Icons</h3>
+    /****** centering an image ******/
+    display: block; /* it will force line break */
+    margin: auto; /* it will centre the image. it will try to split the margin around the image by two. */
 
-```css
-.icon-big { 
-    /* if it is font icon */
-    font-size: 350%;
-    display: block; /* will force line break */
-    color: #e67e22;
-    margin-bottom: 10px;
-}
-```
+    border: 2px solid white;
+    border-radius: 10px;
+    }
+    ```
 
-<h3 id="grid-system">Grid System (Rows and Columns)</h3>
+* ### Icons
 
-We'll create our grid system and placing items inside.  
-```css
-.row {
-    display: flex;
-    width: 100%;
-}
+    ```css
+    .icon-big {
+        /* if it is font icon */
+        font-size: 350%;
+        display: block; /* will force line break */
+        color: #e67e22;
+        margin-bottom: 10px;
+    }
+    ```
 
-/*every time row is created we need something to happen after it*/
-.row::after {
-    display: block; /* stack rows upon each other */
-    /* if there're any elements inside this row that have float property like float right or left and has overflow, we're going to clear that */
-    clear: both; 
-    content: "";
-}
+* ### Grid System
 
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+    We'll create our grid system and placing items inside it.
 
-* { 
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
+    ```css
 
-/* attribute selector, grab every single class which starts with col- */
-[class*="col-"]{ 
-    border: 2px solid red;
-    padding: 15px;
-}
-```
+    .row {
+        display: flex;
+        width: 100%;
+    }
 
-<h3 id="center-element">Technique to Centre an Element</h3>
+    /*every time row is created we need something to happen after it*/
+    .row::after {
+        display: block; /* stack rows upon each other */
+        /* if there're any elements inside this row that have float property like float right or left and has overflow, we're going to clear that */
+        clear: both;
+        content: "";
+    }
 
-```html
-<div class="header__text-box">
-</div>
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
 
-.header__text-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-```
+    * {
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
 
-<h3 id="transform">Transform</h3>
+    /* attribute selector, grab every single class which starts with col- */
+    [class*="col-"]{
+        border: 2px solid red;
+        padding: 15px;
+    }
+    ```
 
-```css
-img:hover {
-    transform: scale(1.5); /* it will make the image 1.5 times bigger */
-    transform: rotate(20deg); /* it will rotate the item 20 degree */
-}
+* ### Technique to Centre an Element
 
-p {
-  transform: skewX(-32deg);
-}
-```
-<h3 id="css-mask">CSS Mask</h3>
+    ```html
+    <div class="header__text-box">
+    </div>
 
+    .header__text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    ```
 
-CSS masks: mask-image, mask-size  
-Mask defines an area where we can look through the element and see what's behind this element
-```css
-/* adding  icon to the left */
-&__item::before {
-	content: "";
-	display: inline-block;
-	height: 1rem;
-	width: 1rem;
-	margin-right: .7rem;
+* ### Transform
 
-	// Older browsers
-	background-image: url(../img/chevron-thin-right.svg);
-	background-size: cover;
+    ```css
+    img:hover {
+        transform: scale(1.5); /* it will make the image 1.5 times bigger */
+        transform: rotate(20deg); /* it will rotate the item 20 degree */
+    }
 
-	//Newer browsers - masks
-	@supports (-webkit-mask-image: url()) or (mask-image: url()) {
-        background-color: var(--color-primary);
-        /* this will be infront of the background color, so you'll see through the svg */
-		-webkit-mask-image: url(../img/chevron-thin-right.svg); 
-		-webkit-mask-size: cover;
-		mask-image: url(../img/chevron-thin-right.svg);
-		mask-size: cover;
-		background-image: none;
-	}
-	
-}
-```
-<h2 id="box-model"> Box Model </h2>
+    p {
+        transform: skewX(-32deg);
+    }
+    ```
+
+* ### CSS Mask
+
+    CSS masks: mask-image, mask-size  
+    Mask defines an area where we can look through the element and see what's behind this element
+
+    ```css
+    /* adding icon to the left */
+    &__item::before {
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        margin-right: .7rem;
+        /* Older browsers */
+        background-image: url(../img/chevron-thin-right.svg);
+        background-size: cover;
+
+        /* Newer browsers - masks */
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+            background-color: var(--color-primary);
+            /* this will be infront of the background color, so you'll see through the svg */
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+            background-image: none;
+        }
+    }
+    ```
+
+## Box Model
 
 **content**: Actual content (image, text, etc)  
 **padding**: Transparent area around the content inside the box  
@@ -411,9 +469,10 @@ Mask defines an area where we can look through the element and see what's behind
 
 `box-sizing: border-box;` Include padding and border in the element's total width and height.
 
-<h2 id="targeting-elements">Targeting Elements (selectors)</h2>
+## Targeting Elements (selectors)
 
 * ### Targeting Direct Element
+
     ```css
     body {
         background: #145asE545;
@@ -423,68 +482,86 @@ Mask defines an area where we can look through the element and see what's behind
         text-align: justify;
     }
     ```
-* ### Targeting Element by #id
-    The id selector uses the id attribute of an HTML element to select a specific element.
-	The id of an element should be unique within a page, so the id selector is used to select one unique element!
-	The id name cannot start with a number!
-	```css
-	#signup-id {
-		border: 1px solid black;
-		border-width: 2px;
-		border-color: white;
+
+* ### Targeting Element by id
+
+  * The id selector uses the id attribute of an HTML element to select a specific element.
+  * The id of an element should be unique within a page, so the id selector is used to select one unique element!
+  * The id name cannot start with a number!
+
+    ```css
+    #signup-id {
+        border: 1px solid black;
+        border-width: 2px;
+        border-color: white;
     }
     ```
+
 * ### Targeting Element by Class Name
+
     class name cannot start with a number!
+
     ```css
-	.square {
-		width: 100px;
-		height: 100px;
-		background-color: blue;
-		margin: auto; /* puts equal spacing on each side of my element - centre the element. */
+    .square {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        margin: auto; /* puts equal spacing on each side of my element - centre the element. */
     }
 
     /* Only <p> elements with class="center" will be center-aligned. */
     p.center {
-	    text-align: center;
-	    color: red;
-	}        
+        text-align: center;
+        color: red;
+    }
     ```
+
 * ### CSS Combinators
-    **Direct Child Only** 
+
+    **Direct Child Only**
+
     ```css
     /* any body element which has header which has h3 elements */
-    body > header > h3 { 
-	    color: #f00;
+    body > header > h3 {
+        color: #f00;
     }
     ```
-	
-	Unlike **Descendent Selector** which means every single h3 under the body element (_it doesn't matter how deep is it_)
-    ```css
-	body h3 {
-		color: #020;
-    }
-    ```	
-* ### CSS Grouping Selectors
-    If you have elements with the same style declarations, it will be better to group the selectors to minimize the code:
-    ```css
-	h1, h2, p, .container, #name {
-   		text-align: center;
-    	color: red;
-    }
-    ```
-* ### CSS Specificity
-    Here's the calculation, put 0 or 1 for each of the following elements: 
-	- (inline style) style property embeded in html
-	- id
-	- class, psudeo-class or attribute ex: [id="foo"]
-	- html elements
 
-    #### Example #1:
+    Unlike **Descendent Selector** which means every single h3 under the body element (_it doesn't matter how deep it is_)
+
+    ```css
+    /* Descendant combinator */
+    body h3 {
+        color: #020;
+    }
+    ```
+
+* ### CSS Grouping Selectors
+
+    If you have elements with the same style declarations, it will be better to group the selectors to minimize the code:
+
+    ```css
+    h1, h2, p, .container, #name {
+        text-align: center;
+        color: red;
+    }
+    ```
+
+* ### CSS Specificity
+
+  * Here's the calculation, put 0 or 1 point for each of the following elements in order:
+    * (inline style) style property embeded in html
+    * id
+    * class, psudeo-class or attribute ex: [id="foo"]
+    * html elements
+
+  * Example #1
+
     ```css
     body h1.main #id {
     }
     ```
+
     0 point for style attribute [no style attribute]  
     1 point for id [#id]  
     1 point for class, psudeo-class, attribute [.main]  
@@ -492,22 +569,27 @@ Mask defines an area where we can look through the element and see what's behind
 
     This will be evaluated to: 0 1 1 2
 
-    #### Example #2:
+  * Example #2
+
     ```css
     #foo {
         color: red;
     }
     ```
+
     This will be evaluated to: 0 1 0 0
+
     ```css
     [id="foo"] { /* another way to grap element by id using attribute selector */
         color: red;
     }
     ```
+
     This will be evaluated to: 0 0 1 0  
-    So **first one** will win because 0100 > 0010
+    So **first one** won because 0100 > 0010
 
     It doesn't matter the hierarchy of HTML page, it is about the order in the CSS itself
+
     ```css
     body h1 {
         color: green;
@@ -516,146 +598,168 @@ Mask defines an area where we can look through the element and see what's behind
         color: red;
     }
     ```
+
     So final color will be red.
 
-    `!important` use it scarcely. only use on page specific css that override forign CSS like external liberaries such as bootstrap or normalize.css
+  * `!important` use it scarcely. only use on page specific css that override forign CSS like external liberaries such as bootstrap or normalize.css
 
-<h2 id="units"> Units (px, %, em, rem, vh & wh)</h2>
+## Units
 
-`width: 10vw` would be 10% of the viewport's width.  
-`width: 3vh` would be 3% of the viewport's height.  
-`width: 70vmin` would be 70% of the viewport's smaller dimension (height vs. width).  
-`width: 100vmax `would be 100% of the viewport's bigger dimension (height vs. width).
+`(px, %, em, rem, vh & wh)`
 
-<h2 id="colors">Colors</h2>
+* **vw:** `width: 10vw` would be 10% of the viewport's width.  
+* **vh:** `width: 3vh` would be 3% of the viewport's height.  
+* **vmin:** `width: 70vmin` would be 70% of the viewport's smaller dimension (height vs. width).  
+* **vmax:** `width: 100vmax` would be 100% of the viewport's bigger dimension (height vs. width).
+
+## Colors
+
 We usually use decimals, or base 10 numbers, which use the symbols 0 to 9 for each digit. Hexadecimals (or hex) are base 16 numbers. This means it uses sixteen distinct symbols. Like decimals, the symbols 0-9 represent the values zero to nine. Then A,B,C,D,E,F represent the values ten to fifteen. Altogether, 0 to F can represent a digit in hexadecimal, giving us 16 total possible values.
 In CSS, we can use 6 hexadecimal digits to represent colors, two each for the red (R), green (G), and blue (B) colors #000000
- 
-From these three pure colors (red, green, and blue), we can vary the amounts of each to create over 16 million other colors!  
-16 * 16 * 16 * 16 * 16 * 16 = 16777216
 
-#FFA500 The digit 0 is the lowest number in hex code, and represents a complete absence of color, The digit F is the highest number in hex code, and represents the maximum possible brightness
+From these three pure colors (red, green, and blue), we can vary the amounts of each to create over 16 million other colors!  
+`16 * 16 * 16 * 16 * 16 * 16 = 16777216`
+
+`#FFA500` The digit `0` is the lowest number in hex code, and represents a complete absence of color, The digit `F` is the highest number in hex code, and represents the maximum possible brightness
 
 Many people feel overwhelmed by the possibilities of more than 16 million colors. And it's difficult to remember hex code. Fortunately, you can shorten it.
-For example, red's hex code #FF0000 can be shortened to #F00. This shortened form gives one digit for red, one digit for green, and one digit for blue.
+For example, red's hex code `#FF0000` can be shortened to `#F00`. This shortened form gives one digit for red, one digit for green, and one digit for blue.
 
-This reduces the total number of possible colors to around 4,000. But browsers will interpret #FF0000 and #F00 as exactly the same color.
+This reduces the total number of possible colors to around 4,000. But browsers will interpret `#FF0000` and `#F00` as exactly the same color.
 
-rgb(255, 255, 255) = rgb (16\*16, 16\*16, 16\*16) each color represented by two digits
+`rgb(255, 255, 255) = rgb (16*16, 16*16, 16*16)` each color represented by two digits
 
-<h3 id="complementary-colors">Complementary Colors</h3>
-When two colors are opposite each other on the wheel, they are called complementary colors.
-They have the characteristic that if they are combined, they "cancel" each other out and create a gray color. 
-However, when placed side-by-side, these colors appear more vibrant and produce a strong visual contrast.  
-Some examples of complementary colors with their hex codes are:
+* ### Complementary Colors
 
-* red (#FF0000) and cyan (#00FFFF)
-* green (#00FF00) and magenta (#FF00FF)
-* blue (#0000FF) and yellow (#FFFF00)
+    When two colors are opposite each other on the wheel, they are called complementary colors.
+    They have the characteristic that if they are combined, they "cancel" each other out and create a gray color.
+    However, when placed side-by-side, these colors appear more vibrant and produce a strong visual contrast.  
+    Some examples of complementary colors with their hex codes are:
 
-<h3 id="tertiary-colors">Tertiary Colors</h3>
+  * red (#FF0000) and cyan (#00FFFF)
+  * green (#00FF00) and magenta (#FF00FF)
+  * blue (#0000FF) and yellow (#FFFF00)
 
-Red (R), green (G), and blue (B) are called primary colors. Mixing two primary colors creates the secondary colors cyan (G + B), magenta (R + B) and yellow (R + G). You saw these colors in the Complementary Colors. These secondary colors happen to be the complement to the primary color, and are opposite to that primary color on the color wheel.
-For example, magenta is made with red and blue, and is the complement to green. 
+* ### Tertiary Colors
 
-_Tertiary colors_ are the result of combining a primary color with one of its secondary color neighbors.
+    Red (R), green (G), and blue (B) are called primary colors. Mixing two primary colors creates the *secondary colors*
 
-<h3 id="color-hue">Adjust the Hue of a Color</h3>
+    cyan (G + B), magenta (R + B) and yellow (R + G). You saw these colors in the Complementary Colors. These secondary colors happen to be the complement to the primary color, and are opposite to that primary color on the color wheel.  
 
-Colors have several characteristics including hue, saturation, and lightness. CSS3 introduced the `hsl()` property as an alternative way to pick a color by directly stating these characteristics.
+    For example, magenta is made with red and blue, and is the complement to green.
 
-**Hue** is what people generally think of as 'color'. If you picture a spectrum of colors starting with red on the left, moving through green in the middle, and blue on right, the hue is where a color fits along this line. In hsl(), hue uses a color wheel concept instead of the spectrum, where the angle of the color on the circle is given as a value between 0 and 360.
+    _Tertiary colors_ are the result of combining a primary color with one of its secondary color neighbors.
 
-**Saturation** is the amount of gray in a color. A fully saturated color has no gray in it, and a minimally saturated color is almost completely gray. This is given as a percentage with 100% being fully saturated.
+* ### Adjust the Hue of a Color
 
-**Lightness** is the amount of white or black in a color. A percentage is given ranging from 0% (black) to 100% (white), where 50% is the normal color.
+    Colors have several characteristics including hue, saturation, and lightness. CSS3 introduced the `hsl()` property as an alternative way to pick a color by directly stating these characteristics.
 
-Here are a few examples of using `hsl()` with fully-saturated, normal lightness colors:
+    **Hue** is what people generally think of as 'color'. If you picture a spectrum of colors starting with red on the left, moving through green in the middle, and blue on right, the hue is where a color fits along this line. In hsl(), hue uses a color wheel concept instead of the spectrum, where the angle of the color on the circle is given as a value between 0 and 360.
 
-| Color	| HSL 
-|---|---
-|red	|hsl(0, 100%, 50%)
-|yellow	|hsl(60, 100%, 50%)
-|green	|hsl(120, 100%, 50%)
-|cyan	|hsl(180, 100%, 50%)
-|blue	|hsl(240, 100%, 50%)
-|magenta|	hsl(300, 100%, 50%)
+    **Saturation** is the amount of gray in a color. A fully saturated color has no gray in it, and a minimally saturated color is almost completely gray. This is given as a percentage with 100% being fully saturated.
 
-<h3 id="css-gradient">CSS gradient</h3>
+    **Lightness** is the amount of white or black in a color. A percentage is given ranging from 0% (black) to 100% (white), where 50% is the normal color.
 
-Display smooth transitions between two or more specified colors.
-* https://www.w3schools.com/css/css3_gradients.asp
-* https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient
-* https://www.w3schools.com/colors/colors_picker.asp
+    Here are a few examples of using `hsl()` with fully-saturated, normal lightness colors:
 
-There is a linear-gradient and radial-gradient;
-```css
-/* first argument specifies the direction, from which color transition starts - it can be stated as a degree where 90deg makes a vertical gradient */
-background-image: linear-gradient(to right, red , yellow);
-background-image: radial-gradient(red 5%, yellow 15%, green 60%);
-```
+    | Color| HSL
+    |---|---
+    |red|hsl(0, 100%, 50%)
+    |yellow|hsl(60, 100%, 50%)
+    |green|hsl(120, 100%, 50%)
+    |cyan|hsl(180, 100%, 50%)
+    |blue|hsl(240, 100%, 50%)
+    |magenta|hsl(300, 100%, 50%)
 
-Use a CSS Linear Gradient to Create a Striped Element
-```html
-<style>
-  div { 
-    border-radius: 20px;
-    width: 70%;
-    height: 400px;
-    margin:  50 auto;
-    background: repeating-linear-gradient(
-      45deg,
-      yellow 0px,
-      yellow 40px,
-      black 40px,
-      black 80px
-    );
-  }
-</style>
+* ### CSS gradient
 
-<div></div>
-```
+  Display smooth transitions between two or more specified colors.
+  * <https://www.w3schools.com/css/css3_gradients.asp>
+  * <https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient>
+  * <https://www.w3schools.com/colors/colors_picker.asp>
 
-<h2 id="custom-css-variable">Create a custom CSS Variable</h2>
+  There is a linear-gradient and radial-gradient;
+
+    ```css
+    /* first argument specifies the direction, from which color transition starts - it can be stated as a degree where 90deg makes a vertical gradient */
+    background-image: linear-gradient(to right, red , yellow);
+    background-image: radial-gradient(red 5%, yellow 15%, green 60%);
+    ```
+
+  Use a CSS Linear Gradient to Create a Striped Element
+
+    ```html
+    <style>
+        div {
+            border-radius: 20px;
+            width: 70%;
+            height: 400px;
+            margin:  50 auto;
+            background: repeating-linear-gradient(
+            45deg,
+            yellow 0px,
+            yellow 40px,
+            black 40px,
+            black 80px
+            );
+        }
+    </style>
+
+    <div></div>
+    ```
+
+## Cascading
+
+Is the process of combining different stylesheets and resolving conflicts between different css rules and declarations when more than one rule applies to a certain element.
+
+## Create Custom CSS Variable
 
 It can be manipulated by js and can be changed in dev tools.
-To create a CSS Variable, you just need to give it a name with two dashes in front of variable name and assign it a value: 
+To create a CSS Variable, you just need to give it a name with two dashes in front of variable name and assign it a value:
 
-```css 
+```css
 --penguin-skin: gray;
 ```
+
 This will create a variable named --penguin-skin and assign it the value of gray.
 
 Usage:
+
 ```css
 background: var(--penguin-skin);
 ```
-### Attach a Fallback value to a CSS Variable
-When using your variable as a CSS property value, you can attach a fallback value that your browser will revert to if the given variable is invalid.
-```css
+
+* ### Attach a Fallback value to a CSS Variable
+
+    When using your variable as a CSS property value, you can attach a fallback value that your browser will revert to if the given variable is invalid.
+
+    ```css
     background: var(--penguin-skin, black);
-```
+    ```
 
-### Improve Compatibility with Browser Fallbacks
-When your browser parses the CSS of a webpage, it ignores any properties that it doesn't recognize or support. For example, if you use a CSS variable to assign a background color on a site, Internet Explorer will ignore the background color because it does not support CSS variables. In that case, the browser will use whatever value it has for that property. If it can't find any other value set for that property, it will revert to the default value.
+* ### Improve Compatibility with Browser Fallbacks
 
-```css
-.red-box {
-    background: red; /* better to add */
-    background: var(--red-color);
-    height: 200px;
-    width:200px;
-  }
-```
+    When your browser parses the CSS of a webpage, it ignores any properties that it doesn't recognize or support. For example, if you use a CSS variable to assign a background color on a site, Internet Explorer will ignore the background color because it does not support CSS variables. In that case, the browser will use whatever value it has for that property. If it can't find any other value set for that property, it will revert to the default value.
 
-<h2 id="cascadaing-css">Cascading CSS variables</h2>
+    ```css
+    .red-box {
+        background: red; /* better to add */
+        background: var(--red-color);
+        height: 200px;
+        width:200px;
+    }
+    ```
+
+## Cascading CSS variables
+
 When you create a variable, it becomes available for you to use inside the element in which you create it. It also becomes available within any elements nested within it. This effect is known as cascading.
 Because of cascading, CSS variables are often defined in the `:root` element.
 You can think of the `:root` element as a container for your entire HTML document,
 
 By creating your variables in `:root` selector, they will be available throughout the whole web page.
+
 ```css
-:root {    
+:root {
     --penguin-belly: pink;
   }
 ```
@@ -668,11 +772,12 @@ You can then overwrite these variables by setting them again within a specific e
 }
 ```
 
-<h2 id="visual-design">Visual Design</h2>
+## Visual Design
+
 Visual Design in web development is a broad topic. It combines typography, color theory, graphics, animation, and page layout to help deliver a site's message. In web development, HTML gives structure and semantics to a page's content, and CSS controls the layout and appearance of it.
 
+* `text-align: justify;` It makes all lines of text except the last line to meet the left and right edges of the line box.
 
-* `text-align: justify;` Causes all lines of text except the last line to meet the left and right edges of the line box.
     ```css
     p {
         text-align: justify;
@@ -680,190 +785,195 @@ Visual Design in web development is a broad topic. It combines typography, color
     ```
 
 * With the `<s>` tag (strickthrough), the browser applies the CSS of `text-decoration: line-through;` to the element.
-
-* rgba(255, 255, 255) The RGB values can range from 0 to 255. The alpha value can range from 1, which is fully opaque or a solid color, to 0, which is fully transparent or clear. 
-    ```
-    rgba stands for:
-    r = red
-    g = green
-    b = blue
-    a = alpha (level of opacity)
-    ```
+* rgba(255, 255, 255) The RGB values can range from 0 to 255. The alpha value can range from 1, which is fully opaque or a solid color, to 0, which is fully transparent or clear. rgba stands for:  
+  * r = red
+  * g = green
+  * b = blue
+  * a = alpha (level of opacity)
 * The opacity property in CSS is used to adjust the opacity, or conversely, the transparency for an item
-    * A value of 1 is opaque, which isn't transparent at all.
-    * A value of 0.5 is half see-through.
-    * A value of 0 is completely transparent.
+  * A value of 1 is opaque, which isn't transparent at all.
+  * A value of 0.5 is half see-through.
+  * A value of 0 is completely transparent.
 * If you need a color with transperancy use rgb not hexadecimal `rgba(0, 204, 255, 0.75)`;
 * The `font-weight` property sets how thick or thin characters are in a text.
 * The `line-height` property to change the height of each line in a block of text. It changes the amount of vertical space that each line of text gets.
-
 * A pseudo-class is a keyword that can be added to selectors, in order to select a specific state of the element.
 
-<h2 id="element-positioning">Element Positioing</h2>
+## Element Positioning
 
-`display: block;` use the full avaliable width and force line breaks (ex: h1, h2 ... h6, p)  
-`display: inline;` ex: images, links, strong and em elements   
-`display: inline-block;` It is just like an inline element, it can have padding and margin and it doesn't force a line break.  
-`display: none;` will hide the element
+* `display` property
+  * `display: block;` uses the full avaliable width and force line breaks (ex: h1, h2 ... h6, p)  
+  * `display: inline;` ex: images, links, `strong` and `em` elements
+  * `display: inline-block;` It is just like an inline element, it can have padding and margin but _it doesn't force a line break_.
+  * `display: none;` will hide the element
 
-<h3 id="relative-positioning"> Relative Position </h3>
+* ### Relative Positioning
 
-CSS treats each HTML element as its own box, which is usually referred to as the CSS Box Model. Block-level items automatically start on a new line (think headings, paragraphs, and divs) while inline items sit within surrounding content (like images or spans). The default layout of elements in this way is called the normal flow of a document, but CSS offers the position property to override it.
+    CSS treats each HTML element as its own box, which is usually referred to as the CSS Box Model. Block-level items automatically start on a new line (think headings, paragraphs, and divs) while inline items sit within surrounding content (like images or spans). The default layout of elements in this way is called the normal flow of a document, but CSS offers the position property to override it.
 
-When the `position` of an element is set to `relative`, it allows you to specify how CSS should move it *relative to* its **current position** in the normal flow of the page. It pairs with the CSS offset properties of `left` or `right`, and `top` or `b`ottom`. These say how many pixels, percentages, or ems to move the item away from where it is normally positioned. The following example moves the paragraph 10 pixels away from the bottom:
-```csss
-p {
-  position: relative;
-  bottom: 10px;
-}
-```
-Changing an element's position to relative does not remove it from the normal flow - other elements around it still behave as if that item were in its default position.
+    When the `position` of an element is set to `relative`, it allows you to specify how CSS should move it *relative to* its **current position** in the normal flow of the page. It pairs with the CSS offset properties of `left` or `right`, and `top` or `bottom`. These say how many pixels, percentages, or ems to move the item away from where it is normally positioned. The following example moves the paragraph 10 pixels away from the bottom:
 
-
-```html
-<style>
-  h2 {
-    position: relative;
-    top: 15px;    
-  }
-</style>
-<body>
-  <h1>On Being Well-Positioned</h1>
-  <h2>Move me!</h2>
-  <p>I still think the h2 is where it normally sits.</p>
-</body>
-```
-
-<h3 id="absolute-positioning">Absolute Positioning</h3>
-
-The next option for the CSS `position` property is `absolute`, which locks the element in place *relative to* its **parent container**. Unlike the relative position, *this removes the element from the normal flow of the document*, so surrounding items ignore it. The CSS offset properties (top or bottom and left or right) are used to adjust the position.
-
-One nuance with absolute positioning is that it will be locked relative to its closest positioned ancestor. If you forget to add a `position` rule to the parent item, (this is typically done using `position: relative;`), the browser will keep looking up the chain and ultimately default to the `body` tag.
-
-`absolute`: can be positioned any where we want inside thier parent element but you have to ensure parent element is `relative` and child element is `absolute`.
-
-```html
-<style>
-  #searchbar {
-    position: absolute;
-    top: 50px;
-    right: 50px    
-  }
-  section {
-    position: relative;
-  }
-</style>
-<body>
-  <h1>Welcome!</h1>
-  <section>
-    <form id="searchbar">
-      <label for="search">Search:</label>
-      <input type="search" id="search" name="search">
-      <input type="submit" name="submit" value="Go!">
-    </form>
-  </section>
-</body>
-```
-
-<h3 id="fixed-positioing">Fixed Positioning</h3>
-
-The next layout scheme that CSS offers is the `fixed` position, which is a type of absolute positioning that locks an element *relative to* the **browser window**. Similar to absolute positioning, it's used with the CSS offset properties and also removes the element from the normal flow of the document. Other items no longer "realize" where it is positioned, which may require some layout adjustments elsewhere.
-
-One key difference between the fixed and absolute positions is that an element with a fixed position won't move when the user scrolls.
-```css
-  #navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-```
-<h3 id="float-property">Float Property</h3>
-
-The next positioning tool does not actually use `position`, but sets the `float` property of an element. Floating elements are removed from the normal flow of a document and pushed to either the left or right of their containing parent element. It's commonly used with the `width` property to specify how much horizontal space the floated element requires
-
-We use the `float` property to put block elements side by side
-```html
-<head>
-  <style>
-  #left {
-    float: left;
-    width: 50%;
-  }
-  #right {
-    float: right;
-    width: 40%;
-  }
-  aside, section {
-    padding: 2px;
-    background-color: #ccc;
-  }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Welcome!</h1>
-  </header>
-  <section id="left">
-    <h2>Content</h2>
-    <p>Good stuff</p>
-  </section>
-  <aside id="right">
-    <h2>Sidebar</h2>
-    <p>Links</p>
-  </aside>
-</body>
-```
-
-`clear` property is the counterpart of the `float` property [Ensures that an element self-clears its children]  
-Note: This is only useful if you are still using float to build layouts. Please consider using a modern approach with flexbox layout or grid layout.
-```css
-.clearfix:after {
-	content:"";
-	display: table;
-	clear: both;
-}
-```
-You need to add an empty clear fix div 
-```css
-<div class="clearfix"> </div>
-```
-
-<h3 id="z-index-property">z-index Property</h3>
-
-When elements are positioned to overlap, the element coming later in the HTML markup will, by default, appear on the top of the other elements. However, the `z-index` property can specify the order of how elements are stacked on top of one another. It must be an integer, and higher values for the `z-index` property of an element move it higher in the stack than those with lower values.
-```css
-  .first {
-    background-color: red;
-    position: absolute;
-    z-index: 2;
-  }
-  .second {
-    background-color: blue;
-    position: absolute;
-    left: 40px;
-    top: 50px;
-    z-index: 1;
-  }
-```
-<h3 id="position-using-margin-property">Positioning technique with Margin Property</h3>
-
-Another positioning technique is to center a block element horizontally. One way to do this is to set its `margin` to a value of `auto`.  
-This method works for images, too. Images are inline elements by default, but can be changed to block elements when you set the `display` property to `block`.
-
-```html
-<style>
-    div {
-        background-color: blue;
-        height: 100px;
-        width: 100px;
-        margin: auto;
+    ```css
+    p {
+        position: relative;
+        bottom: 10px;
     }
-</style>
-<div></div>
-```
-<h2 id="adding-content-by-css">Adding content by css</h2>
+    ```
+
+    Changing an element's position to relative does not remove it from the normal flow - other elements around it still behave as if that item were in its default position.
+
+    ```html
+    <style>
+    h2 {
+        position: relative;
+        top: 15px;
+    }
+    </style>
+    <body>
+        <h1>On Being Well-Positioned</h1>
+        <h2>Move me!</h2>
+        <p>I still think the h2 is where it normally sits.</p>
+    </body>
+    ```
+
+* ### Absolute Positioning
+
+    The next option for the CSS `position` property is `absolute`, which locks the element in place *relative to* its **parent container**. Unlike the relative position, *this removes the element from the normal flow of the document*, so surrounding items ignore it. The CSS offset properties (`top`, `bottom`, `left` and `right`) are used to adjust the position.
+
+    One nuance with absolute positioning is that it will be locked relative to its closest positioned ancestor. If you forget to add a `position` rule to the parent item, (this is typically done using `position: relative;`), the browser will keep looking up the chain and ultimately default to the `body` tag.
+
+    `absolute`: can be positioned any where we want inside thier parent element but you have to ensure parent element is `relative` and child element is `absolute`.
+
+    ```html
+    <style>
+    #searchbar {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+    }
+    section {
+        position: relative;
+    }
+    </style>
+    <body>
+    <h1>Welcome!</h1>
+    <section>
+        <form id="searchbar">
+            <label for="search">Search:</label>
+            <input type="search" id="search" name="search">
+            <input type="submit" name="submit" value="Go!">
+        </form>
+    </section>
+    </body>
+    ```
+
+* ### Fixed Positioning
+
+    The next layout scheme that CSS offers is the `fixed` position, which is a type of absolute positioning that locks an element *relative to* the **browser window**. Similar to absolute positioning, it's used with the CSS offset properties and also removes the element from the normal flow of the document. Other items no longer "realize" where it is positioned, which may require some layout adjustments elsewhere.
+
+    One key difference between the fixed and absolute positions is that an element with a fixed position won't move when the user scrolls.
+
+    ```css
+    #navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    ```
+
+* ### Float Property
+
+    The next positioning tool does not actually use `position`, but sets the `float` property of an element. Floating elements are removed from the normal flow of a document and pushed to either the left or right of their containing parent element. It's commonly used with the `width` property to specify how much horizontal space the floated element requires
+
+    We use the `float` property to put block elements side by side
+
+    ```html
+    <head>
+        <style>
+        #left {
+            float: left;
+            width: 50%;
+        }
+        #right {
+            float: right;
+            width: 40%;
+        }
+        aside, section {
+            padding: 2px;
+            background-color: #ccc;
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome!</h1>
+        </header>
+        <section id="left">
+            <h2>Content</h2>
+            <p>Good stuff</p>
+        </section>
+        <aside id="right">
+            <h2>Sidebar</h2>
+            <p>Links</p>
+        </aside>
+    </body>
+    ```
+
+    `clear` property is the counterpart of the `float` property [Ensures that an element self-clears its children]  
+    Note: This is only useful if you are still using float to build layouts. Please consider using a modern approach with flexbox layout or grid layout.
+
+    ```html
+        <div class="clearfix"> </div>
+    ```
+
+    ```css
+        .clearfix:after {
+            content:"";
+            display: table;
+            clear: both;
+        }
+    ```
+
+* ### z-index Property
+
+    When elements are positioned to overlap, the element coming later in the HTML markup will, by default, appear on the top of the other elements. However, the `z-index` property can specify the order of how elements are stacked on top of one another. It must be an integer, and higher values for the `z-index` property of an element move it higher in the stack than those with lower values.
+
+    ```css
+    .first {
+        background-color: red;
+        position: absolute;
+        z-index: 2;
+    }
+    .second {
+        background-color: blue;
+        position: absolute;
+        left: 40px;
+        top: 50px;
+        z-index: 1;
+    }
+    ```
+
+* ### Positioning technique with Margin Property
+
+    Another positioning technique is to center a block element horizontally. One way to do this is to set its `margin` to a value of `auto`.  
+    This method works for images, too. Images are inline elements by default, but can be changed to block elements when you set the `display` property to `block`.
+
+    ```html
+    <style>
+        div {
+            background-color: blue;
+            height: 100px;
+            width: 100px;
+            margin: auto;
+        }
+    </style>
+    <div></div>
+    ```
+
+## Adding content by css
 
 It will add some content after h2 so we can style it as normal element
+
 ```css
 h2:after {
     display: block;
@@ -875,9 +985,10 @@ h2:after {
 }
 ```
 
-<h2 id="buttons-links-css">Buttons or links in CSS</h2>
+## Buttons or links in CSS
 
 Buttons can have different states `link`, `visited`, `active` and `hover` and all are pseudo-classes
+
 ```css
 .btn-full:link, /*  for links that have not been visited yet */
 .btn-full:visited { /* when the user visited the link before */
@@ -887,177 +998,182 @@ Buttons can have different states `link`, `visited`, `active` and `hover` and al
     margin-right: 15px;
 }
 
-.btn-full:hover, 
+.btn-full:hover,
 .btn-full:active { /* when user click the button, time between the user presses the mouse button and releases it. */
     border: 1px solid #cf6d17;
     color: #fff;
 }
-``` 
+```
 
-<h2 id="css-pillars">The three pillars to write good html and css</h2>
+## The three pillars to write good `html` and `css`
 
 * ### Responsive Design (Looks beautiful on all screen sizes on all devices)
-	* Fluid Grids and Layouts
-	* Media Queries
-	* Flexible/Responsive Images, optimize image width.
-	* Correct Units
-	* Desktop First vs Mobile First
+
+  * Fluid Grids and Layouts
+  * Media Queries
+  * Flexible/Responsive Images, optimize image width.
+  * Correct Units
+  * Desktop First vs Mobile First
+
 * ### Maintainable and Scalable Code
-	* Clean
-	* Easy to understand
-	* Growth
-	* Resusable
-	* How to organize files 
-	* How to name classes 
-	* How to structure html
+
+  * Clean
+  * Easy to understand
+  * Growth
+  * Resusable
+  * How to organize files
+  * How to name classes
+  * How to structure html
+
 * ### Web Performance
-	* Less http requests, which means include little files
-	* Less code
-	* Compress Code
-	* Use CSS Preprocessor
-	* Less Images
-	* Compress Images
 
-<h2 id="responsive-web-design">Responsive web design</h2>
+  * Less http requests, which means include little files
+  * Less code
+  * Compress Code
+  * Use CSS Preprocessor
+  * Less Images
+  * Compress Images
 
-### Three ingredients to responsive web design
-- Fluid grid and layouts: all layout elements are sized in relative unites, such are percentages, instead of absolute units like pixels.
-- Flexible and Responsive images: Images are also sized in relative unites. Optimize image width.
-- Media Queries: allow us to specify different CSS style rules for different browser widths.
+## Responsive web design
 
-<h3 id="fluid-grid">Fluid Grid</h3>
+* ### Three ingredients to responsive web design
 
-* Fluid Grid and Layout Types:  
-Float Layouts, Flexbox and CSS Grid (best).  
-Float Layouts still used nowadays because flexbox and css grid still not supported by all browsers.
+  * Fluid grid and layouts: all layout elements are sized in relative units, such are percentages, instead of absolute units like pixels.
+  * Flexible and Responsive images: Images are also sized in relative units. Optimize image width.
+  * Media Queries: allow us to specify different CSS style rules for different browser widths.
 
-* Build a custom grid with floats
+* ### Fluid Grid
+
+  * Fluid Grid and Layout Types:  
+    * Float Layouts, Flexbox and CSS Grid (best).  
+    * Float Layouts still used nowadays because flexbox and css grid still not supported by all browsers.
+
+  * Build a custom grid with floats
+
     ```css
     .row {
-    /* difference between max-width and width is max-width it will take 100% of the view port if the width is less than 1140px, so if the viewport is small it will adopt automatically */
-    max-width: $grid-width;
-    background-color: #eee;
-    margin: 0 auto;
+        /* difference between max-width and width is max-width it will take 100% of the view port if the width is less than 1140px, so if the viewport is small it will adopt automatically */
+        max-width: $grid-width;
+        background-color: #eee;
+        margin: 0 auto;
 
-    /* select everything except the last child */
-    &:not(:last-child) {
-        margin-bottom: $gutter-vertical;
-    }
-
-    /* if we didn't use clear fix, the width of the height will be 0px, because the child elements (columns) are floated to left so we need to use clear fix heck */
-
-    @include clearfix;
-
-    /* Using the attribute selector
-        ^ select all elements which have a class attribute and strat with col-
-        $ select all elements which have a class attribute and end with col-
-        * select all elements which have a class attribute and contains col- */
-    [class^="col-"] {
-        background-color: orange;
-        float: left;
+        /* select everything except the last child */
         &:not(:last-child) {
-        margin-right: $gutter-horizontal;
+            margin-bottom: $gutter-vertical;
         }
-    }
 
-    /* we make variable $gutter-horizontal so for future projects we can play with the value as we want */
-    .col-1-of-2 {
-        /*  calc is a css function, it allows calcualtions where you can mix units, in order to use sass variables you need to wrap the variable inside #{ } */
-        width: calc((100% - #{$gutter-horizontal}) / 2);
-    }
+        /* if we didn't use clear fix, the width of the height will be 0px, because the child elements (columns) are floated to left so we need to use clear fix heck */
 
-    .col-1-of-3 {
-        width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
-    }
+        @include clearfix;
 
-    .col-2-of-3 {
-        width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
-    }
-    
-    .col-1-of-4 {
-        width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
-    }
+        /* Using the attribute selector
+            ^ select all elements which have a class attribute and strat with col-
+            $ select all elements which have a class attribute and end with col-
+            * select all elements which have a class attribute and contains col- */
+        [class^="col-"] {
+            background-color: orange;
+            float: left;
+            &:not(:last-child) {
+                margin-right: $gutter-horizontal;
+            }
+        }
 
-    .col-2-of-4 {
-        width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
-    }
+        /* we make variable $gutter-horizontal so for future projects we can play with the value as we want */
+        .col-1-of-2 {
+            /*  calc is a css function, it allows calcualtions where you can mix units, in order to use sass variables you need to wrap the variable inside #{ } */
+            width: calc((100% - #{$gutter-horizontal}) / 2);
+        }
 
-    .col-3-of-4 {
-        width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + (2 * #{$gutter-horizontal}));
-    }
+        .col-1-of-3 {
+            width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+        }
 
+        .col-2-of-3 {
+            width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+        }
+
+        .col-1-of-4 {
+            width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+        }
+
+        .col-2-of-4 {
+            width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+        }
+
+        .col-3-of-4 {
+            width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + (2 * #{$gutter-horizontal}));
+        }
     }
     ```
 
-<h3 id="responsive-images">Responsive Images</h3>
+* ### Responsive Images
 
-Responsive images are crucial for web performance. The goal of responsive image is to serve the right image to the right screen size and device, in order to avoid downloading unnecessary large images on smaller screens, instead of sending 1 mb image, send 200kb image.
+    Responsive images are crucial for web performance. The goal of responsive image is to serve the right image to the right screen size and device, in order to avoid downloading unnecessary large images on smaller screens, instead of sending 1 mb image, send 200kb image.
 
-We have responsive images in (html) and (responsive images in css like background)
+    We have responsive images in (html) and (responsive images in css like background)
 
-3 use cases to use responsive images: 
-* **Resolution Switching**: Decrease image resolution on smaller screen; same image with smaller resolution.
-* **Density Switching**: Special Case of resolution switching, screen size doesn't matter but the screen density does instead.  
-Density means amount of pixels found on an inch or centermenter		
-    * @2x screen 
-        * (high resolution) 
-        * (mac with retina display and all modern smart phones)
-        * (use two physical pixel to display 1 pixel of our design)
-    * @1x screen 
-        * (Low resolution) 
-        * (our normal computers)  
-        
-* **Art Direction**	When you want to not serve the same image but whole different image for different screen sizes
+    3 use cases to use responsive images:
+  * **Resolution Switching**: Decrease image resolution on smaller screen; same image with smaller resolution.
+  * **Density Switching**: Special Case of resolution switching, screen size doesn't matter but the screen density does instead.  
+    * Density means amount of pixels found on an inch or centimeter
+    * @2x screen
+      * (high resolution)
+      * (mac with retina display and all modern smart phones)
+      * (use two physical pixel to display 1 pixel of our design)
+    * @1x screen
+      * (Low resolution)
+      * (our normal computers)  
 
-Check natours index page to see the different flavours
-```css
-@media (min-resolution: 192dpi) and (min-width: 600px){
-	background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.801)), 
-	url(../img/hero.jpg);
-}
+  * **Art Direction** When you want to not serve the same image but whole different image for different screen sizes
 
-/* Make an Image Responsive */
-img {
-  /* scales the image to fit the width of its container */
-  max-width: 100%;
-  display: block;
-  /* keeps the original aspect ratio of the image. */
-  height: auto;
-}
-```
+    Check natours index page to see the different flavours
 
+    ```css
+    @media (min-resolution: 192dpi) and (min-width: 600px){
+        background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.801)),
+        url(../img/hero.jpg);
+    }
 
-<h3 id="media-queries">Media Queries</h3>
+    /* Make an Image Responsive */
+    img {
+        /* scales the image to fit the width of its container */
+        max-width: 100%;
+        display: block;
+        /* keeps the original aspect ratio of the image. */
+        height: auto;
+    }
+    ```
 
-```css
-@media (max-width: 100px) { /* CSS Rules */ }
-@media (min-height: 350px) { /* CSS Rules */ }
-```
-Media query will trigger at different breakpoints, and breakpoints are screen width at which we want our website to look good at all devices
+* ### Media Queries
 
-* 0 - 480px >> mobile
-* 480px - 767px >> tablet
-* 768px - 1023px >> tablet
-* 1024px - 1200px >> PC
+    ```css
+    @media (max-width: 100px) { /* CSS Rules */ }
+    @media (min-height: 350px) { /* CSS Rules */ }
+    ```
 
-when you just starting out the easiest way is to define breakpoints for popular devices width like iPhone or iPad
+  Media query will trigger at different breakpoints, and breakpoints are screen width at which we want our website to look good at all devices
+  * 0 - 480px >> mobile
+  * 480px - 767px >> tablet
+  * 768px - 1023px >> tablet
+  * 1024px - 1200px >> PC
+
+  when you just starting out the easiest way is to define breakpoints for popular devices width like iPhone or iPad
 but when you get more experience you start putting more break points where your websites looks terrible
 
-```html
-<!-- required for mobile view; it's telling device not to zoom out and start with scale 1.0 -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-```
-For testing media query on different devices, there is a website sizzy.co put your website url and it will show you different sizes
+    ```html
+    <!-- required for mobile view; it's telling device not to zoom out and start with scale 1.0 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    ```
 
-<h2 id="browser-support">Browser Support & Compitability</h2>
+    For testing media query on different devices, there is a website sizzy.co put your website url and it will show you different sizes
 
-If you need to support some of the browsers you can check property browser support at caniuse.com.
+## Browser Support & Compitability
 
-Use Graceful Degradation using `@supports`.
+* If you need to support some of the browsers you can check property browser support at caniuse.com.
+* Use Graceful Degradation using `@supports`.
+* Go back to this section again if required, video 'A note about the web browsers'
 
-Go back to this section again if required, video 'A note about the web browsers'
-
-<h2 id="animation">Animation</h2>
+## Animation
 
 ```css
 @keyframes animate {
@@ -1076,9 +1192,9 @@ p {
     animation-name: animate;
     animation-duration: 10s;
     animation-iteration-count: infinite;
-    /* the animation-timing-function property controls how quickly an animated element changes over the duration of the animation. 
+    /* the animation-timing-function property controls how quickly an animated element changes over the duration of the animation.
     The default value is ease, which starts slow, speeds up in the middle, and then slows down again in the end. */
-    animation-timing-function: east-out;    
+    animation-timing-function: east-out;
     /* animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75); */
 }
 ```
@@ -1097,100 +1213,113 @@ button:hover {
     }
 }
 ```
-<h2 id="how-css-works">How CSS works behind the scenes?</h2>
 
-Read the pdf of advanced css course.
+## How CSS works behind the scenes
 
-### 1- Cascading process: 
-Process of combining different stylesheets and resolving conflicts between different css rules.
+* ### Read the pdf of advanced css course
 
-* author declerations: what we -developers- write.
-* user declerations: when user change the default font size in the browser.
-* browser (user agent) declarations: default css set by the browser.
-	
-How it fix the conflicts? importance (weight) > specificity > source order  
-The universal selector has * has no specificity value (0,0,0,0)
-```css
-#nav div.pull-right a.button {
-	background-color: green;
-}
-/* :hover >> in the same level of class */
-#nav a.button:hover {
-    background-color: yellow;
-}
-/* first one will win because it has extra element div */
-```
+* ### 1-Cascading process
 
-### 2- Process final css value (Value Processing): 
-	%, em, rem, vw, hw to pixels
-	
-### 3- Stacking Context:
-```css
-z-index: 3;
-position: relative;
+  * Process of combining different stylesheets and resolving conflicts between different css rules.
+    * author declerations: what we - developers - write.
+    * user declerations: when user change the default font size in the browser.
+    * browser (user agent) declarations: default css set by the browser.
+  * How it fix the conflicts? importance (weight) > specificity > source order  
+  * The universal selector `*` has no specificity value (0,0,0,0)
 
-z-index: 2;
-position: absolute;
+    ```css
+    #nav div.pull-right a.button {
+        background-color: green;
+    }
+    /* :hover >> in the same level of class */
+    #nav a.button:hover {
+        background-color: yellow;
+    }
+    /* first one will win because it has extra element div */
+    ```
 
-z-index: 3;
-position: relative;
-```
-Note: Obacity, transform, filter also create a new stacking context, because of that sometimes when putting the element with z-index stacking doesn't work as expected
-	
-<h2 id="css-archticture">CSS archticture</h2>
+* ### 2-Process final css value
+
+    (Value Processing)
+
+    `%, em, rem, vw, hw to pixels`
+
+* ### 3-Stacking Context
+
+    ```css
+    z-index: 3;
+    position: relative;
+
+    z-index: 2;
+    position: absolute;
+
+    z-index: 3;
+    position: relative;
+    ```
+
+    Note: Obacity, transform, filter also create a new stacking context, because of that sometimes when putting the element with z-index stacking doesn't work as expected
+
+## CSS archticture
+
 CSS  Strategies:
 
-* BEM (Block Element Modifier)
+* ### BEM (Block Element Modifier)
+
+    ```css
+    /* standalone component meaningful of its own ex: .btn */
+    .block{}
+    /* part of a block and has no standalone meaning */
+    .block__element{}
+    /* a different version of block or element .btn--round */
+    .block--modifier{}
+    .block__element--modifier{}
+    ```
+
 * OOCSS (Object Oriented CSS)
 * SMACSS (Scalable and Modular Architecture for CSS)
 
-### BEM (Block Element Modifier)
+* ### 7-1 pattern (by google)
 
-```css
-/* standalone component meaningful of its own ex: .btn */
-.block{}
-/* part of a block and has no standalone meaning */
-.block__element{}
-/* a different version of block or element .btn--round */		
-.block--modifier{}
-.block__element--modifier{}	
-```
+    Create a separate folder for each component.
+    7 different folders for partial sass files.  
+    1 main Sass file to import all the other files into a compiled css sytlesheet  
+    The 7 folders are:
 
-### 7-1 pattern (by google)
-Create a separate folder for each component.   
-7 different folders for partial sass files.  
-1 main Sass file to import all the other files into a compiled css sytlesheet  
-The 7 folders are:
-* base/
-* components/ (1 file for each component)
-* layout/
-* pages/
-* themes/
-* abstracts/ (variables and mixins)
-* vendors/
+    ```ssh
+    * base/
+    * components/ (1 file for each component)
+    * layout/
+    * pages/
+    * themes/
+    * abstracts/ (variables and mixins)
+    * vendors/
+    ```
 
-Use this in larger projects it will be handy, for small projects you can use one scss file.
+    Use this in larger projects it will be handy, for small projects you can use one scss file.
 
-
-<h2 id="sass">SASS</h2>
+## SASS
 
 Other css preprocessor LESS and STYLUS
 
-### Advantages:
-* **Variables** for resusable values such as colors, font-sizes, spacing, etc. 
+* ### Advantages
+
+  * **Variables** for resusable values such as colors, font-sizes, spacing, etc.
+
     ```css
-    $color-primary: #f9ed69; 
-            
+    $color-primary: #f9ed69;
+  
     nav {
         background-color: $color-primary;
     }
     ```
-* **Nesting**: to nest selectors inside of one another which allowing to write less code.
-    ```css	
+
+  * **Nesting**: to nest selectors inside of one another which allowing to write less code.
+
+    ```css
     .navigation {
         list-style: none;
         float: left;
-        
+
         /* no need for & beacuse it is a direct child of .navigation but in case of :first-child is attached to the element so we need to use &: */
 
         /* & means concatenate */
@@ -1199,23 +1328,27 @@ Other css preprocessor LESS and STYLUS
             margin-left: 30px;
 
             /* It will write the path until this point, means .navigation li:first-child {} */
-            &:first-child { 
+            &:first-child {
                 margin: 0;
             }
-            
+
             a:link {
                 @include style-link-text($color-text-dark);
             }
         }
     }
     ```
-* **Operatots**: for mathematical operations right inside css.
-* **Partials and Imports**: to write css in different files and importing them all into one single file. Partial files always start with _underscore but imported without underscore and extention.
-    ```css 
+
+  * **Operatots**: for mathematical operations right inside css.
+  * **Partials and Imports**: to write css in different files and importing them all into one single file. Partial files always start with _underscore but imported without underscore and extention.
+
+    ```css
     /* without _ and .scss */
     @import "base/base";
     ```
-* **mixins**: to write resusable pieces of css code.
+
+  * **mixins**: to write resusable pieces of css code.
+
     ```css
     @mixin clearfix {
         &::after {
@@ -1228,11 +1361,12 @@ Other css preprocessor LESS and STYLUS
     nav {
         margin: divide(60, 2) * 1px; /* 30px */
         background-color: $color-primary;
-        
         @include clearfix;
     }
     ```
-* **functions**: similar to mixins but produce value
+
+  * **functions**: similar to mixins but produce value
+
     ```css
     darken($color-secondary, 15%);
 
@@ -1243,14 +1377,16 @@ Other css preprocessor LESS and STYLUS
     nav {
         margin: divide(60, 2) * 1px; /* 30px */
     }
-    ```	
-* Extends DRY (Don't Repeat Yourself) by applying Inheritance
-    ```css		
+    ```
+
+* ### Extends DRY (Don't Repeat Yourself) by applying Inheritance
+
+    ```css
     %btn-placeholder {
         padding: 10px;
         /* will put the padding around the element.
         without using inline-block it will put padding only on right and left side. */
-        display: inline-block; 
+        display: inline-block;
         text-align: center;
         border-radius: 100px;
         width: $width-button;
@@ -1259,10 +1395,10 @@ Other css preprocessor LESS and STYLUS
 
     .btn-main {
         &:link {
-            @extend %btn-placeholder; 
+            @extend %btn-placeholder;
             background-color: $color-secondary;
         }
-        
+
         &:hover {
             background-color: darken($color-secondary, 15%);
         }
@@ -1273,7 +1409,7 @@ Other css preprocessor LESS and STYLUS
             @extend %btn-placeholder;
             background-color: $color-tertiary;
         }
-        
+
         &:hover {
             background-color: lighten($color-tertiary, 10%);
         }
@@ -1290,192 +1426,229 @@ Other css preprocessor LESS and STYLUS
         border-radius: 100px;
         width: $width-button;
         @include style-link-text($color-text-light);
-    } 
+    }
     ```
-* Controls directive for writing complex code using **conditionals and loops**  
-	
+
+* ### Controls directive for writing complex code using **conditionals and loops**  
+
 **.sass** syntax (without curly braces)  
 **.scss** syntax (sassy css) (with curly braces)
 
-Example: https://codepen.io/anon/pen/eGZKyY?editors=1100#0
- 
-<h2 id="accessibility">Applied Accessibility</h2>
+Example: <https://codepen.io/anon/pen/eGZKyY?editors=1100#0>
 
-`alt` text describes the content of the image and provides a text-alternative. This helps in case the image fails to load or can't be seen by a user. It's also used by search engines to understand what an image contains to include it in search results. 
+## Applied Accessibility
+
+`alt` text describes the content of the image and provides a text-alternative. This helps in case the image fails to load or can't be seen by a user. It's also used by search engines to understand what an image contains to include it in search results.
 
 Background images usually fall under the 'decorative' label as well. However, they are typically applied with CSS rules, and therefore not part of the markup screen readers process.
 
-### Use Headings to Show Hierarchical Relationships of Content
-Screen readers can be set to read only the headings on a page so the user gets a summary. This means it is important for the heading tags in your markup to have semantic meaning and relate to each other, not be picked merely for their size values.
+* ### Use Headings to Show Hierarchical Relationships of Content
 
-Each page should always have one (and only one) h1 element, which is the main subject of your content. This and the other headings are used in part by search engines to understand the topic of the page.
+    Screen readers can be set to read only the headings on a page so the user gets a summary. This means it is important for the heading tags in your markup to have semantic meaning and relate to each other, not be picked merely for their size values.
 
-### Page Structure
-HTML5 introduced a number of new elements that give developers more options while also incorporating accessibility features. These tags include `main`, `header`, `footer`, `nav`, `article`, and `section`, among others.
-This adds semantic meaning to the page content.
+    Each page should always have one (and only one) `h1` element, which is the main subject of your content. This and the other headings are used in part by search engines to understand the topic of the page.
 
-`article` tag works well with blog entries, forum posts, or news articles
+* ### Page Structure
 
-Note about `section` and `div`  
-The `section` element is also new with HTML5, and has a slightly different semantic meaning than `article`. An `article` is for standalone content, and a `section` is for grouping thematically related content. They can be used within each other, as needed. For example, if a book is the `article`, then each chapter is a `section`. When there's no relationship between groups of content, then use a `div`.
-```html
-<div> <!--  groups content -->
-<section> <!--  groups related content -->
-<article> <!--  groups independent, self-contained content -->
-```
-### HTML `audio` Element
-HTML5's `audio` element gives semantic meaning when it wraps sound or audio stream content in your markup. Audio content also needs a text alternative to be accessible to people who are deaf or hard of hearing. This can be done with nearby text on the page or a link to a transcript.
+    HTML5 introduced a number of new elements that give developers more options while also incorporating accessibility features. These tags include `main`, `header`, `footer`, `nav`, `article`, and `section`, among others.
+    This adds semantic meaning to the page content.
 
-```html
-<audio id="meowClip" controls>
-  <source src="https://s3.amazonaws.com/freecodecamp/screen-reader.mp3" type="audio/mpeg" />
-  <source src="audio/meow.ogg" type="audio/ogg" />
-</audio>
-```
+    `article` tag works well with blog entries, forum posts, or news articles
 
-### Improve Chart Accessibility with the `figure` Element
+    Note about `section` and `div`  
+    The `section` element is also new with HTML5, and has a slightly different semantic meaning than `article`. An `article` is for standalone content, and a `section` is for grouping thematically related content. They can be used within each other, as needed. For example, if a book is the `article`, then each chapter is a `section`. When there's no relationship between groups of content, then use a `div`.
 
-HTML5 introduced the figure element, along with the related figcaption. Used together, these items wrap a visual representation (like an image, diagram, or chart) along with its caption.
+    ```html
+    <div> <!--  groups not related content -->
+    <section> <!--  groups related content -->
+    <article> <!--  groups independent, self-contained content -->
+    ```
 
-```html
-<figure>
-  <img src="roundhouseDestruction.jpeg" alt="Photo of Camper Cat executing a roundhouse kick">
-  <br>
-  <figcaption>
-    Master Camper Cat demonstrates proper form of a roundhouse kick.
-  </figcaption>
-</figure>
-```
+* ### HTML `audio` Element
 
-### Improve Form Field Accessibility with the label Element
-```html
-<form>
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name">
-</form>
-```
+    HTML5's `audio` element gives semantic meaning when it wraps sound or audio stream content in your markup. Audio content also needs a text alternative to be accessible to people who are deaf or hard of hearing. This can be done with nearby text on the page or a link to a transcript.
 
-### Wrap Radio Buttons in a fieldset Element for Better Accessibility
-```html
-<form>
-  <fieldset>
-    <legend>Choose one of these three items:</legend>
-    <input id="one" type="radio" name="items" value="one">
-    <label for="one">Choice One</label><br>
-    <input id="two" type="radio" name="items" value="two">
-    <label for="two">Choice Two</label><br>
-    <input id="three" type="radio" name="items" value="three">
-    <label for="three">Choice Three</label>
-  </fieldset>
-</form>
-```
-### Standardize Times with the HTML5 `datetime` Attribute
-HTML5 also introduced the `time` element along with a `datetime` attribute to standardize times. This is an inline element that can wrap a date or time on a page. A valid format of that `date` is held by the `datetime` attribute. This is the value accessed by assistive devices.
-```html    
-<p>Posted by: Sub-Zero on 
-    <time datetime="2016-08-13T20:01Z">August 13<sup>th</sup></time>
-</p>
-```
+    ```html
+    <audio id="meowClip" controls>
+    <source src="https://s3.amazonaws.com/freecodecamp/screen-reader.mp3" type="audio/mpeg" />
+    <source src="audio/meow.ogg" type="audio/ogg" />
+    </audio>
+    ```
 
-### Make Elements Only Visible to a Screen Reader by Using Custom CSS
+* ### Improve Chart Accessibility with the `figure` Element
 
-CSS's can also improve accessibility on your page when you want to visually hide content meant only for screen readers. 
-This happens when information is in a visual format (like a chart), but screen reader users need an alternative presentation (like a table) to access the data. 
-CSS is used to position the screen reader-only elements off the visual area of the browser window
-```css
-.sr-only {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  top: auto;
-  overflow: hidden;
-}
-```
-```html
-<table class="sr-only">
-      <caption>Hours of Weekly Training in Stealth, Combat, and Weapons</caption>
-      <thead>
-        <tr>
-          <th></th>
-          <th scope="col">Stealth &amp; Agility</th>
-          <th scope="col">Combat</th>
-          <th scope="col">Weapons</th>
-          <th scope="col">Total</th>                                        
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Week One</th>
-          <td>3</td>
-          <td>5</td>
-          <td>2</td>
-          <td>10</td>
-        </tr>
-        <tr>
-          <th scope="row">Week Two</th>
-          <td>4</td>
-          <td>5</td>
-          <td>3</td>
-          <td>12</td>
-        </tr>
-        <tr>
-          <th scope="row">Week Three</th>
-          <td>4</td>
-          <td>6</td>
-          <td>3</td>
-          <td>13</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-```
+    HTML5 introduced the figure element, along with the related figcaption. Used together, these items wrap a visual representation (like an image, diagram, or chart) along with its caption.
 
-Note:
-The following CSS approaches will NOT do the same thing:
+    ```html
+    <figure>
+        <img src="roundhouseDestruction.jpeg" alt="Photo of Camper Cat executing a roundhouse kick">
+        <br>
+        <figcaption>
+            Master Camper Cat demonstrates proper form of a roundhouse kick.
+        </figcaption>
+    </figure>
+    ```
 
-* `display: none;` or `visibility: hidden;` hides content for everyone, including screen reader users
-* Zero values for pixel sizes, such as width: 0px; height: 0px; removes that element from the flow of your document, meaning screen readers will ignore it
+* ### Improve Form Field Accessibility with the label Element
 
-### Improve Readability with High Contrast Text
-* Low contrast between the foreground and background colors can make text difficult to read. 
-* Sufficient contrast improves the readability of your content.  
-* Avoid Colorblindness Issues by Using Sufficient Contrast
-* Avoid Colorblindness Issues by Carefully Choosing Colors that Convey Information
+    ```html
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </form>
+    ```
 
-<h2 id="flexbox">Flexbox</h2>
+* ### Wrap Radio Buttons in a fieldset Element for Better Accessibility
+
+    ```html
+    <form>
+        <fieldset>
+            <legend>Choose one of these three items:</legend>
+            <input id="one" type="radio" name="items" value="one">
+            <label for="one">Choice One</label><br>
+            <input id="two" type="radio" name="items" value="two">
+            <label for="two">Choice Two</label><br>
+            <input id="three" type="radio" name="items" value="three">
+            <label for="three">Choice Three</label>
+        </fieldset>
+    </form>
+    ```
+
+* ### Standardize Times with the HTML5 `datetime` Attribute
+
+    HTML5 also introduced the `time` element along with a `datetime` attribute to standardize times. This is an inline element that can wrap a date or time on a page. A valid format of that `date` is held by the `datetime` attribute. This is the value accessed by assistive devices.
+
+    ```html
+    <p>Posted by: Sub-Zero on
+        <time datetime="2016-08-13T20:01Z">August 13<sup>th</sup></time>
+    </p>
+    ```
+
+* ### Make Elements Only Visible to a Screen Reader by Using Custom CSS
+
+    CSS's can also improve accessibility on your page when you want to visually hide content meant only for screen readers.
+    This happens when information is in a visual format (like a chart), but screen reader users need an alternative presentation (like a table) to access the data.
+    CSS is used to position the screen reader-only elements off the visual area of the browser window
+
+    ```css
+    .sr-only {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    top: auto;
+    overflow: hidden;
+    }
+    ```
+
+    ```html
+    <table class="sr-only">
+        <caption>Hours of Weekly Training in Stealth, Combat, and Weapons</caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th scope="col">Stealth &amp; Agility</th>
+                <th scope="col">Combat</th>
+                <th scope="col">Weapons</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Week One</th>
+                <td>3</td>
+                <td>5</td>
+                <td>2</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <th scope="row">Week Two</th>
+                <td>4</td>
+                <td>5</td>
+                <td>3</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <th scope="row">Week Three</th>
+                <td>4</td>
+                <td>6</td>
+                <td>3</td>
+                <td>13</td>
+            </tr>
+        </tbody>
+        </table>
+    </section>
+    ```
+
+    Note:
+        The following CSS approaches will NOT do the same thing:
+
+  * `display: none;` or `visibility: hidden;` hides content for everyone, including screen reader users
+    * `display: none;` means that the tag will not appear on the page at all (although you can still interact with it through the dom). There will be no space allocated for it between the other tags.
+    * `visibility: hidden;` means that unlike `display:none`, the tag is not visible, but space is allocated for it on the page. The tag is rendered, it just isn't seen on the page.
+
+    For example:
+
+    ```html
+    test | <span style="[style-tag-value]">Appropriate style in this tag</span> | test
+    ```
+
+    Replacing [style-tag-value] with `display:none` results in:
+
+    ```html
+    test |   | test
+    ```
+
+    Replacing [style-tag-value] with `visibility:hidden` results in:
+
+    ```html
+    test |                        | test
+    ```
+
+  * Zero values for pixel sizes, such as `width: 0px; height: 0px;` removes that element from the flow of your document, meaning screen readers will ignore it
+
+* ### Improve Readability with High Contrast Text
+
+  * Low contrast between the foreground and background colors can make text difficult to read.
+  * Sufficient contrast improves the readability of your content.  
+  * Avoid Colorblindness Issues by Using Sufficient Contrast
+  * Avoid Colorblindness Issues by Carefully Choosing Colors that Convey Information
+
+## Flexbox
 
 * Adding `display: flex` to an element turns it into a flex container
 * Flexbox is a new module in CSS3 that makes it easy to align elements to one
 another, in different directions and orders.
 * The main idea behind flexbox is to give the container the ability to expand and
-to shrink elements to best use all the available space. 
+to shrink elements to best use all the available space.
 * Flexbox replaces float layouts, using less, and more readable and logical code;
+* <https://codepen.io/anon/pen/dVZvGr>
 
-https://codepen.io/anon/pen/dVZvGr
+### Container Properties
 
-Container Properties: 
-* ``` flex-direction: row | row-reverse | column | column-reverse ```
-* ``` justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly ``` 
-    * center: all the flex item at the center of the flex container
-    * space-between: space distributed between the flex items
-    * space-around: same amount of space on the right and left side of each of the flex items
-    * space-evenly: space always the same between flex items.
-* ```align-items: stretch | flex-start | flex-end | center | baseline ``` for cross direction 
-    * center: center flex items relative to the item which has heighest value
-    * stretch: stretch flex items relative to the item which has heighest value
-    * baseline: align the text on flex items along the line, suppose there is flex item contains a bigger font size so if we put baseline, all flex items will be aligned on the cross access along the bigger font line.
-* ``` flex-wrap: nowrap | wrap | wrap-reverse; ``` If flex items should wrap into new lines if there is not enough space in the flex container or not. `wrap` will create a new line if there's not enough space.  Using the `flex-wrap` property, it tells CSS to wrap items. This means extra items move into a new row or column. The break point of where the wrapping happens depends on the size of the items and the size of the container.
-* ``` align-content: stretch | flex-start | flex-end | center | space-between | space-around ``` Apply only when more than one row of the flex items, how rows are aligned along the cross axis if there's empty space. Same like align-items property but this aligns _rows_ along the cross axis.
+* ```flex-direction: row | row-reverse | column | column-reverse```
+* ```justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly```
+  * `center`: all the flex item at the center of the flex container
+  * `space-between`: space distributed between the flex items
+  * `space-around`: same amount of space on the right and left side of each of the flex items
+  * `space-evenly`: space always the same between flex items.
+* ```align-items: stretch | flex-start | flex-end | center | baseline``` for cross direction
+  * `center`: center flex items relative to the item which has heighest value
+  * `stretch`: stretch flex items relative to the item which has heighest value
+  * `baseline`: align the text on flex items along the line, suppose there is flex item contains a bigger font size so if we put baseline, all flex items will be aligned on the cross access along the bigger font line.
+* ```flex-wrap: nowrap | wrap | wrap-reverse;``` If flex items should wrap into new lines if there is not enough space in the flex container or not. `wrap` will create a new line if there's not enough space.  Using the `flex-wrap` property, it tells CSS to wrap items. This means extra items move into a new row or column. The break point of where the wrapping happens depends on the size of the items and the size of the container.
+* ```align-content: stretch | flex-start | flex-end | center | space-between | space-around``` Apply only when more than one row of the flex items, how rows are aligned along the cross axis if there's empty space. Same like align-items property but this aligns _rows_ along the cross axis.
 
-Flex Item Properties:
-* ``` align-self: auto | stretch | flex-start | flexend | center | baseline ``` Overrides container's alignment.  
+### Flex Item Properties
+
+* ```align-self: auto | stretch | flex-start | flexend | center | baseline``` Overrides container's alignment.
 `align-self` accepts the same values as `align-items` and will override any value set by the `align-items` property.
-* ``` order: 0 | <integer> ``` all flex items has `order: 0;` by default, if you set `order: -1;` to a flex item, it will put this item at the begining of the container, because any other flex item is 0.  
+* ```order: 0 | <integer>``` all flex items has `order: 0;` by default, if you set `order: -1;` to a flex item, it will put this item at the begining of the container, because any other flex item is 0.  
 The `order` property is used to tell CSS the order of how flex items appear in the flex container. By default, items will appear in the same order they come in the source HTML. The property takes numbers as values, and negative numbers can be used.
 * `flex-grow: 0 | <integer>` abbility of an element to grow as much as it can. If we put `flex-grow: 1;` on items it will occupy all the entire space as much as it can. If we put `flex-grow: 2;` on item so means it has double the abblity to grow. shorthand property `flex: 1;`
-* `flex-shrink: 1 | <integer>` default is 1, It allows an item to shrink if the flex container is too small, so it means the element allows to shrink if there's no more availabe space, if we don't want item to shrink, we'll set it to 0.   
+* `flex-shrink: 1 | <integer>` default is 1, It allows an item to shrink if the flex container is too small, so it means the element allows to shrink if there's no more availabe space, if we don't want item to shrink, we'll set it to 0.
 The `flex-shrink` property takes numbers as values. The higher the number, the more it will shrink compared to the other items in the container. For example, if one item has a `flex-shrink` value of 1 and the other has a `flex-shrink` value of 3, the one with the value of 3 will shrink three times as much as the other.
+
     ```html
     <style>
     #box-container {
@@ -1502,6 +1675,7 @@ The `flex-shrink` property takes numbers as values. The higher the number, the m
     <div id="box-2"></div>
     </div>
     ```
+
 * `flex-basis: auto | <length>` width of an item. `flex-basis: 20%;` 20% of its container.  
 The `flex-basis` property specifies the initial size of the item before CSS makes adjustments with flex-shrink or flex-grow. The value `auto` sizes items based on the content.
 
@@ -1545,7 +1719,8 @@ The `flex-basis` property specifies the initial size of the item before CSS make
     <div id="box-2"></div>
     </div>
     ```
-<h2 id="grid-layout">Grid Layout</h2>
+
+## Grid Layout
 
 * CSS Grid Layout is a brand new module that brings a two-dimensional grid system to CSS for the first time.
 * CSS Grid replaces float layouts, using less, and more readable and logical CSS and HTML.
@@ -1553,11 +1728,12 @@ The `flex-basis` property specifies the initial size of the item before CSS make
 * No Need for Bootstrap anymore
 * Grid Line 1 2 3 4
 * Grid Track [Space between Grid Lines, ex: 1-3]
-    * Grid Track (Row)
-    * Grid Track (Column)
+  * Grid Track (Row)
+  * Grid Track (Column)
 * Grid Area [Space Between Two Vertical and Two Horizontal Grid Lines]
 * Grid Cell [Space Between Two Adjacent Vertical and Two Horizontal Grid Lines]
 * Use Dev Tool in Firefox Quantumn > Layout > Display Line Numbers
+
 ```css
 .container {
     grid-template-rows: repeat(2, 150px); /* 2 tracks for the rows each has 150px height
@@ -1595,30 +1771,32 @@ The `flex-basis` property specifies the initial size of the item before CSS make
 }
 ```
 
-<h3 id="naming-grid">Naming Grid</h3>
+* ### Naming Grid
 
 There are three different ways to name gride lines  
+
 1. Using line numbers [Codepen Example](https://codepen.io/sabahallah/pen/gqRRdj)
 2. Using line names [Codepen Example](https://codepen.io/sabahallah/pen/omwwPe)
 3. Naming Grid Area [Codepen Example](https://codepen.io/sabahallah/pen/LqyyBN)
 
-<h3 id="implicit-explicit-grid">Implicit Grids vs Explicit Grids</h3>
+* ### Implicit Grids vs Explicit Grids
 
 Implicit Grids is great for use cases where you don't really know how many rows or columns will be on your grid layout, for example: if you retrieving data from the server via ajax call in web app and you don't really know how many items will return from the server, so you can style the extra rows and everything will work as expected even if you don't know how many items will be in it. `grid-auto-rows: 80px;`  
 [Codepen Example](https://codepen.io/sabahallah/pen/exREpB)
 
-<h3 id="grid-flow">Grid Flow</h3>
+* ### Grid Flow
 
 ```css
 .container {
     /* the grid flow by default is row, but you can change the default behaviour using grid-auto-flow property */
     grid-auto-flow: column;
-    
+
     /* now the grid flow is column so give the implicit cells width of 1/2 fraction */
     grid-auto-columns: .5fr;
 }
 ```
-<h3 id="align-grid-items">Aligning Grid <strong>Items</strong> inside Grid Areas</h3>
+
+* ### Aligning Grid **Items** inside Grid Areas
 
 Align grid items inside the grid area or cell [Codepen Example](https://codepen.io/sabahallah/pen/RvgLEo)
 
@@ -1630,7 +1808,7 @@ Align grid items inside the grid area or cell [Codepen Example](https://codepen.
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 30px;
   
-  grid-auto-rows: 80px; 
+  grid-auto-rows: 80px;
   grid-auto-flow: row;
   
   /* item will be completly centered, it will calculate width and height of the item and remaining space will be set as auto margin around the item */
@@ -1643,22 +1821,22 @@ Align grid items inside the grid area or cell [Codepen Example](https://codepen.
   &--4 {
       background-color: crimson;
       grid-row: 2 / span 3;
-      
+
       /* to override container settings */
       align-self: start;
-      justify-self: start;      
+      justify-self: start;
  }
 }
 ```
 
-
-<h3 id="align-tracks">Aligning <strong>Tracks</strong>  inside its container</h3>
+* ### Aligning **Tracks** inside its container
 
 Align grid tracks (cell or multiple cells) inside its container [Codepen Example](https://codepen.io/sabahallah/pen/pGwpJj)
+
 ```css
 .container {
-    /* - sometimes when you align track, some empty holes (boxes or cells without any items) will be created in order to keep the source order in html 
-  - to prevent this from happening set dense value to grid-auto-flow 
+    /* - sometimes when you align track, some empty holes (boxes or cells without any items) will be created in order to keep the source order in html
+  - to prevent this from happening set dense value to grid-auto-flow
   - this probably good if you have image gallery for example */
   grid-auto-flow: row dense;
   
@@ -1670,9 +1848,10 @@ Align grid tracks (cell or multiple cells) inside its container [Codepen Example
 }
 ```
 
-<h3 id="grid-functions">Using <code>min-content, max-content, minmax()</code> functions</h3>
+* ### Using `min-content, max-content, minmax()` functions
 
 [Codepen Example](https://codepen.io/sabahallah/pen/NogyYa)
+
 ```css
 .container {
   width: 1000px;
@@ -1692,13 +1871,13 @@ Align grid tracks (cell or multiple cells) inside its container [Codepen Example
   width: 90%;
   /* it will make sure height is between 50px and min-content */
   grid-template-rows: repeat(2, minmax(50px, min-content));
-    
+
   /* it will make sure width is at least 200px */
   grid-template-columns: minmax(200px, 1fr) repeat(3, 1fr);
 }
 ```
 
-<h3 id="grid-responsive-layout">Responsive Layouts with <code>auto-fit</code> and <code>auto-fill</code></h3>
+* ### Responsive Layouts with `auto-fit` and `auto-fill`
 
 [Codepen Example](https://codepen.io/sabahallah/pen/BMZVXm)
 
@@ -1725,7 +1904,9 @@ Align grid tracks (cell or multiple cells) inside its container [Codepen Example
   grid-auto-rows: 150px;
 }
 ```
+
 * Text can be treated as a grid as well as after and before pesudo elements
+
     ```scss
     &__seenon-text {
         display: grid;
@@ -1745,25 +1926,29 @@ Align grid tracks (cell or multiple cells) inside its container [Codepen Example
         }
     }
     ```
-<h2 id="svg">SVG</h2>
 
-Moving from Icon Fonts to SVGs. (Scalable Victor Graphics) 
-- Icon Fonts is just a hack to display icon like a font.
-- Icon Fonts fail more often that you would think and in that case browser display a small square on the screen.
-- Screen readers failing to read the Icon Fonts
-- It's super easy to style SVGs
+## SVG
+
+Moving from Icon Fonts to SVGs. (Scalable Victor Graphics)
+
+* Icon Fonts is just a hack to display icon like a font.
+* Icon Fonts fail more often that you would think and in that case browser display a small square on the screen.
+* Screen readers failing to read the Icon Fonts
+* It's super easy to style SVGs
 
 So it's a best practice to use SVGs instead of using icon fonts.  
 Use icomoon.io to convert Icon Font to SVG or to download SVG images.  
 Symbol-defs.svg is called sprite file, it's a simple SVG file contains all other svg images.
 
 Using SVGs in Html:
+
 ```html
 <svg class="search__icon">
-	<!-- This will appear only if you're using a webserver -->
-	<use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+    <!-- This will appear only if you're using a webserver -->
+    <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
 </svg>
 ```
+
 Formatting SVG is easy, just set its height and width. also changing SVG color is easy, just use `fill` property.
 
 ```css
@@ -1777,20 +1962,28 @@ fill: var(--color-grey-dark-3);
 fill: currentColor;
 ```
 
+## Miscellaneous
 
-<h2 id="miscellaneous">Miscellaneous</h2>
+* `vertical-align: middle;` align text and image to be in the same vertical axis
+
+* ```css
+    /* to align the icon with the text on the right side */
+    line-height: 120%;
+    vertical-align: middle;
+    margin-top: -5px;
+  ```
 
 * ```css
     /* Putting this on the parent element will put all the children in horizontal row */
     display: flex;
     ```
 
-* ```css 
+* ```css
     /*If you set an element's margin to a negative value, the element will grow larger.*/
     margin: -15px;
     ```
 
-*   ```css
+* ```css
     /* if we have a list of items and need it to scroll if it's more than the max height, set overflow: scroll; */
     <ul style="height=300px; overflow: scroll;">
         <li></li>
@@ -1802,14 +1995,16 @@ fill: currentColor;
         <li></li>
     </ul>
     ```
-*   ```css
+
+* ```css
     .borderImg {
         /* 2px horizontal, 2px vertical, 5px blur it out; mush softer, color */
-        text-shadow: 2px 2px 5px black;    
+        text-shadow: 2px 2px 5px black;
         border: 5px dotted white; /* width, type and color */
     }
     ```
-*   ```css
+
+* ```css
     header {
         background-image: url(img/hero.jpg);
         background-repeat: no-repeat;
@@ -1817,7 +2012,8 @@ fill: currentColor;
         height: 100vh; /* it will take 100% of the view port height */
     }
     ```
-*   ```css
+
+* ```css
     .box {
         background-color: lightblue;
         color: white;
@@ -1828,20 +2024,22 @@ fill: currentColor;
     }
     ```
 
-*   ```html
+* ```html
     <!-- <span> element here only inside <p> to style inline content -->
     <p class="plan-price">399$ <span>per month</span></p>
 
     <!-- adding white space, like an empty line -->
-    <p class="plan-price-meal">&nbsp;</p> 
+    <p class="plan-price-meal">&nbsp;</p>
     ```
-*   ```css
+
+* ```css
     /* remove borders added by chrome in input elements */
     *:focus {
         outline: none;
     }
     ```
-*   ```html
+
+* ```html
     <div class="row">
         <div class="col span-1-of-3">
             <!-- when you click on the label it will highlight the textbox, it didn't work with text area and selection -->
@@ -1857,7 +2055,8 @@ fill: currentColor;
         </div>
     </div>
     ```
-*   ```css
+
+* ```css
     padding: 10px 20px;
     /* It works clockwise starting from top */
     padding-top: 10px;  
@@ -1872,7 +2071,8 @@ fill: currentColor;
     padding-bottom: 40px;  
     padding-left: 20px; /* like padding right */  
     ```
-*   ```css
+
+* ```css
     * {
         /* By default browser put margin and padding on elements, to remove this: */
         margin: 0;
@@ -1881,7 +2081,8 @@ fill: currentColor;
         box-sizing: border-box;
     }
     ```
-*   ```css 
+
+* ```css
     .container {
         width: 1140px;
         /* auto means left and right margin will be adjusted automatically according to the context of the element which is the browser window our case */
@@ -1889,55 +2090,66 @@ fill: currentColor;
         margin-right: auto;  
     }
     ```
+
 * It is a bad practice to use element id to style the element, use it sparingly.  
 * javascript:void(0); means stay on the page, the void operator evaluates the given expression and then returns undefined.
-*   ```css
+
+* ```css
     /* z-index only works if we specified position */
     z-index: 10;
     ```
+
 * In modern CSS, many times Flexbox used in conjunction with Grid Layout Module. Overall layout can be done by the grid and smaller details can be handled with flexbox.
 * If you use `margin-right: auto;` with flexbox container, flexbox item will occupy only the space that it needs and all remaining space will be margin right
-	```css
-	.overview {
-		display: flex;
-		&__heading {
-			//// ....
-		}
-		&__stars {
-			margin-right: auto;
-		}
-		&__location {
-		}
-	}
-	```
-* `align-self: stretch;` to override parent setting and occupy all the avialable space 
+
+```css
+.overview {
+    display: flex;
+    &__heading {
+        //// ....
+    }
+    &__stars {
+        margin-right: auto;
+    }
+    &__location {
+    }
+}
+```
+
+* `align-self: stretch;` to override parent setting and occupy all the avialable space
 * figure element is perfect for user reviews
-	```html
-	<figure class="review">
-		<blockquote class="review__text">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi, totam, itaque officia ex.
-		</blockquote>
-		<figcaption class="review__user">
-			<img src="img/user-1.jpg" alt="User 1" class="review__photo">
-			<div class="review__user-box">
-				<p class="review__user-name">Nick Smith</p>
-				<p class="review__user-date">Feb 23rd, 2017</p>
-			</div>
-			<div class="review__rating">7.8</div>
-		</figcaption>
-	</figure>
-	```
+
+```html
+<figure class="review">
+    <blockquote class="review__text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi, totam, itaque officia ex.
+    </blockquote>
+    <figcaption class="review__user">
+        <img src="img/user-1.jpg" alt="User 1" class="review__photo">
+        <div class="review__user-box">
+            <p class="review__user-name">Nick Smith</p>
+            <p class="review__user-date">Feb 23rd, 2017</p>
+        </div>
+        <div class="review__rating">7.8</div>
+    </figcaption>
+</figure>
+```
+
 * Screen readers can read what's between anchor tags, so choose proper text to put between anchor tags
-    ```html 
+
+    ```html
     Click here for <a href="">information about batteries</a>
     <h2 id="tools">Tools</h2>
     ```
+
 * Make Links Navigatable with HTML Access Keys
+
     ```html
     <a href="" accesskey="g"> Important Link</a>
     ```
+
 * Use `tabindex` to Add Keyboard Focus to an Element  
-    The HTML `tabindex` attribute has three distinct functions relating to an element's keyboard focus. 
+    The HTML `tabindex` attribute has three distinct functions relating to an element's keyboard focus.
     When it's on a tag, it indicates that element can be focused on. The value (an integer that's positive, negative, or zero) determines the behavior
 
     Certain elements, such as links and form controls, automatically receive keyboard focus when a user tabs through a page. It's in the same order as the elements come in the HTML source markup. This same functionality can be given to other elements, such as `div`, `span`, and `p`, by placing a `tabindex="0"` attribute on them. Here's an example:
@@ -1946,7 +2158,7 @@ fill: currentColor;
     <div tabindex="0">I need keyboard focus!</div>
     ```
 
-    A negative `tabindex` value (typically -1) indicates that an element is focusable, but is not reachable by the keyboard. 
+    A negative `tabindex` value (typically -1) indicates that an element is focusable, but is not reachable by the keyboard.
 
     Use tabindex to Specify the Order of Keyboard Focus for Several Elements
 
@@ -1954,25 +2166,26 @@ fill: currentColor;
 
     It's important to note that when the tab order is set this way, it overrides the default order (which uses the HTML source). This may confuse users who are expecting to start navigation from the top of the page. This technique may be necessary in some circumstances, but in terms of accessibility, take care before applying it.
 
-    ```html    
+    ```html
     <div tabindex="1">I get keyboard focus, and I get it first!</div>
     <div tabindex="2">I get keyboard focus, and I get it second!</div>
     ```
+
 * **FOUC** [Revisit] Flash Of Unstyled Content  
-	A FOUC happens when the HTML for a site has loaded, but the styles have not, resulting in a style-less mess for a short duration of time.  
-	Some developers might try to hide the page until the site has fully loaded. But such techniques usually rely on JavaScript, which means that if the user has JavaScript disabled, they will never see the page.  
-	The most accessible method then is to simply include the styles of your site directly in the <head> section of the document as opposed to linking to them. The tradeoff is the overall HTML load time will increase.  
-	Alternatively, if you wanted to get creative, you could use a snippet of inline styles in the <head> that would hide the page, with overriding inline styles at the bottom of the page. This would remove the need for JavaScript, while eliminating the FOUC and keeping the above-the-fold loading time to a minimum. [hide on the head, unhide at the bottom]
+  * A FOUC happens when the HTML for a site has loaded, but the styles have not, resulting in a style-less mess for a short duration of time.  
+  * Some developers might try to hide the page until the site has fully loaded. But such techniques usually rely on JavaScript, which means that if the user has JavaScript disabled, they will never see the page.  
+  * The most accessible method then is to simply include the styles of your site directly in the `<head>` section of the document as opposed to linking to them. The tradeoff is the overall HTML load time will increase.  
+  * Alternatively, if you wanted to get creative, you could use a snippet of inline styles in the `<head>`that would hide the page, with overriding inline styles at the bottom of the page. This would remove the need for JavaScript, while eliminating the FOUC and keeping the above-the-fold loading time to a minimum. [hide on the head, unhide at the bottom]
 
 * Advantages of declaring and using system fonts in our websites and applications?
-	* Google developed “Roboto;” Apple, “San Francisco;” and Microsoft, “Segoe UI”
-	* We save the user from having to download an external font from a CDN, resulting in slightly faster loading times and no flashing from font changes.
-	* Because the font in use will be the operating system’s default font, our application or website will appear more like a native app.
+  * Google developed “Roboto;” Apple, “San Francisco;” and Microsoft, “Segoe UI”
+  * We save the user from having to download an external font from a CDN, resulting in slightly faster loading times and no  flashing from font changes.
+  * Because the font in use will be the operating system’s default font, our application or website will appear more like a native app.
 * [Using Counters in CSS](https://30-seconds.github.io/30-seconds-of-css/#counter)
 * [Custom Scrollbar](https://30-seconds.github.io/30-seconds-of-css/#custom-scrollbar)
 * [list-style-type](http://www.java2s.com/Code/HTMLCSS/CSS/liststyletypesquare.htm)
-* 
-    ```scss
+
+* ```scss
     &__img {
         width: 100%;
         height: 100%;
@@ -1983,28 +2196,28 @@ fill: currentColor;
     }
     ```
 
-<h3 id="emmet">Emmet</h3>
+## Emmet
 
-Writing .row>(.col-1-of-4>.feature-box)*4 will generate: 
+Writing .row>(.col-1-of-4>.feature-box)*4 will generate:
 
 ```html
 <div class="row">
   <div class="col-1-of-4">
-	<div class="feature-box"></div>
+    <div class="feature-box"></div>
   </div>
   <div class="col-1-of-4">
-	<div class="feature-box"></div>
+    <div class="feature-box"></div>
   </div>
   <div class="col-1-of-4">
-	<div class="feature-box"></div>
+    <div class="feature-box"></div>
   </div>
   <div class="col-1-of-4">
-	<div class="feature-box"></div>
+    <div class="feature-box"></div>
   </div>
 </div>
 ```
 
-Writing .container>.item.item--$*6 will generate: 
+Writing .container>.item.item--$*6 will generate:
 
 ```html
 <div class="container">
@@ -2017,7 +2230,7 @@ Writing .container>.item.item--$*6 will generate:
 </div>
 ```
 
-Writing section.features>.feature{feature $}*6 will generate: 
+Writing section.features>.feature{feature $}*6 will generate:
 
 ```html
 <section class="features">
@@ -2028,4 +2241,55 @@ Writing section.features>.feature{feature $}*6 will generate:
     <div class="feature">feature 5</div>
     <div class="feature">feature 6</div>
 </section>
+```
+
+## CSS Performance
+
+* The descendant selector can be expensive.  
+Depending on how large your application is, only using the descendant selector without more specificity can be really expensive.  
+The browser is going to check every descendant element for a match because the relationship isn’t restricted to parent and child.  
+`#nav a {}` The browser is going to assess all the links on the page before settling to the ones actually inside our #nav section. A more performant way to do this would be to add a specific selector of `.navigation-link` on each `<a>` inside our #nav element.
+* The browser reads selectors from right to left. When parsing CSS, the browser resolves CSS selectors from right to left.
+![css code image](https://cdn-images-1.medium.com/max/1600/1*Pi_wGtDAnY-u9cuaXwt7hA.png)
+  * The steps taken are:
+    * match every `<a>` on the page.
+    * find every `<a>` contained in a `<li>`.
+    * use the previous matches and narrow down to the ones contained in `<ul>`.
+    * Finally, filter down the above selection to the ones contained in an element with the class `.container`
+  * Looking at these steps, we can see that the more specific the right selector is, the more efficient it will be for the browser to filter through and resolve CSS properties.
+  * To improve the performance of the example above, we could replace `.container ul li a` with adding something like `.container-link-style` on the `<a>` tag itself.
+* Be careful of paint complexity. Some CSS properties (e.g: blur) are more expensive than others when it comes to painting. Think about potential other more effective ways to achieve the same result.
+* Expensive CSS properties. Some CSS properties are more expensive than others. What this means is that they take longer to paint.
+  * Some of these expensive properties include:
+    * `border-radius`
+    * `box-shadow`
+    * `filter`
+    * `:nth-child`
+    * `position: fixed`
+* Order in CSS files matters. If we look at the CSS below:
+![css code snippet](https://cdn-images-1.medium.com/max/1600/1*0uiYubMeRz5QRppeAM6x7A.png)
+
+  And then look at this HTML code:
+![css code snippet 2](https://cdn-images-1.medium.com/max/1600/1*-H7JKSQP_WRcwy3Z2GFmzQ.png)
+  The order of the selectors in HTML does not matter, the order of the selectors in the CSS file does.
+
+## Text Properties
+
+```css
+text-align: center;
+font-size: 90%;
+font-style: italic;
+line-height: 145%
+word-spacing: 2px;
+letter-spacing: 1px;
+```
+
+## Image Background Properties
+
+```css
+background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/hero-min.jpg);
+background-size: cover; /* we want to use the actual image size */
+background-position: center;
+height: 100vh; /* 100% of the view port */ 
+background-attachment: fixed; /* very cool to make the image fixed, so you can scroll the the page and the image will be fixed in its place */
 ```
