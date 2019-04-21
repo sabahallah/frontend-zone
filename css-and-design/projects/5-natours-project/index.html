@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet"/>
 
     <link rel="stylesheet" href="css/icon-font.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -29,11 +26,11 @@
 
           <nav class="navigation__nav">
               <ul class="navigation__list">
-                  <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>About Natous</a></li>
-                  <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benfits</a></li>
-                  <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
-                  <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
-                  <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+                  <li class="navigation__item"><a href="#about" class="navigation__link" onclick="closeIcon()"><span>01</span>About Natous</a></li>
+                  <li class="navigation__item"><a href="#features" class="navigation__link" onclick="closeIcon()"><span>02</span>Your benfits</a></li>
+                  <li class="navigation__item"><a href="#section-tours" class="navigation__link" onclick="closeIcon()"><span>03</span>Popular tours</a></li>
+                  <li class="navigation__item"><a href="#stories" class="navigation__link" onclick="closeIcon()"><span>04</span>Stories</a></li>
+                  <li class="navigation__item"><a href="#book-now" class="navigation__link" onclick="closeIcon()"><span>05</span>Book now</a></li>
                   </ul>
           </nav>
       </div>
@@ -54,9 +51,7 @@
           <span class="heading-primary--main">Outdoors</span>
           <span class="heading-primary--sub">is where life happens</span>
         </h1>
-        <a href="#section-tours" class="btn btn--white btn--animated"
-          >Discover our tours</a
-        >
+        <a href="#section-tours" class="btn btn--white btn--animated">Discover our tours</a>
       </div>
     </header>
 
@@ -105,7 +100,7 @@
        huge container which will have most of our website
     -->
     <main>
-      <section class="section-about">
+      <section class="section-about" id="about">
         <div class="u-center-text u-margin-bottom-big">
           <h2 class="heading-secondry">
             Exciting tours for adventurous people
@@ -132,28 +127,28 @@
               rerum facere atque harum deserunt voluptas suscipit, vero
               consequatur
             </p>
-            <a href="#" class="btn-text">Learnn More &rarr;</a>
+            <a href="" class="btn-text">Learn More &rarr;</a>
           </div>
           <div class="col-1-of-2">
             <div class="composition">
                 <!-- Unlike the 'Art Direction' that we basically force the browser to use a certain image according to a media query 
                 But this approach let the browser choose the best image for the current viewport and pixel density for different situations 
             
-                300w and 1000w are the width descriptor informs the browser the actual width of an image (in pixels) 
-                You're telling the broweser the actual width of the image (in pixels) without forcing the browser to 
+                300w and 1000w are the width descriptor which informs the browser the actual width of an image (in pixels) 
+                You're telling the browser the actual width of the image (in pixels) without forcing the browser to 
                     download them in order to get these information
             
                 sizes attribute informs the browser about the approximate width of an image at different viewport width
-                with that information together with width descriptor the browser can figure out which perfect image to use for 
+                with these information together with width descriptor the browser can figure out which perfect image to use for 
                     the current viewport width and current display resolution
 
-                suppose at width 900px the image width is 171 so 171/900=0.19 almost 20% of the viewport width
-                suppose at width 600px the image width is 171 so 171/600=0.285 almost 30% of the viewport width
+                suppose at viewport width 900px the image width is 171 so 171/900=0.19 almost 20% of the viewport width
+                suppose at viewport width 600px the image width is 171 so 171/600=0.285 almost 30% of the viewport width
                 and default size is 300px (if none of conditions happens)
 
                 so all of this will take care of 'Resolution Switching' and 'Density Switching'
 
-                we added src attribute in case the user use an older browser                
+                we added src attribute in case the user uses an older browser                
                 -->
 
                 <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
@@ -182,7 +177,7 @@
         </div>
       </section>
 
-      <section class="section-features">
+      <section class="section-features" id="features">
         <div class="row">
           <div class="col-1-of-4">
             <div class="feature-box">
@@ -191,9 +186,9 @@
               -->
               <i class="feature-box__icon icon-basic-world"></i>
               <h3 class="heading-tertiary u-margin-bottom-small">
-                Expolre the world
+                Explore the world
               </h3>
-              <p class="feature-box__text">
+              <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
                 rerum facere atque harum
               </p>
@@ -365,7 +360,7 @@
       </section>
 
       
-      <section class="section-stories">
+      <section class="section-stories" id="stories">
           <div class="bg-video">
               <video class="bg-video__content" autoplay muted loop>
                 <!-- videos from https://coverr.co/ -->
@@ -421,7 +416,7 @@
           </div>
       </section>
 
-      <section class="section-book">
+      <section class="section-book" id="book-now">
           <div class="row">
               <div class="book">
                   <div class="book__form">
@@ -494,7 +489,7 @@
 
                 @2x screen (high resolution) 
                     [mac with retina display and all modern smart phones]
-                    [use two physical pixels to display 1 pixel of our design]
+                    [it uses two physical pixels to display 1 pixel of our design]
                 @1x screen (Low resolution) [our normal computers]
 
                 1x and 2x is the density descriptor
@@ -532,13 +527,13 @@
     </footer>
 
     <div class="popup" id="popup">
-        <div class="popup__content">
+        <div class="popup__content" id="popup_content">
             <div class="popup__left">
                 <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
                 <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
             </div>
             <div class="popup__right">
-                <a href="#section-tours" class="popup__close">&times;</a>
+                <a href="#section-tours" class="popup__close" id="tours-link">&times;</a>
                 <h2 class="heading-secondry u-margin-bottom-small">Start booking now</h2>
                 <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
                 <p class="popup__text">
@@ -558,6 +553,6 @@
         </div>
     </div>
 
-    
+    <script src="js/script.js"></script>
   </body>
 </html>

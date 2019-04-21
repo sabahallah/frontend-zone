@@ -47,8 +47,8 @@
     }
 
     /* HINT: To make a nice effect. When the placeholder is shown, we want the label to be hidden once we start writing it will be visible 
-            + (the sibiling selector) because input and label elements are adjacent sibilings, having the same parent
-            if they are not adjacent selectors like <label> <div> <input> we will use (~ the general sibiling selector) instead of + 
+            + (the sibling selector) because input and label elements are adjacent siblings, having the same parent
+            if they are not adjacent selectors like <label> <div> <input> we will use (~ the general sibling selector) instead of + 
             be carful and check the order in HTML <input> element is before <label> element */
     &__input:placeholder-shown + &__label {
         opacity: 0;
@@ -105,7 +105,7 @@
         }
     }
     /*
-     HINT: We will select the label element first (sibiling) then we'll select its child 
+     HINT: We will select the label element first (sibling) then we'll select its child 
             in this case ~ & + is the same effect */
     &__radio-input:checked ~ &__radio-label &__radio-button::after {
         opacity: 1;

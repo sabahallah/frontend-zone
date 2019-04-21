@@ -62,6 +62,10 @@
     }
   }
 
+  &--margin-top {
+    margin-top: 2rem;
+  }
+
   /* using pesudo elements 
     we will create a content and put it behind the current button,
     then if we hover over the button the content will scale and fade out */
@@ -106,8 +110,8 @@
     transform: translateY(-2px);
   }
 
-  &:action {
+  &:active {
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
-    transform: translateY(0);
+    transform: translateY(2px);
   }
 }

@@ -35,7 +35,7 @@
     /* when popup element popup on screen make some animation to __content
     it will popup to user from the middle of the screen */
     &:target &__content{
-        // this is the opem state, scale it back to original state
+        // this is the open state, scale it back to original state
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
     }
@@ -59,6 +59,7 @@
         }
     }
     &__content {
+
         @include absoulteCenter;
         width: 75%;
         
@@ -66,41 +67,61 @@
         box-shadow: 0 2rem 4rem rgba($color-black, .2);
         border-radius: 3px;
 
-        display: table; 
-        overflow: hidden;/* because the image overflowen */
+        display: flex;
 
-        // this is the initial state for the popup, so when user click the button it will popup from the midlle of the screen
+        // this is the initial state for the popup, so when user click the button it will popup from the middle of the screen
         // if we use scale only it will not work because we already have anothe transform from the mixin,
         // so we have to combine it togther here
         opacity: 0;
         transform: translate(-50%, -50%) scale(.25);
         transition: all .4s .2s; /* delay the transition by .2s*/
     }
-
-    /* we need the two boxes to have the same height, we can use float but the right box will occupy only the actual conent height
-        so we need a way to make the two boxes the same height and center the content vertically 
-        we are going to simulate a table by setting display: table-cell; on the box and the parent element .popup__content will be display: table; 
-        to verically align the content, we'll use vertical-align: middle; on boxes */
-    
     
     &__left {
         width: 33.333333%;
-        // float: left;
-        display: table-cell; 
         
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 3rem;
+        visibility: visible;
+
+        @include respond(tab-port) {
+           display: none;
+           visibility: hidden;
+        }
     }
     &__right {
         width: 66.6666667%;
-        // float: left;
-        display: table-cell; 
-        vertical-align: middle;
         padding: 3rem 5rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        
+        @include respond(tab-port) {
+            width: 100%;
+        }
+
+        @include respond(phone) {
+            overflow-y: scroll;
+            height: 80vh;
+            padding: 2rem 2.5rem;
+            justify-content: space-between;
+        }
+        
     }
     &__img {
         display: block;
         width: 100%;
-        
+        margin-bottom: 20px;
     }
+
+    &__img:not(:last-child) {        
+        margin-bottom: 5vh;
+    }
+    
     &__text {
         font-size: 1.4rem;
         margin-bottom: 4rem;    
@@ -123,5 +144,12 @@
         -ms-hyphens: auto;
         -webkit-hyphens: auto;
          hyphens: auto;
+
+         
+         @include respond(phone) {
+            column-count: 1;
+            column-gap:0;
+            margin-bottom: 1rem;
+        }
     }
 }

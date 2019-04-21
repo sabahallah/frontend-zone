@@ -25,7 +25,7 @@ html {
     font-size: 20px;
     text-rendering: optimizeLegibility; /* make our fonts rendered in a perfect way */
     overflow-x: hidden; /* if content goes outside, this will hide it */
-    scroll-behavior: smooth; /* this is for smooth scrolling behaviour if you click on a button */
+    scroll-behavior: smooth; /* this is for smooth scrolling behaviour if you click on a button, not supported in IE and Safari */
 }
 
 /* when you define some floats, then later you have to clear those floats */

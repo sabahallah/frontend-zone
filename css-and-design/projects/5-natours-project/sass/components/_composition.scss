@@ -30,7 +30,7 @@
         }
 
         &--p2 {
-            top: 2rem; /* will go up 20px*/
+            top: 2rem; /* will go down 20px*/
             right: 0;
 
             /* for media queries */
@@ -42,7 +42,7 @@
         }
     
         &--p3 {
-            top: 10rem; /* will go up 20px*/
+            top: 10rem; /* will go down 20px*/
             left: 20%;
 
             /* for media queries */

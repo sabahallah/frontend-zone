@@ -611,6 +611,9 @@ CSS stands for Cascading Style Sheets. You can link your css file in 3 different
 * **vh:** `width: 3vh` would be 3% of the viewport's height.  
 * **vmin:** `width: 70vmin` would be 70% of the viewport's smaller dimension (height vs. width).  
 * **vmax:** `width: 100vmax` would be 100% of the viewport's bigger dimension (height vs. width).
+* **em** is relative to the `font-size` of its parent element. If you have a `<div>` with the font size is set to `16px`, and a `<p>` element inside that div with a font-size set to `2em`, the font-size of text in the `<p>` will be `32px`; set it to `0.5px`, and the `font-size` will be `8px`.
+* **REM** is dictated by the set root (HTML document) size.
+  * The default size, if one has not been defined, is 16px — so 1em/rem = 16px.
 
 ## Colors
 
@@ -1067,9 +1070,9 @@ Buttons can have different states `link`, `visited`, `active` and `hover` and al
         @include clearfix;
 
         /* Using the attribute selector
-            ^ select all elements which have a class attribute and strat with col-
-            $ select all elements which have a class attribute and end with col-
-            * select all elements which have a class attribute and contains col- */
+            ^ select all elements which have a class attribute and value starts with col-
+            $ select all elements which have a class attribute and value ends with col-
+            * select all elements which have a class attribute and value contains col- */
         [class^="col-"] {
             background-color: orange;
             float: left;
@@ -1080,7 +1083,8 @@ Buttons can have different states `link`, `visited`, `active` and `hover` and al
 
         /* we make variable $gutter-horizontal so for future projects we can play with the value as we want */
         .col-1-of-2 {
-            /*  calc is a css function, it allows calcualtions where you can mix units, in order to use sass variables you need to wrap the variable inside #{ } */
+            /*  calc is a css function, it allows calcualtions where you can mix units,
+            in order to use sass variables you need to wrap the variable inside #{ } */
             width: calc((100% - #{$gutter-horizontal}) / 2);
         }
 
@@ -1088,7 +1092,7 @@ Buttons can have different states `link`, `visited`, `active` and `hover` and al
             width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
         }
 
-        .col-2-of-3 {
+        .col-2-of-3 { /* == 2 'col-1-of-3' + $gutter-horizontal */
             width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
         }
 
@@ -1119,7 +1123,7 @@ Buttons can have different states `link`, `visited`, `active` and `hover` and al
     * @2x screen
       * (high resolution)
       * (mac with retina display and all modern smart phones)
-      * (use two physical pixel to display 1 pixel of our design)
+      * (it uses two physical pixels to display 1 pixel of our design)
     * @1x screen
       * (Low resolution)
       * (our normal computers)  
@@ -1129,11 +1133,27 @@ Buttons can have different states `link`, `visited`, `active` and `hover` and al
     Check natours index page to see the different flavours
 
     ```css
-    @media (min-resolution: 192dpi) and (min-width: 600px){
+    /* responsive images in css - 'Resolution Switching'
+        * dpi (dot per inch)
+        * 192 because this the resolution of apple retina screen
+        * if resolution is higher than 192 (we have 2x screen - DPR:2.0) then show the bigger image (../img/hero.jpg)
+        * and (min-width: 600px) because in the mobile view (which is less than 600) almost the density is 2x so no need to download high resolution image
+    */
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), /* 600px/16px=37.5em */
+    /* comma here is like an OR */
+
+    /*  this is for safari because min-resolution not supported */
+    /*  2 means 2x*/
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+
+    /*  if the screen size is more than 2000px download the big image */
+    only screen and (min-width: 125em){ //2000px/16px=125em
         background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.801)),
         url(../img/hero.jpg);
     }
+    ```
 
+    ```css
     /* Make an Image Responsive */
     img {
         /* scales the image to fit the width of its container */
@@ -1143,6 +1163,82 @@ Buttons can have different states `link`, `visited`, `active` and `hover` and al
         height: auto;
     }
     ```
+
+    ```html
+    <!-- This is for 'Art Direction' 
+            Different image for different viewport width
+            When you want to not serve the same image but different image for different screen sizes
+            We have to specify a <source> and an <img> elements, at least 1 <img> and 0 or more <source> -->
+        <picture class="footer__logo">
+            <!-- we want the art direction happens at phone, so we put the media query for phone
+                if the size is greater than 600px then browser forced to use <img> 
+                otherwise will use the <source> element-->
+            <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+                    media="(max-width: 37.5em)">
+
+            <!-- This is for 'Density Switching' (special Case of resolution switching) 
+            Screen size doesn't matter but the screen density does instead
+            Density means amount of pixels found on an inch or centimeter 
+
+            @2x screen (high resolution) 
+                [mac with retina display and all modern smart phones]
+                [it uses two physical pixels to display 1 pixel of our design]
+            @1x screen (Low resolution) [our normal computers]
+
+            1x and 2x is the density descriptor
+            img/logo-green-2x.png for high resolution screen (2x)
+            img/logo-green-1x.png for normal resolution screen (1x) 
+        
+            src attribute in case the user uses a browser that doesn't support srcset attribute -->
+            <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" src="img/logo-green-2x.png">
+
+        </picture>
+    ```
+
+* Let the browser decide which image to use
+
+  ```html
+    <div class="composition">
+    <!-- Unlike the 'Art Direction' that we basically force the browser to use a certain image according to a media query 
+    But this approach let the browser choose the best image for the current viewport and pixel density for different situations 
+
+    300w and 1000w are the width descriptor which informs the browser the actual width of an image (in pixels) 
+    You're telling the browser the actual width of the image (in pixels) without forcing the browser to 
+        download them in order to get these information
+
+    sizes attribute informs the browser about the approximate width of an image at different viewport width
+    with these information together with width descriptor the browser can figure out which perfect image to use for 
+        the current viewport width and current display resolution
+
+    suppose at viewport width 900px the image width is 171 so 171/900=0.19 almost 20% of the viewport width
+    suppose at viewport width 600px the image width is 171 so 171/600=0.285 almost 30% of the viewport width
+    and default size is 300px (if none of conditions happens)
+
+    so all of this will take care of 'Resolution Switching' and 'Density Switching'
+
+    we added src attribute in case the user uses an older browser                
+    -->
+
+    <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+        sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+        alt="Photo 1"
+        class="composition__photo composition__photo--p1"
+        src="img/nat-1-large.jpg">
+
+    <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+        sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+        alt="Photo 2"
+        class="composition__photo composition__photo--p2"
+        src="img/nat-2-large.jpg">
+
+    <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+        sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+        alt="Photo 3"
+        class="composition__photo composition__photo--p3"
+        src="img/nat-3-large.jpg">
+    </div>
+
+  ```
 
 * ### Media Queries
 
@@ -1175,6 +1271,29 @@ but when you get more experience you start putting more break points where your 
 
 ## Animation
 
+Two ways to apply animation:
+
+* using `transition` property and change the property you like
+* using `keyframes`
+
+```css
+a:link,
+a:visited {
+    color: #e67e22;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #e67e22;
+
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover,
+a:active {
+    color: #555;
+    border-bottom: 1px solid transparent;
+}
+```
+
 ```css
 @keyframes animate {
     0% {
@@ -1196,6 +1315,10 @@ p {
     The default value is ease, which starts slow, speeds up in the middle, and then slows down again in the end. */
     animation-timing-function: east-out;
     /* animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75); */
+    animation-delay: 3s;  /* it will wait for 3s then start animating */
+
+    /* shortcut*/
+    animation: moveInRight 1s ease-out;
 }
 ```
 
@@ -1286,16 +1409,18 @@ CSS  Strategies:
     The 7 folders are:
 
     ```ssh
-    * base/
-    * components/ (1 file for each component)
-    * layout/
-    * pages/
+    * base/ (for base and typography)
+    * components/ (1 file for each component, buttons, cards, forms...)
+    * layout/ (for general layout HEADER, FOOTER, NAVIGATION... + GRID)
+    * pages/ (for pages)
     * themes/
     * abstracts/ (variables and mixins)
     * vendors/
     ```
 
     Use this in larger projects it will be handy, for small projects you can use one scss file.
+
+    ![sass files structure](css-by-images\sass-files-structure.PNG)
 
 ## SASS
 
@@ -1967,10 +2092,250 @@ fill: currentColor;
 * `vertical-align: middle;` align text and image to be in the same vertical axis
 
 * ```css
+    /* change the style of a selected text */
+    ::selection {
+        background-color: $color-primary;
+        color: $color-white;
+    }
+  ```
+
+* ```css
     /* to align the icon with the text on the right side */
     line-height: 120%;
     vertical-align: middle;
     margin-top: -5px;
+  ```
+
+* clip-path
+
+    ```css
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        /* specify a polygon in which the image or the element will still be visible */
+        /* nice website you can use, www.bennettfeely.com/clippy/ */
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*75vh means 75 percent of the viewport hieght */
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        height: 95vh;
+    }
+    ```
+
+* sibling selectors (~ and +)
+
+    ```html
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+    <label for="navi-toggle" class="navigation__button">
+        <span class="navigation__icon">&nbsp;</span>
+    </label>
+
+    <div class="navigation__background">&nbsp;</div>
+
+    <div class="navigation__background">&nbsp;</div>
+
+    <nav class="navigation__nav">
+        <ul class="navigation__list">
+            <li class="navigation__item"><a href="#about" class="navigation__link" onclick="closeIcon()"><span>01</span>About Natous</a></li>
+            <li class="navigation__item"><a href="#features" class="navigation__link" onclick="closeIcon()"><span>02</span>Your benfits</a></li>
+            <li class="navigation__item"><a href="#section-tours" class="navigation__link" onclick="closeIcon()"><span>03</span>Popular tours</a></li>
+            <li class="navigation__item"><a href="#stories" class="navigation__link" onclick="closeIcon()"><span>04</span>Stories</a></li>
+            <li class="navigation__item"><a href="#book-now" class="navigation__link" onclick="closeIcon()"><span>05</span>Book now</a></li>
+        </ul>
+    </nav>
+    ```
+
+    ```scss
+    // When checkbox is checked, scale the background 80 times
+    // We used ~ beacuse __checkbox and __background are sibling (has the same parent) but not adjacent
+    // If they were adjacent, we would use + (adjacent sibling selector)
+    &__checkbox:checked ~ &__background {
+        transform: scale(80);
+    }
+    // When checkbox is checked, make the navigation is visible with 100% width
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+    }
+    ```
+
+* Show/Hide elements by css only no js. [jsfiddle example](https://jsfiddle.net/winduptoy/8qfvb1az/)
+
+  ```html
+    <label for="toggleControl" style="cursor: pointer;">Click Me</label>
+    <input type="checkbox" id="toggleControl" style="display: none;">
+    <div id="toggleMe" style="border: 1px solid black; margin: 10px; padding: 10px;">Look mom, no JavaScript!</div>
+  ```
+
+  ```css
+    #toggleMe {
+        display: none;
+    }
+    #toggleControl:checked ~ #toggleMe {
+        display: block;
+    }
+  ```
+
+* Use `<details>` and `<summary>` instead of using `javascript`. examples [here](https://freefrontend.com/html-details-summary-css/)
+
+    ```html
+    <details>
+        <summary>Copyright 1999-2014.</summary>
+        <p> - by Refsnes Data. All Rights Reserved.</p>
+        <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+    </details>
+    ```
+
+* ```scss
+    // when hover over a button go to icon::before and change the top: -1rem;
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+    // when hover over a button go to icon::after and change the top: 1rem;
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    // When checkbox is checked, go to __nav > __item > __link and make it visible
+    &__checkbox:checked ~ &__nav &__item &__link{
+        opacity: 1;
+        display: inline-block;
+    }
+  ```
+
+* Check this [link](https://github.com/sabahallah/frontend-zone/blob/952ea557cff9ea3039e65c2e9c69efac9df9b4a4/css-and-design/projects/5-natours-project/sass/components/_composition.scss)
+
+  ```css
+    &__photo{
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: 2px;
+        position: absolute;
+        z-index: 10;
+        transition: all .2s;
+        outline-offset: 2rem; /* transparent area outside the image */
+
+        &:hover {
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20; /* To make the image overlay top of the others it should have higher z-index */
+
+            /* it is like a boarder, but with outline we can use outline-offset porperty. check above. */
+            outline: 1.5rem solid $color-primary;
+        }
+    }
+  ```
+
+* ```css
+    .composition {
+
+        &__photo{
+            /* ... */
+        }
+
+        /* select all the images which is not hovered */
+        /* this will be transformed to .composition:hover .composition__photo:not(:hover) {} */
+        &:hover &__photo:not(:hover) {
+            transform: scale(.95);
+        }
+    }
+  ```
+
+* ```scss
+    background-color: rgba($color-white, 0.8); /* setting the opacity */
+  ```
+
+* Check [this](https://github.com/sabahallah/frontend-zone/blob/952ea557cff9ea3039e65c2e9c69efac9df9b4a4/css-and-design/projects/5-natours-project/sass/components/_card.scss) file:
+  * `perspective: 150rem;`
+  * `backface-visibility: hidden;`
+  * `background-blend-mode: screen;`
+  * `clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%)`
+  * `box-decoration-break: clone;`
+  * `@media only screen and (hover: none) {}`
+
+* Check [this](https://github.com/sabahallah/frontend-zone/blob/952ea557cff9ea3039e65c2e9c69efac9df9b4a4/css-and-design/projects/5-natours-project/sass/components/_popup.scss) file:
+  * `@supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {}`
+  * `&:target`
+  * `column-count: 2;`
+  * `column-gap: 4rem;`
+  * `column-rule: 1px solid $color-grey-light-2;`
+  * `hyphens: auto;`
+
+* ```scss
+    .background-video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: .15;
+        overflow: hidden;
+
+        // to fix the video overflow issue and maintain the aspect ratio. object-fit: cover;
+        &__content {
+            height: 100%;
+            width: 100%;
+            object-fit: cover; /* similar to background-size: cover and it will maintain the aspect ratio
+            but you need to clear the sides overflow in parent*/
+        }
+    }
+  ```
+
+* Check this [**link**](https://github.com/sabahallah/frontend-zone/blob/952ea557cff9ea3039e65c2e9c69efac9df9b4a4/css-and-design/projects/5-natours-project/sass/components/_story.scss)
+  * `@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {}`
+  * `shape-outside: circle(50% at 50% 50%);`
+  * `filter: blur(3px) brightness(80%);`
+
+* ```css
+    .section-features {
+        padding: 20rem 0;
+        background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.801)
+        ), url(../img/nat-4.jpg);
+
+        /* HINT: Skew the section -7deg, then we skew the direct children the opposite way 7deg */
+        transform: skewY(-7deg);
+
+        /* HINT: Select every element which is a direct child of section-feature and skew it in the y ditection 7deg */
+        & > * {
+            transform: skewY(7deg);
+        }
+    }
+  ```
+
+* ```scss
+    &__input {
+        font-size: 1.5rem;
+        font-family: inherit; /* HINT: because browser sets default font-family */
+        color: inherit; /* HINT: If i didn't add this, browser sets default color which black */
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rbga($color-white, .5);
+        border: none;
+        border-bottom: 3px solid transparent; /* HINT: Transparent because we will give it a color when user focuses on it. */
+        width: 90%;
+        display: block;
+        transition: all .3s;
+
+        /* for media queries */
+        @include respond(tab-port) {
+            width: 100%;
+        }
+
+        &:focus { /* HINT: Remove borders when focusing on an element. */
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .1); /* HINT: For accessability: When user moves around with a keyboard, you should give some box-shadow. */
+            border-bottom: 3px solid $color-primary;
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        &::-webkit-input-placeholder { /* HINT: To style the placeholder */
+            color: $color-grey-dark-2;
+        }
+    }
   ```
 
 * ```css
@@ -2290,6 +2655,6 @@ letter-spacing: 1px;
 background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/hero-min.jpg);
 background-size: cover; /* we want to use the actual image size */
 background-position: center;
-height: 100vh; /* 100% of the view port */ 
+height: 100vh; /* 100% of the view port */
 background-attachment: fixed; /* very cool to make the image fixed, so you can scroll the the page and the image will be fixed in its place */
 ```

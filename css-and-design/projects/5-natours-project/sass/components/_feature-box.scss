@@ -8,6 +8,8 @@
   box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
   transition: transform .3s;
 
+  cursor: pointer;
+  
   /* for media queries */
   @include respond(tab-port){
     padding: 2rem;

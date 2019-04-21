@@ -9,13 +9,16 @@
 
 html {
     /* this is to define what 1rem is */
-    font-size: 62.5%; /* 10/16*100 We will translate to % of the given width given by the browser 
+    font-size: 62.5%; 
+    /*
+    default font-size by browser is 16 px (or any changed by user)
     we want it to be 10 px
-    default by browser is 16 px (or any changed by user) 
+    (10/16*100) = 62.5
+    We are converting font-size to % of the given width given by the browser 
     
-    so if user change to:
-    22 px >> 62.5 * 22 / 100 = 13.75 
-    20 px >> 62.5 * 20 / 100 = 12.5
+    so if user change font-size to:
+    22 px: 62.5 * 22 / 100 = 13.75px 
+    20 px: 62.5 * 20 / 100 = 12.5px
     rem is not supported by IE 9 and below
     This is to make our life easy, that's it. so 1 rem = 10 px so all following calculations later will be easy for us */
 
@@ -49,6 +52,8 @@ html {
     @include respond(big-desktop){
         font-size: 75%; // Here we need 1rem to be equal to 12px instead of 10px; so 12/16*100 = 75%
     }
+
+    scroll-behavior: smooth;
 }
 
 

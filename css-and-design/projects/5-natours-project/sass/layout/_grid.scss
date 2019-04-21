@@ -19,15 +19,16 @@
       margin-bottom: $gutter-vertical-small;
     }
   }
+
   // if we didn't use clear fix, the width of the height will be 0px, because the child elements [columns] are floated to left
   // so we need to use clear fix heck
 
   @include clearfix;
 
   // using the attribute selector
-  // ^ select all elements which have a class attribute and strat with col-
-  // $ select all elements which have a class attribute and end with col-
-  // * select all elements which have a class attribute and contains col-
+  // ^ select all elements which have a class attribute and value starts with col-
+  // $ select all elements which have a class attribute and value ends with col-
+  // * select all elements which have a class attribute and value contains col-
   [class^="col-"] {
     float: left;
     &:not(:last-child) {
@@ -49,7 +50,7 @@
 
   /* we make variable $gutter-horizontal so for future projects we can play with the value as we want */
   .col-1-of-2 {
-    /* allow calcualtions where you can mix units 
+    /* allow calculations where you can mix units 
     calc is a css function, in order to use sass variables you need to wrap the variable between hash{} 
     In sass we can do operations of the same unit, we can not mix units */
     width: calc((100% - #{$gutter-horizontal}) / 2);
@@ -59,7 +60,7 @@
     width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
   }
 
-  .col-2-of-3 {
+  .col-2-of-3 { /* == 2 'col-1-of-3' + $gutter-horizontal */
     width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
   }
   

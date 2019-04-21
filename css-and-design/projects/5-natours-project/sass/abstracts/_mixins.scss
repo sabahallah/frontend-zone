@@ -31,7 +31,7 @@ $breakpoint arguement choices:
 - big-desktop
 
 em and rem (in media queries) are not affected by root font-size setting which is >> html { font-size: 62.5%; }
-which means 1em or 1rem (in media queries) is equal to the font size coming from the browser itslef which is by default 16px.
+which means 1em or 1rem (in media queries) is equal to the font size coming from the browser itself which is by default 16px.
 but if the user changed the font-size to 20px so it will be 20px no matter what is in base font definition which is >> html { font-size: 62.5%; }
 so we're going to use em not rem, because rem failed to work as intended in some of the browsers 
 so em is the best option to use in media query here
