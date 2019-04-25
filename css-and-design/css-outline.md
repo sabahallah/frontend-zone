@@ -1812,12 +1812,12 @@ The `flex-basis` property specifies the initial size of the item before CSS make
         These values will cause #box-1 to grow to fill the extra space at twice the rate of #box-2 when the container is greater than 300px and shrink at twice the rate of #box-2 when the container is less than 300px. 
 
         When container width > 300px then (grow)
-            * divid total container width by 3 (from: box-1 grows 2 times, box-2 grows 1 time) = 1 time width
+            * divid total container width by 3 (from: box-1 grows 2 times, box-2 grows 1 time) = 1 unit width
             * grow box-1 (2 * 1 unit)
             * grow box-2 (1 * 1 unit)
 
         When container width < 300px then (shrink)
-            * divid total container width by 3 (from: box-1 shrinks 2 times, box-2 shrinks 1 time) = 1 unit
+            * divid total container width by 3 (from: box-1 shrinks 2 times, box-2 shrinks 1 time) = 1 unit width
             * shrink box-1 (2 * 1 unit)
             * shrink box-2 (1 * 1 unit)
     -->
@@ -1843,6 +1843,30 @@ The `flex-basis` property specifies the initial size of the item before CSS make
     <div id="box-1"></div>
     <div id="box-2"></div>
     </div>
+    ```
+
+* Very good trick to know with `flexbox`
+
+    ```scss
+    .overview {
+        display: flex;
+        &__stars {
+            // flex: 1;  not ideal because it will occupy the whole available space, imagine we have hover effect, so effect will be applied to whole space
+            // if you use margin-right: auto; with flexbox it will occupy only the space that it needs and all remaining space will be margin right
+            margin-right: auto;
+
+            /* there is small space below each of the stars because it SVGs behave like inline elements, so it a bit like text that produces a small white space under the star
+            we can remove this space by setting the line height and font size to 0, but we have a simple way doing this is by setting parent element to display: flex; */
+            display: flex;
+
+        }
+        &__icon-star,
+        &__icon-location {
+            width: 1.75rem;
+            height: 1.75rem;
+            fill: var(--color-primary);
+        }
+    }
     ```
 
 ## Grid Layout
@@ -2304,6 +2328,13 @@ fill: currentColor;
   ```
 
 * ```scss
+    /* apply to last of the same type of element */
+    .paragraph:not(:last-of-type) {
+        margin-bottom: 2rem;
+    }
+  ```
+
+* ```scss
     &__input {
         font-size: 1.5rem;
         font-family: inherit; /* HINT: because browser sets default font-family */
@@ -2335,6 +2366,23 @@ fill: currentColor;
         &::-webkit-input-placeholder { /* HINT: To style the placeholder */
             color: $color-grey-dark-2;
         }
+    }
+  ```
+
+* ```scss
+  // for putting blockquote sign before a paragraph, using Glyphs special html characters
+  &::before {
+        /* html entity, check https://css-tricks.com/snippets/html/glyphs/ */
+        content: "\201C";
+        position: absolute;
+        top: -2.75rem;
+        left: -1rem;
+        line-height: 1;
+        font-size: 20rem;
+        color: var(--color-grey-light-2);
+        /* to look exactly the same as we want */
+        font-family: sans-serif;
+        z-index: 1;
     }
   ```
 
