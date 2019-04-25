@@ -53,7 +53,7 @@
     &__button {
         border: none;
         background-color: var(--color-grey-light-2);
-        
+        cursor: pointer;
         &:focus {
             outline: none;
         }
@@ -377,11 +377,6 @@
         }
     }
 
-    /* from user experience, pulsate should be while hovering not focus */
-    // &:focus {
-    //     outline: none;
-    //     animation: pulsate 1s infinite;
-    // }
 }
 
 @keyframes pulsate {
@@ -572,6 +567,11 @@
         font-weight: 300;
         text-transform: uppercase;
         margin-bottom: 2.5rem;
+
+        @media only screen and (max-width: $bp-smallest) {
+            padding-right: 2rem;
+        padding-left: 2rem;
+        }
     }
 }
 
@@ -621,8 +621,4 @@
         top: 0;
     }
 
-    // &:focus {
-    //     outline: none;
-    //     animation: pulsate 1s infinite;
-    // }
 }
