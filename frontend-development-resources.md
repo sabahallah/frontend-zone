@@ -89,3 +89,5 @@
 * JSON Editors Online:
   * <http://jsoneditoronline.org/>
   * <https://jsonformatter.org/json-editor>
+* [Flavio Copes Website](https://flaviocopes.com/)
+* [Flavio Copes Books](https://flaviocopes.com/page/ebooks-links/)

@@ -159,7 +159,7 @@
             transition: all .2s;
         }
 
-        &::before { top: -.8rem; } /* transform-origin: left; it may be helpful when we rotate somthing
+        &::before { top: -.8rem; } /* transform-origin: left; it may be helpful when we rotate something
                                      it will start rotating from the left position */
         &::after { top: .8rem; }
     }

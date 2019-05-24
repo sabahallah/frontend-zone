@@ -1,0 +1,19 @@
+<p [innerText]="welcome"></p>
+Mr {{ name }}
+<input type="text" class="form-control" (input)="onUpdateName($event)" />
+<button class="btn btn-primary" [disabled]="name === ''" (click)="addName($event)">
+  Add
+</button>
+<button class="btn btn-primary"(click)="clear()">
+  Clear Names
+</button>
+<br />
+<p *ngIf="isAdded; else noName"
+    [ngStyle]="{backgroundColor: getColor()}"
+    [ngClass]="{add: isAdded}">Name has been added</p>
+<ng-template #noName><p>No name added yet</p></ng-template>
+<br>
+
+Current Names:
+
+<p *ngFor="let name of names; let i = index" >{{i + 1}}. {{name}}</p>

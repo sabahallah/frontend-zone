@@ -1,0 +1,9 @@
+- property @ event binding
+	<app-header (selectedRecipeEvent)="switchNavigation($event)"></app-header>
+	<app-recipe-item [recipes] = "recipes" (selectedRecipeEvent)="selectedRecipe($event)"></app-recipe-item>
+	
+	@Input() recipes: Recipe[];
+	@Output() selectedRecipeEvent = new EventEmitter<Recipe>();
+- @ViewChild	
+	 @ViewChild('amountInput') amountInput: ElementRef;
+	 <input type="text" id="name" class="form-control" #nameInput>

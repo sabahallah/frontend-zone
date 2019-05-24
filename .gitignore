@@ -11,3 +11,12 @@ css-and-design/5-natours-project/css/style.prefix.css
 /html-outline.md
 /jquery-outline.md
 /markdown-cheatsheet.md
+
+**/dist**
+**/tmp**
+**/out-tsc**
+
+# System Files
+**.DS_Store**
+**Thumbs.db**
+

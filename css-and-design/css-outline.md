@@ -95,6 +95,15 @@
 * [Udemy: Advanced CSS and Sass: Flexbox, Grid, Animations and More!](https://www.udemy.com/advanced-css-and-sass)
   * [git repo]( https://github.com/jonasschmedtmann/advanced-css-course.git)
 * [Udemy: Full Stack Web Development: HTML, CSS, React & Node](https://www.udemy.com/ultimate-web)
+* [The CSS Handbook: a handy guide to CSS for developers](https://medium.freecodecamp.org/the-css-handbook-a-handy-guide-to-css-for-developers-b56695917d11)
+* Most popular CSS liberaries
+  * [Normalize.css](https://github.com/necolas/normalize.css/)
+  * [Animate.css](https://github.com/daneden/animate.css)
+  * [Hover.css](http://ianlunn.github.io/Hover/)
+  * [Motion UI](https://zurb.com/playground/motion-ui)
+  * [Compass](http://compass-style.org/)
+  * [Hamburgers: CSS-animated hamburger menues](https://jonsuh.com/hamburgers/)
+  * [SpinKit: CSS Spinner](http://tobiasahlin.com/spinkit/)
 
 ***
 
@@ -114,6 +123,8 @@
 * Inspiration
   * [behance](htts://behance.net)
   * [dribbble](https://dribbble.com)
+* Designs
+  * [Collect UI](https://collectui.com)
 * Grid System
   * [Responsive Design Grid](http://www.responsivegridsystem.com/)
 * Tools
@@ -127,6 +138,15 @@
 * [Transform Property Explaination](https://www.udemy.com/design-and-develop-a-killer-website-with-html5-and-css3/learn/v4/questions/851800)
 * [Media Queries for Standard Devices](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/)
 * [Emmet Cheat Sheet](https://docs.emmet.io/cheat-sheet/)
+* [Creative Button Styles](https://tympanus.net/Development/CreativeButtons/)
+* [Animated Border Menus](https://tympanus.net/Tutorials/AnimatedBorderMenus/index6.html)
+* [Animated Checkboxes and Radio Buttons with SVG](https://tympanus.net/Development/AnimatedCheckboxes/)
+* [Text Input Effects](https://tympanus.net/Development/TextInputEffects/index2.html)
+* [Elastic SVG Elements, Adding elasticity with SVG shape animations](https://tympanus.net/Development/ElasticSVGElements/button.html)
+* [CSS Reference](https://tympanus.net/codrops/css_reference/#section_css-property)
+* [Sara Souedian Blog](https://www.sarasoueidan.com/blog/)
+* [CSS Effects Snippets](https://emilkowalski.github.io/css-effects-snippets/)
+* [Flexulator: Flexbox space distribution calculator](https://www.flexulator.com/)
 
 ***
 
@@ -1263,6 +1283,24 @@ but when you get more experience you start putting more break points where your 
 
     For testing media query on different devices, there is a website sizzy.co put your website url and it will show you different sizes
 
+  * `em` and `rem` in Media Queries  
+    `em` and `rem` (in media queries) are not affected by root `font-size` setting which is `html { font-size: 62.5%; }`
+    which means `1em` or `1rem` (in media queries) is equal to the font size coming from the browser itself which is by default `16px`.
+    but if the user changed the font-size to `20px` so it will be `20px` no matter what is in base font definition which is  `html { font-size: 62.5%; }`
+    so we're going to use `em` not `rem`, so `em` is the best option to use in media query here, `1em = 16px`.
+
+    * `@media only screen` only screen: apply only to screens, if someone wants to print the page media query will not apply
+
+    ```scss
+    @mixin repond($breakpoint){
+        @if $breakpoint == phone {
+            @media screen only and (max-width: 13em) {@content};
+        }
+    }
+    ```
+
+    * check [this file](https://github.com/sabahallah/frontend-zone/blob/952ea557cff9ea3039e65c2e9c69efac9df9b4a4/css-and-design/projects/5-natours-project/sass/base/_base.scss) for base settings
+
 ## Browser Support & Compitability
 
 * If you need to support some of the browsers you can check property browser support at caniuse.com.
@@ -1882,6 +1920,13 @@ The `flex-basis` property specifies the initial size of the item before CSS make
 * Grid Area [Space Between Two Vertical and Two Horizontal Grid Lines]
 * Grid Cell [Space Between Two Adjacent Vertical and Two Horizontal Grid Lines]
 * Use Dev Tool in Firefox Quantumn > Layout > Display Line Numbers
+* `grid-template-columns: auto 50px 10% 2fr 1fr;` This snippet creates five columns. The first column is as wide as its content, the second column is 50px, the third column is 10% of its container, and for the last two columns; the remaining space is divided into three sections, two are allocated for the fourth column, and one for the fifth.
+* `grid-gap: 10px 20px;` If grid-gap has one value, it will create a gap between all rows and columns. However, if there are two values, it will use the first one to set the gap between the rows and the second value for the columns.
+* `justify-self: center;` In CSS Grid, the content of each item is located in a box which is referred to as a cell. You can align the content's position within its cell horizontally using the justify-self property on a grid item. By default, this property has a value of `stretch`
+* `align-self: center;` property on an item to align an item vertically. This property accepts all of the same values as `justify-self`
+* `justify-items: center;` on your grid container. Sometimes you want all the items in your CSS Grid to share the same alignment.
+* `align-items: end;` on your grid container to align items vertically.
+* `grid-area: 1/1/2/4;` grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;
 
 ```css
 .container {
@@ -2076,6 +2121,133 @@ Align grid tracks (cell or multiple cells) inside its container [Codepen Example
     }
     ```
 
+* `auto-fit` vs `auto-fill` example
+  * `auto-fit` works almost identically to `auto-fill`. The only difference is that when the container's size exceeds the size of all the items combined, `auto-fill` keeps inserting empty rows or columns and pushes your items to the side, while `auto-fit` collapses those empty rows or columns and stretches your items to fit the size of the container.
+
+  * ```html
+    <style>
+    .item1{background:LightSkyBlue;}
+    .item2{background:LightSalmon;}
+    .item3{background:PaleTurquoise;}
+    .item4{background:LightPink;}
+    .item5{background:PaleGreen;}
+
+    .container {
+        font-size: 40px;
+        min-height: 100px;
+        width: 100%;
+        background: LightGray;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+
+    .container2 {
+        font-size: 40px;
+        min-height: 100px;
+        width: 100%;
+        background: Silver;
+        display: grid;
+        /* change the code below this line */
+
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+
+        /* change the code above this line */
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+    </style>
+
+    <div class="container">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    </div>
+    <div class="container2">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    </div>
+    ```
+
+* Use Media Queries to Create Responsive Layouts example
+
+    ```html
+    <style>
+    .item1 {
+        background: LightSkyBlue;
+        grid-area: header;
+    }
+
+    .item2 {
+        background: LightSalmon;
+        grid-area: advert;
+    }
+
+    .item3 {
+        background: PaleTurquoise;
+        grid-area: content;
+    }
+
+    .item4 {
+        background: lightpink;
+        grid-area: footer;
+    }
+
+    .container {
+        font-size: 1.5em;
+        min-height: 300px;
+        width: 100%;
+        background: LightGray;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px auto 1fr auto;
+        grid-gap: 10px;
+        grid-template-areas:
+        "header"
+        "advert"
+        "content"
+        "footer";
+    }
+
+    @media (min-width: 300px){
+        .container{
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "advert header"
+            "advert content"
+            "advert footer";
+        }
+    }
+
+    @media (min-width: 400px){
+        .container{
+        /* change the code below this line */
+
+        grid-template-areas:
+            "header header"
+            "advert content"
+            "footer footer";
+
+        /* change the code above this line */
+        }
+    }
+    </style>
+
+    <div class="container">
+    <div class="item1">header</div>
+    <div class="item2">advert</div>
+    <div class="item3">content</div>
+    <div class="item4">footer</div>
+    </div>
+    ```
+
 ## SVG
 
 Moving from Icon Fonts to SVGs. (Scalable Victor Graphics)
@@ -2084,9 +2256,12 @@ Moving from Icon Fonts to SVGs. (Scalable Victor Graphics)
 * Icon Fonts fail more often that you would think and in that case browser display a small square on the screen.
 * Screen readers failing to read the Icon Fonts
 * It's super easy to style SVGs
+* Small file sizes that compress well
+* Scales to any size without losing clarity
+* Looks great on retina displays
 
 So it's a best practice to use SVGs instead of using icon fonts.  
-Use icomoon.io to convert Icon Font to SVG or to download SVG images.  
+Use <https://icomoon.io/> to convert Icon Font to SVG or to download SVG images.  
 Symbol-defs.svg is called sprite file, it's a simple SVG file contains all other svg images.
 
 Using SVGs in Html:
@@ -2110,6 +2285,22 @@ fill: var(--color-grey-dark-3);
 /* setting color of svg to be color of parent element, so if you change parent color in any case this will change automatically */
 fill: currentColor;
 ```
+
+### Useful Resources
+
+* [Inline SVG vs Icon Fonts](https://css-tricks.com/icon-fonts-vs-svg/)
+* [Icon System with SVG Sprites](https://css-tricks.com/svg-sprites-use-better-icon-fonts/)
+* [A Compendium of SVG Information](https://css-tricks.com/mega-list-svg-information/)
+* [SVG Sprite Creation Techniques](https://24ways.org/2014/an-overview-of-svg-sprite-creation-techniques/)
+* [Sara Souedian Blog, More Articles on SVG](https://www.sarasoueidan.com/blog/)
+* [Building Better Interfaces with SVG](https://slides.com/sarasoueidan/building-better-interfaces-with-svg)
+* [Building a Circular Navigation with SVG](https://www.sarasoueidan.com/blog/building-a-circular-navigation-with-svg/)
+* [Generate a Circular Navigation](https://www.sarasoueidan.com/tools/circulus/)
+* [SVG Custom Animated Checkboxes](https://codepen.io/SaraSoueidan/pen/40433575e3d0d026c7d9c00eb45522a1?editors=1100)
+* <https://1stwebdesigner.com/create-simple-shapes-svg/>
+* <https://css-tricks.com/using-svg/>
+* <https://codepen.io/rafita/pen/aNyRgv>
+* [SVG Optimizer](http://petercollingridge.appspot.com/svg-optimiser)
 
 ## Miscellaneous
 
@@ -2608,6 +2799,143 @@ fill: currentColor;
         display: block;
     }
     ```
+
+* You can use media descriptors to only load a CSS file on the specific media:
+
+  ```css
+    @import url(myfile.css) all;
+    @import url(myfile-screen.css) screen;
+    @import url(myfile-print.css) print;
+  ```
+
+* Inheritance:
+  * Properties that inherit
+
+  ```css
+      border-collapse
+    border-spacing
+    caption-side
+    color
+    cursor
+    direction
+    empty-cells
+    font-family
+    font-size
+    font-style
+    font-variant
+    font-weight
+    font-size-adjust
+    font-stretch
+    font
+    letter-spacing
+    line-height
+    list-style-image
+    list-style-position
+    list-style-type
+    list-style
+    orphans
+    quotes
+    tab-size
+    text-align
+    text-align-last
+    text-decoration-color
+    text-indent
+    text-justify
+    text-shadow
+    text-transform
+    visibility
+    white-space
+    widows
+    word-break
+    word-spacing
+  ```
+
+  * Forcing properties to inherit
+    * In the children, you set the property value to the special keyword `inherit`.
+
+    ```css
+        body {
+            background-color: yellow;
+        }
+        p {
+        background-color: inherit;
+        }
+    ```
+
+  * Forcing properties to *NOT* inherit
+    * On the contrary, you might have a property inherited and you want to avoid so. You can use the `revert` keyword to revert it. In this case, the value is reverted to the original value the browser gave it in its default stylesheet.
+  * Other special values
+    * `initial`: use the default browser stylesheet if available. If not, and if the property inherits by default, inherit the value. Otherwise do nothing.
+    * `unset`: if the property inherits by default, inherit. Otherwise do nothing.
+* [Data URI](https://css-tricks.com/data-uris/)
+* [Shapes in web design](https://css-tricks.com/working-with-shapes-in-web-design/)
+* Attribute Selector
+  * Attribute presence selectors
+
+  ```css
+    /*  will select all p tags in the page that have an id attribute, regardless of its value */
+    p[id] {
+    /* ... */
+    }
+  ```
+
+  * Exact attribute value selectors
+
+  ```css
+  p[id="my-id"] {
+   /* ... */
+  }
+  ```
+
+  * Match an attribute value portion
+  While `=` lets us check for exact value, we have other operators:
+    * `*=` checks if the attribute *contains* the partial
+    * `^=` checks if the attribute *starts* with the partial
+    * `$=` checks if the attribute *ends* with the partial
+    * `|=` checks if the attribute starts with the partial and it's followed by a dash (common in classes, for example), or just contains the partial
+    * `~=` checks if the partial is contained in the attribute, but separated by spaces from the rest
+  All the checks we mentioned are case sensitive.
+  If you add an i just before the closing bracket, the check will be case insensitive. It's supported in many browsers but not in all, check <https://caniuse.com/#feat=css-case-insensitive>.
+* PSEUDO-CLASSES
+ Pseudo classes are predefined keywords that are used to select an element based on its state, or to target a specific child. They start with `:`
+  ![Pseudo classes](https://cdn-images-1.medium.com/max/800/1*i4FhtySXj2OkesaDsIJv-w.png)
+  
+  `:nth-child()` deserves a special mention. It can be used to target `odd` or `even` children with `:nth-child(odd)` and `:nth-child(even)`. It is commonly used in lists to color odd lines differently from even lines:
+
+  ```css
+    ul:nth-child(odd) {
+        color: white;
+        background-color: black;
+    }
+  ```
+
+  You can also use it to target the first 3 children of an element with `:nth-child(-n+3)`. Or you can style 1 in every 5 elements with `:nth-child(5n)`.
+* PSEUDO-ELEMENTS
+  Pseudo-elements are used to style a specific part of an element. They start with a double colon `::`. Sometimes you will spot them in the wild with a single colon, but this is only a syntax supported for backwards compatibility reasons. You should use 2 colons to distinguish them from pseudo-classes.
+  `::before` and `::after` are probably the most used pseudo-elements. They are used to add content before or after an element, like icons for example.
+  ![Pseudo-elements](https://cdn-images-1.medium.com/max/800/1*GBbcW2R1oyo1sD1zI1vG0g.png)
+  
+  ```css
+    /* make the first line of a paragraph slightly bigger in font size, a common thing in typography*/
+    p::first-line {
+        font-size: 2rem;
+    }
+
+    /*  first letter to be bolder */
+    p::first-letter {
+        font-weight: bolder;
+    }
+
+    /* add icons using CSS */
+    p::before {
+        content: url(/myimage.png);
+    }
+    .myElement::before {
+        content: "Hey Hey!";
+    }
+  ```
+
+* `:root` is a CSS pseudo-class that identifies the root element of a tree. In the context of an HTML document, using the `:root` selector points to the html element, except that `:root` has higher specificity (takes priority). In the context of an `SVG` image, `:root` points to the `svg` tag. Adding a CSS custom property to `:root` makes it available to all the elements in the page.
 
 ## Emmet
 
