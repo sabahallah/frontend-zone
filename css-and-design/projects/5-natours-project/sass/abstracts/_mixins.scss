@@ -1,22 +1,21 @@
-@mixin  clearfix {
-    &::after{
-        content: "";
-        display: table; /* standard version of clearfix */
-        clear: both;
-    }
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table; /* standard version of clearfix */
+    clear: both;
+  }
 }
 
-@mixin absoulteCenter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
 
 // MEDIA QUERY MANAGER
 /*
-These breakoints coming from most popular devices 2017-2018, we grouped them together.
+These breakpoints coming from most popular devices 2017-2018, we grouped them together. https://gs.statcounter.com/screen-resolution-stats/mobile/north-america
 
 0 - 600px:      Phone
 600 - 900px:    Tablet portrait
@@ -24,7 +23,7 @@ These breakoints coming from most popular devices 2017-2018, we grouped them tog
 [1200 - 1800] is where our normal styles apply
 1800px + :      Big desktop
 
-$breakpoint arguement choices:
+$breakpoint argument choices:
 - phone
 - tab-port
 - tab-land
@@ -40,22 +39,34 @@ so em is the best option to use in media query here
 
 ORDER : 
     - BASE AND TYPOGRAPHY
-    - GERNERAL LAYOUT (HEADER, FOOTER, NAVIGATION...) + GRID
+    - GENERAL LAYOUT (HEADER, FOOTER, NAVIGATION...) + GRID
     - PAGE LAYOUT
     - COMPONENTS
 */
 @mixin respond($breakpoint) {
-    @if $breakpoint == phone {
-        // only screen: apply only to screens, if someone wants to print the page media query will not apply
-        @media only screen and (max-width: 37.5em) { @content };    // 600px/16px=37.5em
+  @if $breakpoint == phone {
+    // only screen: apply only to screens, if someone wants to print the page media query will not apply
+    // 600px/16px=37.5em
+    @media only screen and (max-width: 37.5em) {
+      @content;
     }
-    @if $breakpoint == tab-port {
-        @media only screen and (max-width: 56.25em) { @content };     // 900px/16px=56.25em
+  }
+  // 900px/16px=56.25em
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
     }
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 75em) { @content };    // 1200px/16px=75em
+  }
+  // 1200px/16px=75em
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
     }
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    // 1800px/16px=112.5em
+  }
+  // 1800px/16px=112.5em
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
     }
+  }
 }

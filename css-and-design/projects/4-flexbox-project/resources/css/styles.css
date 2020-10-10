@@ -16,33 +16,34 @@ body {
 	font-family: Roboto;
 	padding: 50px;
 	background: linear-gradient(to bottom right, #67b26f, #4ca2cd);
-	height: 100vh; /* it will take 100% of view port, if you don't but this the previous color will be repeated*/
+	height: 100vh; /* it will take 100% of view port height, if you didn't specify the height, the previous color will be repeated */
 	
-	display: flex; /* these properties will align the items to the centre of the cross axis and main axis */
-	align-items: center; /* centre the element on cross axis */
-	justify-content: center;  /* it will align all the child elements horizontaly along the main axis. 
-	we can use also flex-end >> align to the right side of the view port
-	flex-start: align to the left side of the view port [default]
+	display: flex; /* these properties will align the items to the centre of the CROSS AXIS and MAIN AXIS */
+	align-items: center; /* centre the element on CROSS AXIS */
+	justify-content: center;  /* it will align all the child elements horizontally along the MAIN AXIS. 
+	we can use also:
+	flex-end   >> align to the right side of the view port
+	flex-start >> align to the left side of the view port [default]
 	*/
 }
 
 .pizza { /* flexbox container */
 	max-width: 800px;
 	border-radius: 4px;
-	overflow: hidden; /* cause the image is overflowing, comment this and see what's happening */
-	box-shadow: 0 30px 80px 10px rgba(0, 0, 0, .2); /* x-direction y-direction amount-of-blur how-far-the-blur-should-come-out color-with-0.2-obacity */
+	overflow: hidden; /* because the image is overflowing, it's overflowing over the border radius, comment this and see what's happening */
+	box-shadow: 0 30px 80px 10px rgba(0, 0, 0, .2); /* x-direction y-direction amount-of-blur how-far-the-blur-should-come-out color-with-0.2-opacity */
 	
 	display: flex; /* by this only all the elements inside this container will be side by side */
 	align-items: stretch; /* align items, we always add this in the flex container.
-		It will align items to the cross axis. [for main axis we use justify-content check above in the body selector]
+		It will align items to the CROSS AXIS. [for MAIN AXIS we use justify-content check above in the body selector]
 		
-		center >> will align the element to the center of the cross axis [will place in middle of the cross access]
-		flex-start >> will align the items at the top of the cross axis.
-		flex-end >> will align the items at the bottom of the cross axis.
-		stretch >> default [stretch the items along the cross item, occupy all the empty spaces which is avaialable].
+		center >> will align the element to the center of the CROSS AXIS [will place in middle of the cross access]
+		flex-start >> will align the items at the top of the CROSS AXIS.
+		flex-end >> will align the items at the bottom of the CROSS AXIS.
+		stretch >> default [stretch the items along the cross item, occupy all the empty spaces which is available].
 		
-		if you want something to behave in a diffrent way, you can also specify the alignment on one item, in order to do that we use align-self instead of align-items.
-		so align-items: stretch; [on container] and  align-self: center; [on item], so this will align this item ONLY to be at the center of the cross axis.
+		if you want something to behave in a different way, you can also specify the alignment on one item, in order to do that we use align-self instead of align-items.
+		so align-items: stretch; [on container] and  align-self: center; [on item], so this will align this item ONLY to be at the center of the CROSS AXIS.
 	*/
 }
 
@@ -60,7 +61,7 @@ body {
 
 .pizza__content {
 	background-color: white;
-	flex:  1; /* let the element grow as much as it can */
+	flex:  1; /* let the element grow as much as it can; 1 will apply to the flex-grow */
 	padding: 35px 30px;
 	
 	display: flex;/* by setting this property, it will put all the content in horizontal line side by side, but we don't want this. we need them to be vertical-align 
@@ -77,7 +78,7 @@ body {
 	font-size: 18px;
 	
 	/* now we need the price to be centered, so sometimes the item can be the flex-container and flex-item at the same time */
-	display: flex; /* becuase it's a flex container itself */
+	display: flex; /* because it's a flex container itself */
 	align-items: center;
 	justify-content: center;	
 }

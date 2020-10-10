@@ -58,7 +58,7 @@
             box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
             z-index: 20; /* to make the image overlay of the others it should have higher z-index */
 
-            /* it is like a boarder, but with outline we can use outline-offset porperty. check above. */
+            /* it is like a boarder, but with outline we can use outline-offset property. check above. */
             outline: 1.5rem solid $color-primary;
         }
     }

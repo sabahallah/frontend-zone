@@ -8,12 +8,12 @@
     padding-left: 9rem;
     font-size: $default-font-size;
     
-    /* skew the shap */
+    /* skew the shape */
     transform: skewX(-12deg);
 
     /* skew the direct child the other direction but this will not work; because we have another transform in th __shape
     which is taking precedence 
-    so the solution for this is to add skewX on all direct childs manually */
+    so the solution for this is to add skewX on all direct children manually */
     // & > * {
     //     transform: skewX(12deg);
     // }
@@ -40,7 +40,7 @@
         @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
            
 
-            /* shape-outside will make the content flows around the element */
+            /* shape-outside will make the outside content flows around the element */
             /* radius of the circle, and position of the centered of the circle
             50% it will be half the width and height of the element, so it will be 7.5rem
             at 50% 50% >> this is the center of the circle, centered horizontally and vertically 
@@ -71,7 +71,7 @@
     &__img {
         height: 100%; /* 100% of the parent */
         transform: translateX(-4rem) scale(1.4);
-        /* because this is the initial state, when we hover over the story the image will be blured and zoomed out */
+        /* because this is the initial state, when we hover over the story the image will be blurred and zoomed out */
         transition: all .5s;
     }
 
@@ -94,12 +94,12 @@
         text-transform: uppercase;
         font-size: 1.7rem;
         text-align: center;
-        /* initial state before hovering over the elemnt */
+        /* initial state before hovering over the element */
         opacity: 0;
         transition: all .5s;
 
         /* to fix small glitch, when we hove over story, it will move up and a little to the right,
-        and if something weired happens */
+        and if something weird happens */
         backface-visibility: hidden;
     }
 
@@ -109,7 +109,7 @@
         transform: translate(-50%, -50%);
     }
 
-    /* when we hover over the story, the image will be blured and zoomed out  */
+    /* when we hover over the story, the image will be blurred and zoomed out  */
     &:hover &__img {
         transform: translateX(-4rem) scale(1);
         /* this will add filter to the image.

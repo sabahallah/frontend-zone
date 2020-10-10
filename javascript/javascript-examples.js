@@ -1,8 +1,8 @@
-// To run code in this file you have to install 'Code Runner' extention in VSC, then select the code you want to run and press `ctrl+alt+n`
+// To run code in this file you have to install 'Code Runner' extension in VSC, then select the code you want to run and press `ctrl+alt+n`
 
 // *************************************** Javascript *************************************
 
-// Javascript is a lightweight, cross plateform, interpreted programming language with object-oriented capabilities.
+// Javascript is a lightweight, cross platform, interpreted programming language with object-oriented capabilities.
 // lightweight means doesn't consume much memory and has simple syntax
 /*
 Topics:
@@ -54,14 +54,14 @@ if(height == '30'){ // 30 will be automatically converted to number. it does typ
 var height; // this is undefined
 if(height){
     console.log('A');
-}else {
+} else {
     console.log('B'); // the result
 }
 
 height = 0;
 if(height || height === 0){ 
     console.log('A'); // the result
-}else {
+} else {
     console.log('B');
 }
 
@@ -106,7 +106,7 @@ console.log(null || 'hello');
 console.log('' || 'hello');
 console.log(0 || 'hello');
 
-if(undefined || 'hello'){ // it returns 'hello', then check for existanse Boolean('hello') which is true
+if(undefined || 'hello'){ // it returns 'hello', then check for existence Boolean('hello') which is true
     console.log('true');
 }
 

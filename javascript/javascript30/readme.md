@@ -1,8 +1,8 @@
-# JavaScript30 Challanges
+# JavaScript30 Challenges
 
-This folder contains all the 30 javascript projects for [Javascript30 challange by Wes Bos](https://javascript30.com/)
+This folder contains all the 30 javascript projects for [Javascript30 challenge by Wes Bos](https://javascript30.com/)
 
-## Challages
+## Challenges
 
 1. [...](#d)
 2. [...](#d)

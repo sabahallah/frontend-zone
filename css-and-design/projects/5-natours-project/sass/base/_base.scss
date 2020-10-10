@@ -1,73 +1,74 @@
 *,
-*::before, /* To not see any strange behaviour */
+*::before, /* To not see any strange behavior */
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit; /* By default this property is not inherited, but by setting value to inherit,
-    all child elements will inherit it, see bady element */
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* By default this property is not inherited, but by setting value to inherit,
+    all child elements will inherit it, see body element box-sizing: border-box;*/
 }
 
 html {
-    /* this is to define what 1rem is */
-    font-size: 62.5%; 
-    /*
-    default font-size by browser is 16 px (or any changed by user)
-    we want it to be 10 px
+  /* This is global font-size, we want to make every measurement in the page relative to this unit, so it will make our life easy and save hundred of codes in media queries when applying responsive design*/
+  /* this is to define what 1rem is */
+  font-size: 62.5%;
+  /*
+    default font-size by browser is 16 px (or any size changed by user)
+    we want it to be 10 px, why? just to make our life easy, now we know 1rem = 10px, so we can calculate everything to this measurement easily, if it was 16px calculations will be hard.
     (10/16*100) = 62.5
-    We are converting font-size to % of the given width given by the browser 
+    We are converting font-size to % of the font size given by the browser  (which normally is 16px)
     
-    so if user change font-size to:
+    so if user changes font-size to:
     22 px: 62.5 * 22 / 100 = 13.75px 
     20 px: 62.5 * 20 / 100 = 12.5px
     rem is not supported by IE 9 and below
+    
     This is to make our life easy, that's it. so 1 rem = 10 px so all following calculations later will be easy for us */
 
-    /* for media query */
+  /* for media query */
 
-    /* no need for phone media query here (to change the font-size) because second media query (tab-port) will be applied
+  /* no need for phone media query here (to change the font-size) because second media query (tab-port) will be applied
     imagine we have width = 500px
     phone width is less than 600px and tab-port width also is less than 900px so the last one in the file 
     which is tab-port will be applied */
 
-    // @include respond(phone){
-    //     font-size: 50%;
-    // }
+  // @include respond(phone){
+  //     font-size: 50%;
+  // }
 
-    // width < 1200px?
-    @include respond(tab-land){
-        font-size: 56.25%; // Here we need 1rem to be equal to 9px instead of 10px; so 9/16*100 = 56.25%
-    }
+  // width < 1200px?
+  @include respond(tab-land) {
+    font-size: 56.25%; // Here we need 1rem to be equal to 9px instead of 10px; so 9/16*100 = 56.25%
+  }
 
-    /* this should be after the tab-land because of the same reason; last media query will always apply 
+  /* this should be after the tab-land because of the same reason; last media query will always apply 
     imagine we have width=800px 
     tab-port width is less than 900px and tab-land width is also less than 1200px so the last one in the file will be applied
-    if tab-land is coming after tab-port in the file so all width less than 1200px will have font-size: 56.25% which is not correct */
-    
-    // width < 900px?
-    @include respond(tab-port){
-        font-size: 50%; // Here we need 1rem to be equal to 8px instead of 10px; so 8/16*100 = 50%
-    }
+    if tab-land is coming after tab-port in the file so all widths less than 1200px will have font-size: 56.25% which is not correct */
 
-    // width > 1800px?
-    @include respond(big-desktop){
-        font-size: 75%; // Here we need 1rem to be equal to 12px instead of 10px; so 12/16*100 = 75%
-    }
+  // width < 900px?
+  @include respond(tab-port) {
+    font-size: 50%; // Here we need 1rem to be equal to 8px instead of 10px; so 8/16*100 = 50%
+  }
 
-    scroll-behavior: smooth;
+  // width > 1800px?
+  @include respond(big-desktop) {
+    font-size: 75%; // Here we need 1rem to be equal to 12px instead of 10px; so 12/16*100 = 75%
+  }
+
+  scroll-behavior: smooth;
 }
 
-
 body {
-    box-sizing: border-box;
-    padding: 3rem;
+  box-sizing: border-box;
+  padding: 3rem;
 
-    @include respond(tab-port){
-        padding: 0;
-    }
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }
 
 // change the style of a selected text
 ::selection {
-    background-color: $color-primary;
-    color: $color-white;
+  background-color: $color-primary;
+  color: $color-white;
 }

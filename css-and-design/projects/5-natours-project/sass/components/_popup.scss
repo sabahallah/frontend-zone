@@ -1,155 +1,143 @@
 .popup {
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba($color-black, .8);
-    z-index: 9999;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black, 0.8);
+  z-index: 9999;
 
-    /* In order to animate the popup, don't use display: none; */
-    opacity: 0;
-    visibility: hidden;
-    transition: all .3s;
+  /* In order to animate the popup, don't use display: none; */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
 
-    
-
-    /*  This will check if the browser supports this feature or not
+  /*  This will check if the browser supports this feature or not
         if yes it will apply the effects */
-    @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+  @supports (-webkit-backdrop-filter: blur(10px)) or
+    (backdrop-filter: blur(10px)) {
     /*  Apply filter to what's behind a selected element
-        bluring the popup background instead of making it dark 
-        not working in chrome only works on safari */
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        background-color: rgba($color-black, .3);
-    }
+        blurring the popup background instead of making it dark 
+        not working in chrome, only works on safari */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, 0.3);
+  }
 
+  /* when clicking an anchor with target #popup, this will show the popup */
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
 
-    /* when clicking an anchor with target #popup, this will show the popup */
-    &:target {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* when popup element popup on screen make some animation to __content
+  /* when popup element popup on screen make some animation to __content
     it will popup to user from the middle of the screen */
-    &:target &__content{
-        // this is the open state, scale it back to original state
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
+  &:target &__content {
+    // this is the open state, scale it back to original state
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute; /* it will be positioned to first positioned parent which is popup */
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      line-height: 1;
     }
 
-    &__close {
-        &:link,
-        &:visited {
-            color: $color-grey-dark;
-            position: absolute; /* it will be positioned to first positioned parent which is popup */
-            top: 2.5rem;
-            right: 2.5rem;
-            font-size: 3rem;
-            text-decoration: none;
-            display: inline-block;
-            transition: all .3s;
-            line-height: 1;
-        }
-
-        &:hover {
-            color: $color-primary;
-        }
+    &:hover {
+      color: $color-primary;
     }
-    &__content {
+  }
+  &__content {
+    @include absoluteCenter;
+    width: 75%;
 
-        @include absoulteCenter;
-        width: 75%;
-        
-        background-color: $color-white;
-        box-shadow: 0 2rem 4rem rgba($color-black, .2);
-        border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    border-radius: 3px;
 
-        display: flex;
+    display: flex;
 
-        // this is the initial state for the popup, so when user click the button it will popup from the middle of the screen
-        // if we use scale only it will not work because we already have anothe transform from the mixin,
-        // so we have to combine it togther here
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(.25);
-        transition: all .4s .2s; /* delay the transition by .2s*/
+    // this is the initial state for the popup, so when user click the button it will popup from the middle of the screen
+    // if we use scale only it will not work because we already have another transform from the absoluteCenter mixin,
+    // so we have to combine it together here
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.25);
+    transition: all 0.4s 0.2s; /* delay the transition by .2s*/
+  }
+
+  &__left {
+    width: 33.333333%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    visibility: visible;
+
+    @include respond(tab-port) {
+      display: none;
+      visibility: hidden;
     }
-    
-    &__left {
-        width: 33.333333%;
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 3rem;
-        visibility: visible;
+  }
+  &__right {
+    width: 66.6666667%;
+    padding: 3rem 5rem;
 
-        @include respond(tab-port) {
-           display: none;
-           visibility: hidden;
-        }
-    }
-    &__right {
-        width: 66.6666667%;
-        padding: 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        
-        @include respond(tab-port) {
-            width: 100%;
-        }
-
-        @include respond(phone) {
-            overflow-y: scroll;
-            height: 80vh;
-            padding: 2rem 2.5rem;
-            justify-content: space-between;
-        }
-        
-    }
-    &__img {
-        display: block;
-        width: 100%;
-        margin-bottom: 20px;
+    @include respond(tab-port) {
+      width: 100%;
     }
 
-    &__img:not(:last-child) {        
-        margin-bottom: 5vh;
+    @include respond(phone) {
+      overflow-y: scroll;
+      height: 80vh;
+      padding: 2rem 2.5rem;
+      justify-content: space-between;
     }
-    
-    &__text {
-        font-size: 1.4rem;
-        margin-bottom: 4rem;    
-        
-        
-        /* this will split the text into two columns */
-        -moz-column-count: 2;
-        column-count: 2;
-        /* space between columns */
-        -moz-column-gap: 4rem;
-        column-gap: 4rem; // default is 1em = 14px because 1em is always is the font-size of the current element
-        // like a border in the middle of the two columns 
-        -moz-column-rule: 1px solid $color-grey-light-2;
-        column-rule: 1px solid $color-grey-light-2;
+  }
+  &__img {
+    display: block;
+    width: 100%;
+  }
 
-        /* this is for hyphenation 
-        in order this to work you have to set the html language to en*/
-        // Hyphenation is currently supported on Chrome only on Android and macOS
-        -moz-hyphens: auto;
-        -ms-hyphens: auto;
-        -webkit-hyphens: auto;
-         hyphens: auto;
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
 
-         
-         @include respond(phone) {
-            column-count: 1;
-            column-gap:0;
-            margin-bottom: 1rem;
-        }
+    /* this will split the text into two columns */
+    -moz-column-count: 2;
+    column-count: 2;
+    /* space between columns */
+    -moz-column-gap: 4rem;
+    column-gap: 4rem; // default is 1em = 14px because 1em is always is the font-size of the current element
+    // column-rule is like a separator in the middle of the two columns.
+    -moz-column-rule: 1px solid $color-grey-light-2;
+    column-rule: 1px solid $color-grey-light-2;
+
+    /* this is for hyphenation 
+        in order this to work you have to set the html language to en */
+    // Hyphenation is currently supported on Chrome only on Android and macOS
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+
+    @include respond(phone) {
+      column-count: 1;
+      column-gap: 0;
+      margin-bottom: 1rem;
     }
+  }
 }

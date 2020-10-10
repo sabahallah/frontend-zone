@@ -1,4 +1,6 @@
 body {
+  // properties related to font are usually inherited
+  // font-family will get inherited by all child elements of the body
   font-family: "Lato", sans-serif, serif;
   font-weight: 400;
   /* font-size: 16px; */
@@ -10,7 +12,7 @@ body {
   color: $color-white;
   text-transform: uppercase;
 
-  /* sometimes when animation is running, it is shaking to upperside and no one knows why
+  /* sometimes when animation is running, it is shaking to upper side and no one knows why
         so this property for it */
   backface-visibility: hidden;
 
@@ -32,7 +34,7 @@ body {
     /* animation-iteration-count: 3; /* 3: will happen 3 times */
 
     /* for media queries*/
-    @include respond(phone){
+    @include respond(phone) {
       letter-spacing: 1rem;
       font-size: 5rem;
     }
@@ -49,14 +51,13 @@ body {
     animation: moveInRight 1s ease-out;
 
     /* for media queries*/
-    @include respond(phone){
-      letter-spacing: .5rem;
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
     }
-
   }
 }
 
-.heading-secondry {
+.heading-secondary {
   font-size: 3.5rem;
   text-transform: uppercase;
   font-weight: 700;
@@ -78,24 +79,23 @@ body {
   }
 
   /* for media queries*/
-  @include respond(tab-port){
+  @include respond(tab-port) {
     font-size: 3rem;
   }
 
-  @include respond(phone){
+  @include respond(phone) {
     font-size: 2rem;
   }
-
 }
 .heading-tertiary {
-    font-size: $default-font-size;
-    font-weight: 700;
-    text-transform: uppercase;
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .paragraph {
-    font-size: $default-font-size;
-    &:not(:last-child) {
-        margin-bottom: 3rem;
-    }
+  font-size: $default-font-size;
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
 }
