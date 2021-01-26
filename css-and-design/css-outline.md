@@ -2823,7 +2823,7 @@ Examples [here](https://freefrontend.com/html-details-summary-css/)
       box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
       z-index: 20; /* To make the image overlay top of the others it should have higher z-index */
 
-      /* it is like a boarder, but with outline we can use outline-offset porperty. check above. */
+      /* it is like a boarder, but with outline we can use outline-offset property. check above. */
       outline: 1.5rem solid $color-primary;
     }
   }
@@ -3298,6 +3298,43 @@ Writing section.features>.feature{feature \$}\*6 will generate:
   And then look at this HTML code:
   ![css code snippet 2](https://cdn-images-1.medium.com/max/1600/1*-H7JKSQP_WRcwy3Z2GFmzQ.png)
   The order of the selectors in HTML does not matter, the order of the selectors in the CSS file does.
+
+## The Principle of Least Power
+
+When I build websites, I try to stick to the principle of least power. This states that you should use the least powerful language that does the job. In other words, don’t go straight for the more complex language (like JS) if a simpler language (like CSS or HTML) can also do the same thing. The simpler language will be more maintainable, more robust and easier to understand.
+
+1. Can I use HTML?
+1. If not, can I get away with lightly styling the markup?
+1. Can I change the design to make this easier to implement?
+1. Dangit okay, if I can’t do that then I’ll hand-write some JavaScript to solve this problem.
+1. Eff it—okay, this is annoying—I’ll pull in a third-party library.
+
+It’s all too easy to jump straight to step 5 here and pull in a third party library to solve our problems, or npm install something because we don’t want to have to go through the pain of the trying the first four steps. But with almost every codebase I’ve worked on I’ve found this—the principle of least power—is definitely the right way to approach web development in general.
+
+HTML, CSS, and JS are, in a semver sense, still at version 1.x. Whatever you wrote in 2018 or 2008 will still work. On the other hand, a project built on abstractions from native web technologies—frameworks, tooling, language sub/supersets—will contain innumerable dependencies with countless major version changes over time. Updating a single dependency often requires updating everything. Building on top of base web technologies, where possible, is a way to cheat the entropy and churn of modern web technology abstractions.
+
+## Examples
+
+```css
+@property --num {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+
+div {
+  transition: --num 1s;
+  counter-reset: num var(--num);
+}
+div:hover {
+  --num: 10000;
+}
+div::after {
+  content: counter(num);
+}
+```
+
+what is that weird `@property --num` thing on the first line? Well, it’s the CSS version of JavaScript’s `CSS.registerProperty` that we use to declare CSS custom properties as a particular type. Otherwise, custom properties are strings are far more limited in how they can be used.
 
 ## Resources
 
