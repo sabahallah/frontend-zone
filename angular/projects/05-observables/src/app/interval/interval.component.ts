@@ -8,19 +8,19 @@ import { Subscription, interval } from 'rxjs';
 })
 export class IntervalComponent implements OnInit, OnDestroy {
 
-  private intervalSunbscribtion: Subscription;
+  private intervalSubscription: Subscription;
 
   ngOnInit(): void {
-    this.intervalSunbscribtion = interval(1000) // creating the observable // every second a new event will be emitted
+    this.intervalSubscription = interval(1000) // creating the observable // every second a new event will be emitted
       .subscribe( // the observer // handling the data
         (count) => {
-          console.log('data emitted '+count);
+          console.log('data emitted ' + count);
         }
       ); 
   }
 
   ngOnDestroy(): void {
     // now you prevent memory leak
-    this.intervalSunbscribtion.unsubscribe();
+    this.intervalSubscription.unsubscribe();
   }
 }

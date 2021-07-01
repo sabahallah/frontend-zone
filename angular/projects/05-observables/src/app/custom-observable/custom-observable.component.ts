@@ -19,9 +19,10 @@ export class CustomObservableComponent implements OnInit, OnDestroy {
         setInterval(()=> {
           if(count > 3){
             observer.error(new Error('count is greater than 3'));
+            // In error, it cancels the observable, complete() will not be called.
           }
           // if(count == 2){
-          //   observer.complete(); // after calling complete, no other values would be emmitted.
+          //   observer.complete(); // after calling complete, no other values would be emitted.
           // }
           observer.next(count);
           count++;
@@ -47,6 +48,7 @@ export class CustomObservableComponent implements OnInit, OnDestroy {
       },
       error => {
         console.log('error happened: ' + error);
+        // you can send to your server, you can show alert message to the user...
         alert(error);
       },
       () => {
